@@ -10,8 +10,8 @@ import {
 	useDismiss,
 	useRole,
 	useInteractions,
-	useMergeRefs,
 	FloatingPortal,
+	useMergeRefs,
 } from "@floating-ui/react"
 import type { Placement } from "@floating-ui/react"
 import { useMemo, useState } from "react"
@@ -157,7 +157,10 @@ export const TooltipTrigger = React.forwardRef<
 export const TooltipContent = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLProps<HTMLDivElement>
->(function TooltipContent({ style, ...props }, propRef) {
+>(function TooltipContent(
+	{ style, children: _ignoredChildren, ...props },
+	propRef
+) {
 	const context = useTooltipContext()
 	const ref = useMergeRefs([context.refs.setFloating, propRef])
 

@@ -1,29 +1,29 @@
 {
-  "name": "jsondive-viewer",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
-  },
-  "devDependencies": {
-    "prettier": "^3.6.2",
-    "turbo": "^2.5.5",
-    "typescript": "5.8.3"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "overrides": {
-    "react": "19.1.1",
-    "@types/react": "19.1.1",
-    "react-dom": "19.1.1",
-    "@types/react-dom": "19.1.1"
-  },
-  "packageManager": "npm@11.4.2",
-  "workspaces": [
-    "packages/*"
-  ]
+	"name": "jsondive-viewer",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"check-types": "turbo run check-types"
+	},
+	"devDependencies": {
+		"prettier": "^3.6.2",
+		"turbo": "^2.5.5",
+		"typescript": "5.8.3"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"overrides": {
+		"react": "19.1.1",
+		"@types/react": "19.1.8",
+		"react-dom": "19.1.1",
+		"@types/react-dom": "19.1.1"
+	},
+	"packageManager": "npm@11.4.2",
+	"workspaces": [
+		"packages/*"
+	]
 }
