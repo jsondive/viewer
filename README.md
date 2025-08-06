@@ -1,3 +1,13 @@
+## License
+
+This software is **free for non-commercial use only**.
+
+Commercial use requires a paid license.
+
+See [`LICENSE.txt`](./LICENSE.txt) for full terms.
+
+To purchase a commercial license, contact: [bill@jsondive.app](mailto:bill@jsondive.app).
+
 ## Packages
 
 | Package                                                          | Description                                                                                                   |
@@ -12,13 +22,3 @@ flowchart TD
     _jsondive_viewer["@jsondive/viewer"] --> _jsondive_library["@jsondive/library"]
     _jsondive_viewer["@jsondive/viewer"] --> _jsondive_shared-config["@jsondive/shared-config"]
 ```
-
-## License
-
-This software is **free for non-commercial use only**.
-
-Commercial use requires a paid license.
-
-See [`LICENSE.txt`](./LICENSE.txt) for full terms.
-
-To purchase a commercial license, contact: [bill@jsondive.app](mailto:bill@jsondive.app).
