@@ -6,15 +6,13 @@
 	"author": "",
 	"license": "ISC",
 	"scripts": {
-		"build": "npm run build-js && npm run build-css && npm run build-declarations",
-		"dev": "concurrently \"npm run watch-js\" \"npm run watch-declarations\" \"npm run watch-css\"",
+		"build": "npm run build-js && npm run build-css",
+		"dev": "concurrently \"npm run watch-js\" \"npm run watch-css\"",
 		"lint": "eslint src",
 		"check-types": "tsc --noEmit",
-		"build-js": "babel src --out-dir dist --extensions .ts,.tsx",
-		"build-declarations": "tsc --emitDeclarationOnly",
+		"build-js": "tsup",
 		"build-css": "postcss src/root.css -o dist/root.css",
-		"watch-js": "onchange -i \"src/**/*.{ts,tsx}\" -- npm run build-js",
-		"watch-declarations": "onchange -i \"src/**/*.{ts,tsx}\" -- npm run build-declarations",
+		"watch-js": "tsup --watch",
 		"watch-css": "onchange -i \"src/**/*.{ts,tsx,css}\" -- npm run build-css"
 	},
 	"files": [
