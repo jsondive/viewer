@@ -1,0 +1,11 @@
+/*
+ * Hide scrollbars.
+ * https://stackoverflow.com/a/38994837
+*/
+.json-dive-no-scrollbar * {
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+.json-dive-no-scrollbar *::-webkit-scrollbar {
+	display: none; /* Older Safari and Chromium */
+}

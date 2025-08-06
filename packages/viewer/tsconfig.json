@@ -1,0 +1,7 @@
+{
+	"extends": "@jsondive/shared-config/src/typescript/react-library.json",
+	"include": ["src"],
+	"compilerOptions": {
+		"outDir": "dist"
+	}
+}

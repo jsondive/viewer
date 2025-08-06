@@ -1,0 +1,105 @@
+/*
+CSS reset based on modern-normalize: https://github.com/sindresorhus/modern-normalize
+This is the same one that Tailwind uses: https://tailwindcss.com/docs/preflight
+*/
+
+.json-dive-css-reset *,
+.json-dive-css-reset ::before,
+.json-dive-css-reset ::after {
+	box-sizing: border-box;
+}
+
+.json-dive-css-reset {
+	font-family:
+		system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji";
+	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+	tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+}
+
+.json-dive-css-reset b,
+.json-dive-css-reset strong {
+	font-weight: bolder;
+}
+
+.json-dive-css-reset code,
+.json-dive-css-reset kbd,
+.json-dive-css-reset samp,
+.json-dive-css-reset pre {
+	font-family:
+		ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+.json-dive-css-reset p {
+	margin: 0;
+}
+
+.json-dive-css-reset small {
+	font-size: 80%;
+}
+
+.json-dive-css-reset svg {
+	display: block;
+}
+
+.json-dive-css-reset table {
+	border-color: currentcolor;
+}
+
+.json-dive-css-reset button,
+.json-dive-css-reset input,
+.json-dive-css-reset optgroup,
+.json-dive-css-reset select {
+	margin: 0; /* 2 */
+}
+
+.json-dive-css-reset button,
+.json-dive-css-reset [type="button"],
+.json-dive-css-reset [type="reset"],
+.json-dive-css-reset [type="submit"] {
+	-webkit-appearance: button;
+}
+
+.json-dive-css-reset progress {
+	vertical-align: baseline;
+}
+
+.json-dive-css-reset [type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+.json-dive-css-reset ::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+.json-dive-css-reset ::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/* Base font size for JSON Dive. */
+.json-dive-css-reset {
+	font-size: 14px;
+	line-height: calc(1.25 / 0.875);
+}
+
+/* Remove default padding */
+.json-dive-css-reset ul[class],
+.json-dive-css-reset ol[class] {
+	padding: 0;
+}
+
+.json-dive-css-reset ul,
+.json-dive-css-reset ol {
+	list-style: none;
+	padding-left: 0;
+}
+
+/*
+TODO: how do i get this to be less specific than styleX? :(. maybe i need to disable CSS layers?
+
+.json-dive-css-reset a {
+	text-decoration: auto;
+} */
