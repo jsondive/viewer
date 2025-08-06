@@ -1,6 +1,6 @@
 {
 	"name": "@jsondive/viewer",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "",
 	"keywords": [],
 	"author": "",
@@ -67,6 +67,8 @@
 	},
 	"dependencies": {
 		"@base-ui-components/react": "^1.0.0-beta.2",
+		"@jsondive/library": "*",
+		"@stylexjs/stylex": "^0.15.2",
 		"@tanstack/react-virtual": "^3.13.12",
 		"acorn": "^8.15.0",
 		"clsx": "^2.1.1",
@@ -79,7 +81,6 @@
 		"react-redux": "^9.2.0",
 		"redux": "^5.0.1",
 		"yaml": "^2.8.0",
-		"zod": "^3.25.74",
-		"@jsondive/library": "*"
+		"zod": "^3.25.74"
 	}
 }

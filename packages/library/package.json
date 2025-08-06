@@ -1,6 +1,6 @@
 {
 	"name": "@jsondive/library",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "",
 	"keywords": [],
 	"author": "",
@@ -64,6 +64,7 @@
 	"dependencies": {
 		"@base-ui-components/react": "^1.0.0-beta.2",
 		"@floating-ui/react": "^0.27.9",
+		"@stylexjs/stylex": "^0.15.2",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.511.0"
 	}
