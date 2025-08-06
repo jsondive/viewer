@@ -4,7 +4,7 @@
 	"description": "",
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "SEE LICENSE IN LICENSE.txt",
 	"scripts": {
 		"build": "npm run build-js && npm run build-css",
 		"dev": "concurrently \"npm run watch-js\" \"npm run watch-css\"",
@@ -13,11 +13,13 @@
 		"build-js": "tsup",
 		"build-css": "postcss src/root.css -o dist/root.css",
 		"watch-js": "tsup --watch",
-		"watch-css": "onchange -i \"src/**/*.{ts,tsx,css}\" -- npm run build-css"
+		"watch-css": "onchange -i \"src/**/*.{ts,tsx,css}\" -- npm run build-css",
+		"prepack": "npm run build"
 	},
 	"files": [
 		"dist",
-		"src"
+		"src",
+		"LICENSE.txt"
 	],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
