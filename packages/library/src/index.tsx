@@ -13,6 +13,8 @@ export { normalizeEmail } from "./lib/normalizeEmail"
 
 export { Tooltip, TooltipContent, TooltipTrigger } from "./components/Tooltip"
 export { Badge } from "./components/Badge"
+export { Dialog } from "./components/Dialog"
+export { Menu } from "./components/Menu"
 export { ClientPortal } from "./components/ClientPortal"
 export { Input, Textarea } from "./components/inputs"
 export { Button, type ButtonProps } from "./components/Button"

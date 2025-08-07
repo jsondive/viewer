@@ -1,4 +1,4 @@
-import { Badge } from "@jsondive/library"
+import { Badge, Dialog } from "@jsondive/library"
 import * as lucideReact from "lucide-react"
 import { INLINE_DECORATION_ICON_SIZE } from "../../plugins"
 import { useState } from "react"
@@ -33,13 +33,13 @@ export function MagnifyButton(props: { node: DiveNode }) {
 			>
 				<lucideReact.Search size={INLINE_DECORATION_ICON_SIZE} />
 			</Badge>
-			{/* <Dialog
+			<Dialog
 				open={dialogOpen}
 				onClose={() => setDialogOpen(false)}
 				title="Value"
 			>
 				<pre {...stylex.props(styles.pre)}>{stringValue}</pre>
-			</Dialog> */}
+			</Dialog>
 		</>
 	)
 }
