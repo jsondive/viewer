@@ -18,11 +18,7 @@ import {
 import React, { useRef } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { NodeBuilder } from "../model/NodeBuilder"
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from "@jsondive/library/dist/components/Tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@jsondive/library"
 import { useMergeRefs } from "../lib/useMergeRefs"
 import { MimeType } from "../model/MimeType"
 

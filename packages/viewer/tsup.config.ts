@@ -10,7 +10,18 @@ export default defineConfig(options => {
 		esbuildPlugins: [babel()],
 		watch: options.watch,
 		sourcemap: true,
-		format: ["cjs", "esm"],
-		external: ["react"],
+		format: ["esm"],
+		external: ["react", "react-dom"],
+		esbuildOptions(options) {
+			options.external = ["react", "react-dom"]
+		},
+		// https://github.com/egoist/tsup/issues/927#issuecomment-2354939322
+		// banner: ({ format }) => {
+		// 	return format === "esm"
+		// 		? {
+		// 				js: `import { createRequire } from 'module'; const require = createRequire(import.meta.url);`,
+		// 			}
+		// 		: {}
+		// },
 	}
 })

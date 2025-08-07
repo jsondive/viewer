@@ -248,6 +248,7 @@ function FocusListeners(props: {
 
 		return () => {
 			element.removeEventListener("focus", focusListener)
+			element.removeEventListener("blur", blurListener)
 		}
 	}, [childRef, dispatch, nodeRegistryRef])
 

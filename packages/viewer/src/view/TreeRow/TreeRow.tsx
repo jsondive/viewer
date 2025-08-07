@@ -55,6 +55,15 @@ const styles = stylex.create({
 		},
 	}),
 
+	// HACK: For some reason this style doesn't work when grouped into
+	// the rowBody style.
+	rowBodyBackgroundColor: {
+		backgroundColor: {
+			":focus": FOCUS_COLOR,
+			":hover": "var(--json-dive-color-blue-50)",
+		},
+	},
+
 	findMatch: {
 		backgroundColor: {
 			default: "var(--json-dive-color-yellow-100)",
@@ -312,6 +321,7 @@ function TreeRowBody(
 			ref={containerRef}
 			{...stylex.props(
 				styles.rowBody(displayInfo.yOffset),
+				styles.rowBodyBackgroundColor,
 				findMatch && styles.findMatch,
 				currentFindMatch && styles.currentFindMatch
 			)}
