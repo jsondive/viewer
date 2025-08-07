@@ -157,10 +157,7 @@ export const TooltipTrigger = React.forwardRef<
 export const TooltipContent = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLProps<HTMLDivElement>
->(function TooltipContent(
-	{ style, children: _ignoredChildren, ...props },
-	propRef
-) {
+>(function TooltipContent({ style, children, ...props }, propRef) {
 	const context = useTooltipContext()
 	const ref = useMergeRefs([context.refs.setFloating, propRef])
 
@@ -184,7 +181,9 @@ export const TooltipContent = React.forwardRef<
 				}}
 				{...context.getFloatingProps(props)}
 				{...stylexRest}
-			/>
+			>
+				{children}
+			</div>
 		</FloatingPortal>
 	)
 })
