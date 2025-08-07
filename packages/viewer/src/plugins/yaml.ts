@@ -5,7 +5,7 @@ import _ from "lodash"
 import { NodeBuilder } from "../model/NodeBuilder"
 import { MimeType } from "../model/MimeType"
 import { buildNodesFromJson } from "./json"
-import { parse as yamlParse } from "yaml"
+import YAML from "yaml"
 
 export const yaml = _.memoize(
 	(): DivePlugin => ({
@@ -25,7 +25,7 @@ export const yaml = _.memoize(
 							}
 						}
 
-						const parseResult = Result.wrap(() => yamlParse(text))
+						const parseResult = Result.wrap(() => YAML.parse(text))
 						if (Result.isFail(parseResult)) {
 							return parseResult
 						}
