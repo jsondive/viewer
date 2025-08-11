@@ -22,3 +22,25 @@ flowchart TD
     _jsondive_viewer["@jsondive/viewer"] --> _jsondive_library["@jsondive/library"]
     _jsondive_viewer["@jsondive/viewer"] --> _jsondive_shared-config["@jsondive/shared-config"]
 ```
+
+### Packaging tasks
+
+See [Intro to using Changesets](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md) for more information.
+
+#### Add a changeset
+
+```
+npx @changeset/cli add
+```
+
+#### Increment semver
+
+```
+npx @changeset/cli version
+```
+
+#### Publish packages
+
+```
+npx @changeset/cli publish
+```
