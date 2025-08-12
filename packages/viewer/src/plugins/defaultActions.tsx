@@ -182,8 +182,20 @@ type DefaultActionsPluginOptions = {
 	enabledActions?: Array<DefaultActionId>
 }
 
+const defaultEnabledActions: DefaultActionId[] = [
+	"default.collapse",
+	"default.collapseAll",
+	"default.copyValueToClipboard",
+	"default.expand",
+	"default.expandAll",
+]
+
 const defaultActionsFn = _.memoize(
-	(options: DefaultActionsPluginOptions = {}): DivePlugin<DefaultActionId> => ({
+	(
+		options: DefaultActionsPluginOptions = {
+			enabledActions: defaultEnabledActions,
+		}
+	): DivePlugin<DefaultActionId> => ({
 		getActions(context) {
 			return Object.values(defaultActionMap).filter(
 				action =>

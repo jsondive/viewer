@@ -13,9 +13,10 @@ import {
 	JSONDiveControllerImpl,
 } from "./JSONDiveController"
 import { JSONDiveProviders } from "./providers"
+import { defaultPlugins } from "./plugins/defaultPlugins"
 
 export type JSONDiveProps = {
-	plugins: DivePlugin[]
+	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
 } & (
 	| {
@@ -115,7 +116,7 @@ function ParseError(props: { error: Error }) {
 
 export function JSONDive(props: JSONDiveProps) {
 	const {
-		plugins,
+		plugins = defaultPlugins,
 		ref,
 		data: _ignoredData,
 		input: _ignoredInput,
