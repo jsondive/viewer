@@ -7,9 +7,10 @@
 	"scripts": {},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "SEE LICENSE IN LICENSE.txt",
 	"files": [
-		"src"
+		"src",
+		"LICENSE.txt"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.27.4",

@@ -1,13 +1,17 @@
 Copyright (c) 2025 William Cauchois
 
-NON-COMMERCIAL LICENSE
+NON-COMMERCIAL, NO-REDISTRIBUTION, NO-COMPETITOR-HOSTING LICENSE
 
-Permission is hereby granted, free of charge, to any individual or organization (the "User") to use, copy, modify, and distribute this software and its documentation (the "Software") for NON-COMMERCIAL purposes only, subject to the following conditions:
+Permission is hereby granted, free of charge, to any individual or organization (the "User") to install, run, and modify this software and its documentation (the "Software") for NON-COMMERCIAL purposes only, subject to the following conditions:
 
 1. Non-commercial use means personal, academic, or nonprofit purposes only. Any use by or for a commercial entity, including use in a business, internal tools, SaaS products, or revenue-generating activities, is considered COMMERCIAL.
 
-2. Commercial use requires a separate, paid license. To obtain a commercial license, contact bill@jsondive.app.
+2. Redistribution Prohibited — The User may not publicly share, publish, upload, fork, or otherwise redistribute the Software, in whole or in part, whether modified or unmodified, without prior written permission from the copyright holder. Private/local modifications for personal non-commercial use are permitted. For the avoidance of doubt, “fork” includes creating a repository fork using GitHub’s “Fork” feature or equivalent functionality on any other code hosting platform.
 
-3. The Software is provided "as is", without warranty of any kind.
+3. No Public Hosting of Competitor Products — The User may not host, deploy, or otherwise make available to the public any software, service, or tool that substantially replicates the core functionality of jsondive.app as a web-based JSON viewer and formatter, whether using the Software in whole or in part, without prior written permission from the copyright holder.
+
+4. Commercial use requires a separate, paid license. To obtain a commercial license, contact bill@jsondive.app.
+
+5. The Software is provided "as is", without warranty of any kind.
 
 By using this Software, you agree to the terms of this license.
