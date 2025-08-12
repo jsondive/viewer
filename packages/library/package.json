@@ -1,6 +1,6 @@
 {
 	"name": "@jsondive/library",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "",
 	"keywords": [],
 	"author": "",
@@ -32,7 +32,7 @@
 		"@babel/preset-react": "^7.27.1",
 		"@babel/preset-typescript": "^7.27.1",
 		"@eslint/js": "^9.28.0",
-		"@jsondive/shared-config": "0.0.6",
+		"@jsondive/shared-config": "0.0.7",
 		"@stylexjs/babel-plugin": "^0.15.2",
 		"@stylexjs/eslint-plugin": "^0.13.1",
 		"@stylexjs/postcss-plugin": "^0.15.2",
