@@ -2,7 +2,7 @@ import { Menu as BaseMenu } from "@base-ui-components/react"
 import { JSX, ReactNode } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
-import { LucideIcon } from "lucide-react"
+import { LucideIcon } from "../lib/LucideIcon"
 
 const styles = stylex.create({
 	menuPositioner: {

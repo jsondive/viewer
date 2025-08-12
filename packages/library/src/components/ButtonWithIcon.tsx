@@ -1,5 +1,5 @@
+import { LucideIcon } from "../lib/LucideIcon"
 import { Button, ButtonProps } from "./Button"
-import { LucideIcon } from "lucide-react"
 import * as stylex from "@stylexjs/stylex"
 
 const styles = stylex.create({
