@@ -1,10 +1,12 @@
 <div align="center">
-  <h1>JSON Dive Viewer</h1>
-  <p>A powerful React component for exploring and visualizing JSON data</p>
-  <p style="display: flex; justify-content: center">
-    <a href="https://docs.jsondive.app/developer/">Documentation</a>&nbsp;|&nbsp;
-    <a href="https://www.npmjs.com/package/@jsondive/viewer"><img src="https://img.shields.io/npm/v/@jsondive/viewer.svg" alt="npm version"></a>
-  </p>
+    <h1>JSON Dive Viewer</h1>
+    <p>A powerful React component for exploring and visualizing JSON data</p>
+    <p>
+        <a href="https://docs.jsondive.app/developer/">Documentation</a>
+    </p>
+    <p>
+        <a href="https://www.npmjs.com/package/@jsondive/viewer"><img src="https://img.shields.io/npm/v/@jsondive/viewer.svg" alt="npm version"></a>
+    </p>
 </div>
 
 # Install
