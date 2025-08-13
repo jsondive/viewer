@@ -60,7 +60,6 @@ export class DocumentInput {
 		private readonly value: DocumentInputValue,
 		contentType: string | AutodetectContentType
 	) {
-		// TODO: actual auto detection
 		this.contentType =
 			contentType === DocumentInput.Autodetect
 				? this.value.type === "text"
