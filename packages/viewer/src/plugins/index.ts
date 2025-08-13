@@ -28,30 +28,6 @@ export type FileType = {
 	parseIntoNode(input: DocumentInput): NodeParseResult
 }
 
-export type PluginContextMenuItem = {
-	name: string
-
-	/**
-	 * A lucide-react icon. It should be of size CONTEXT_MENU_ICON_SIZE.
-	 */
-	icon?: ReactNode
-
-	action: (controller: JSONDiveController, node: DiveNode) => void
-
-	/**
-	 * String used to group items. You should namespace this with your plugin,
-	 * like "myPlugin.foo".
-	 *
-	 * If not provided, item will be grouped at the top.
-	 */
-	group?: string
-
-	/**
-	 * If not provided, the menu item is always enabled.
-	 */
-	isEnabled?: (node: DiveNode) => boolean
-}
-
 export type DivePluginActionContext = "contextMenu" | "keyboardShortcut"
 
 export type DivePlugin<ActionId = string> = {
