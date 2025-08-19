@@ -7,6 +7,7 @@
     <p>
         <a href="https://www.npmjs.com/package/@jsondive/viewer"><img src="https://img.shields.io/npm/v/@jsondive/viewer.svg" alt="npm version"></a>
     </p>
+    <img style="width: 400px" src="./screenshot.png">
 </div>
 
 # Install
