@@ -115,36 +115,8 @@ const validJsonDiveCssIdentifiers = new Set([
 	"--json-dive-radius-2xl",
 	"--json-dive-radius-3xl",
 	"--json-dive-radius-4xl",
-	// Colors.
-	...cartesian(
-		[
-			"red",
-			"orange",
-			"amber",
-			"yellow",
-			"lime",
-			"green",
-			"emerald",
-			"teal",
-			"cyan",
-			"sky",
-			"blue",
-			"indigo",
-			"violet",
-			"purple",
-			"fuchsia",
-			"pink",
-			"rose",
-			"slate",
-			"gray",
-			"zinc",
-			"neutral",
-			"stone",
-		],
-		["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"]
-	).map(([color, amount]) => `--json-dive-color-${color}-${amount}`),
-	"--json-dive-color-black",
-	"--json-dive-color-white",
+	// BEGIN: Colors.
+	// END: Colors.
 	// Shadow.
 	"--json-dive-shadow-sm",
 	"--json-dive-shadow-md",
