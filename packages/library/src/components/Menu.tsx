@@ -12,7 +12,7 @@ const styles = stylex.create({
 	menuPopup: {
 		paddingBlock: "var(--json-dive-spacing-1)",
 		backgroundColor: "canvas",
-		color: "var(--json-dive-color-gray-900)",
+		color: "var(--json-dive-color-black)",
 		transformOrigin: "var(--transform-origin)",
 		transition: "transform 150ms, opacity 150ms",
 		outlineStyle: "solid",
