@@ -116,6 +116,18 @@ const validJsonDiveCssIdentifiers = new Set([
 	"--json-dive-radius-3xl",
 	"--json-dive-radius-4xl",
 	// BEGIN: Colors.
+	"--json-dive-color-badge-background",
+	"--json-dive-color-badge-color",
+	"--json-dive-color-black",
+	"--json-dive-color-white",
+	"--json-dive-color-button-primary",
+	"--json-dive-color-button-primary-hovered",
+	"--json-dive-color-button-secondary",
+	"--json-dive-color-button-secondary-hovered",
+	"--json-dive-color-button-outline-border",
+	"--json-dive-color-button-outline-hovered",
+	"--json-dive-color-button-green",
+	"--json-dive-color-button-green-hovered",
 	// END: Colors.
 	// Shadow.
 	"--json-dive-shadow-sm",

@@ -1,0 +1,14 @@
+:root {
+	--json-dive-color-badge-background: oklch(0.928 0.006 264.531);
+	--json-dive-color-badge-color: oklch(0.551 0.027 264.364);
+	--json-dive-color-black: #000;
+	--json-dive-color-white: #fff;
+	--json-dive-color-button-primary: oklch(0.623 0.214 259.815);
+	--json-dive-color-button-primary-hovered: oklch(0.623 0.214 259.815);
+	--json-dive-color-button-secondary: oklch(0.928 0.006 264.531);
+	--json-dive-color-button-secondary-hovered: oklch(0.872 0.01 258.338);
+	--json-dive-color-button-outline-border: oklch(0.929 0.013 255.508);
+	--json-dive-color-button-outline-hovered: oklch(0.967 0.003 264.542);
+	--json-dive-color-button-green: oklch(0.696 0.17 162.48);
+	--json-dive-color-button-green-hovered: oklch(0.596 0.145 163.225);
+}
