@@ -17,10 +17,10 @@ const styles = stylex.create({
 		transition: "transform 150ms, opacity 150ms",
 		outlineStyle: "solid",
 		outlineWidth: "1px",
-		outlineColor: "var(--json-dive-color-gray-200)",
+		outlineColor: "var(--json-dive-color-light-border)",
 		boxShadow: `
-			0 10px 15px -3px var(--json-dive-color-gray-200),
-			0 4px 6px -4px var(--json-dive-color-gray-200)
+			0 10px 15px -3px var(--json-dive-color-light-border),
+			0 4px 6px -4px var(--json-dive-color-light-border)
 		`,
 
 		// eslint-disable-next-line @stylexjs/valid-styles
@@ -46,7 +46,7 @@ const styles = stylex.create({
 	},
 
 	arrowOuterStroke: {
-		fill: "var(--json-dive-color-gray-200)",
+		fill: "var(--json-dive-color-light-border)",
 	},
 
 	arrowInnerStroke: {},
@@ -70,7 +70,7 @@ const styles = stylex.create({
 			insetBlock: 0,
 			insetInline: "0.25rem",
 			borderRadius: "0.25rem",
-			backgroundColor: "var(--json-dive-color-gray-200)",
+			backgroundColor: "var(--json-dive-color-light-border)",
 		},
 	},
 
@@ -85,7 +85,7 @@ const styles = stylex.create({
 	menuGroupLabel: {
 		cursor: "default",
 		userSelect: "none",
-		color: "var(--json-dive-color-gray-600)",
+		color: "var(--json-dive-color-menu-group-label)",
 	},
 
 	menuGroup: {

@@ -1,14 +1,56 @@
 :root {
-	--json-dive-color-badge-background: oklch(0.928 0.006 264.531);
-	--json-dive-color-badge-color: oklch(0.551 0.027 264.364);
-	--json-dive-color-black: #000;
-	--json-dive-color-white: #fff;
-	--json-dive-color-button-primary: oklch(0.623 0.214 259.815);
-	--json-dive-color-button-primary-hovered: oklch(0.623 0.214 259.815);
-	--json-dive-color-button-secondary: oklch(0.928 0.006 264.531);
-	--json-dive-color-button-secondary-hovered: oklch(0.872 0.01 258.338);
-	--json-dive-color-button-outline-border: oklch(0.929 0.013 255.508);
-	--json-dive-color-button-outline-hovered: oklch(0.967 0.003 264.542);
-	--json-dive-color-button-green: oklch(0.696 0.17 162.48);
-	--json-dive-color-button-green-hovered: oklch(0.596 0.145 163.225);
+	--json-dive-color-black: #000; /* black */
+	--json-dive-color-white: #fff; /* white */
+	--json-dive-color-light-border: oklch(0.928 0.006 264.531); /* gray-200 */
+	--json-dive-color-badge-background: oklch(0.928 0.006 264.531); /* gray-200 */
+	--json-dive-color-badge-color: oklch(0.551 0.027 264.364); /* gray-500 */
+	--json-dive-color-button-primary: oklch(0.623 0.214 259.815); /* blue-500 */
+	--json-dive-color-button-primary-hovered: oklch(
+		0.623 0.214 259.815
+	); /* blue-500 */
+	--json-dive-color-button-secondary: oklch(0.928 0.006 264.531); /* gray-200 */
+	--json-dive-color-button-secondary-hovered: oklch(
+		0.872 0.01 258.338
+	); /* gray-300 */
+	--json-dive-color-button-outline-border: oklch(
+		0.929 0.013 255.508
+	); /* slate-200 */
+	--json-dive-color-button-outline-hovered: oklch(
+		0.967 0.003 264.542
+	); /* gray-100 */
+	--json-dive-color-button-green: oklch(0.696 0.17 162.48); /* emerald-500 */
+	--json-dive-color-button-green-hovered: oklch(
+		0.596 0.145 163.225
+	); /* emerald-600 */
+	--json-dive-color-toast-background: oklch(0.985 0.002 247.839); /* gray-50 */
+	--json-dive-color-toast-error-title: oklch(0.577 0.245 27.325); /* red-600 */
+	--json-dive-color-toast-close-hover: oklch(
+		0.967 0.003 264.542
+	); /* gray-100 */
+	--json-dive-color-menu-group-label: oklch(0.446 0.03 256.802); /* gray-600 */
+	--json-dive-color-tooltip-background: oklch(
+		0.278 0.033 256.848
+	); /* gray-800 */
+	--json-dive-color-input-outline: oklch(0.929 0.013 255.508); /* slate-200 */
+	--json-dive-color-input-outline-active: oklch(
+		0.623 0.214 259.815
+	); /* blue-500 */
+	--json-dive-color-value-string: oklch(0.596 0.145 163.225); /* emerald-600 */
+	--json-dive-color-value-number: oklch(0.588 0.158 241.966); /* sky-600 */
+	--json-dive-color-value-boolean: oklch(0.666 0.179 58.318); /* amber-600 */
+	--json-dive-color-value-null: oklch(0.645 0.246 16.439); /* rose-500 */
+	--json-dive-color-row-hover: oklch(0.97 0.014 254.604); /* blue-50 */
+	--json-dive-color-row-focus: oklch(0.932 0.032 255.585); /* blue-100 */
+	--json-dive-color-find-match-background: oklch(
+		0.973 0.071 103.193
+	); /* yellow-100 */
+	--json-dive-color-find-match-background-active: oklch(
+		0.945 0.129 101.54
+	); /* yellow-200 */
+	--json-dive-color-current-find-match-background: oklch(
+		0.905 0.182 98.111
+	); /* yellow-300 */
+	--json-dive-color-current-find-match-background-active: oklch(
+		0.852 0.199 91.936
+	); /* yellow-400 */
 }

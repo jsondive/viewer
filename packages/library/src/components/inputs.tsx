@@ -11,9 +11,9 @@ const styles = stylex.create({
 		borderStyle: "none",
 		boxShadow: {
 			default:
-				"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, var(--json-dive-color-slate-200) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+				"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, var(--json-dive-color-input-outline) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
 			":focus":
-				"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, var(--json-dive-color-blue-500) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+				"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, var(--json-dive-color-input-outline-active) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
 		},
 		paddingBlock: "var(--json-dive-spacing-1)",
 		paddingInline: "var(--json-dive-spacing-2)",

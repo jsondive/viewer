@@ -23,7 +23,7 @@ import clsx from "clsx"
 const styles = stylex.create({
 	tooltipContent: {
 		color: "var(--json-dive-color-white)",
-		backgroundColor: "var(--json-dive-color-gray-800)",
+		backgroundColor: "var(--json-dive-color-tooltip-background)",
 		borderRadius: "var(--json-dive-radius-sm)",
 		width: "max-content",
 		maxWidth: "calc(50vw)",

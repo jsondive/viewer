@@ -21,7 +21,7 @@ const styles = stylex.create({
 		transform: "translate(-50%, -30%)",
 		outlineStyle: "solid",
 		outlineWidth: "1px",
-		outlineColor: "var(--json-dive-color-gray-200)",
+		outlineColor: "var(--json-dive-color-light-border)",
 		backgroundColor: "var(--json-dive-color-white)",
 		maxWidth: `calc(100vw - ${EDGE_PADDING} * 2)`,
 		maxHeight: `calc(100vh - ${EDGE_PADDING} * 2)`,
@@ -40,7 +40,7 @@ const styles = stylex.create({
 		alignItems: "center",
 		borderBottomStyle: "solid",
 		borderBottomWidth: 2,
-		borderBottomColor: "var(--json-dive-color-gray-200)",
+		borderBottomColor: "var(--json-dive-color-light-border)",
 		fontWeight: 600,
 	},
 

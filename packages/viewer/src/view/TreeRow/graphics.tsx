@@ -8,7 +8,7 @@ import {
 	IconRoundedSquare,
 } from "../../lib/icons"
 import { DiveNode } from "../../model/DiveNode"
-import { builtinAttribute } from "../../model/builtinAttributes"
+import { builtinAttribute, ContainerType } from "../../model/builtinAttributes"
 
 const connectorStrokeColor = "rgb(156 163 175)"
 
@@ -78,84 +78,14 @@ export function ConnectorIcon(props: { type: "vertical" | "corner" | "tri" }) {
 	)
 }
 
-const typeIconStyles = stylex.create({
-	string: {
-		color: "var(--json-dive-color-green-400)",
-	},
+export function TypeIconForContainer(props: { containerType: ContainerType }) {
+	const { containerType } = props
 
-	number: {
-		color: "var(--json-dive-color-blue-400)",
-	},
-
-	boolean: {
-		color: "var(--json-dive-color-yellow-400)",
-	},
-
-	null: {
-		color: "var(--json-dive-color-red-400)",
-	},
-})
-
-// TODO: this is now unused?
-export function TypeIconForNode(props: { node: DiveNode }) {
-	const { node } = props
-
-	const containerType = node.getAttribute(builtinAttribute.containerType)
-	if (isDefined(containerType)) {
-		if (containerType === "object") {
-			return <IconBraces className="json-dive-tutorial-target-type-icon" />
-		} else if (containerType === "array") {
-			return (
-				<IconBracketsLine className="json-dive-tutorial-target-type-icon" />
-			)
-		} else {
-			unreachable(containerType)
-		}
+	if (containerType === "object") {
+		return <IconBraces className="json-dive-tutorial-target-type-icon" />
+	} else if (containerType === "array") {
+		return <IconBracketsLine className="json-dive-tutorial-target-type-icon" />
+	} else {
+		unreachable(containerType)
 	}
-
-	const primitiveValue = node.getAttribute(builtinAttribute.primitiveValue)
-	if (isDefined(primitiveValue)) {
-		if (primitiveValue.type === "string") {
-			return (
-				<IconRoundedSquare
-					{...addClassName(
-						stylex.props(typeIconStyles.string),
-						"json-dive-tutorial-target-type-icon"
-					)}
-				/>
-			)
-		} else if (primitiveValue.type === "number") {
-			return (
-				<IconRoundedSquare
-					{...addClassName(
-						stylex.props(typeIconStyles.number),
-						"json-dive-tutorial-target-type-icon"
-					)}
-				/>
-			)
-		} else if (primitiveValue.type === "boolean") {
-			return (
-				<IconRoundedSquare
-					{...addClassName(
-						stylex.props(typeIconStyles.boolean),
-						"json-dive-tutorial-target-type-icon"
-					)}
-				/>
-			)
-		} else if (primitiveValue.type === "null") {
-			return (
-				<IconRoundedSquare
-					{...addClassName(
-						stylex.props(typeIconStyles.null),
-						"json-dive-tutorial-target-type-icon"
-					)}
-				/>
-			)
-		} else {
-			unreachable(primitiveValue)
-		}
-	}
-
-	// Fallback.
-	return <IconRoundedSquare {...stylex.props(typeIconStyles.string)} />
 }

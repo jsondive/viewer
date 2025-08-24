@@ -1,8 +1,11 @@
 semantic-colors:
-  badge-background: gray-200
-  badge-color: gray-500
   black: black
   white: white
+  light-border: gray-200
+  # Badges.
+  badge-background: gray-200
+  badge-color: gray-500
+  # Buttons.
   button-primary: blue-500
   button-primary-hovered: blue-500
   button-secondary: gray-200
@@ -11,6 +14,28 @@ semantic-colors:
   button-outline-hovered: gray-100
   button-green: emerald-500
   button-green-hovered: emerald-600
+  # Toasts.
+  toast-background: gray-50
+  toast-error-title: red-600
+  toast-close-hover: gray-100
+  # Menus.
+  menu-group-label: gray-600
+  # Tooltips.
+  tooltip-background: gray-800
+  # Inputs.
+  input-outline: slate-200
+  input-outline-active: blue-500
+  # TreeRow component.
+  value-string: emerald-600
+  value-number: sky-600
+  value-boolean: amber-600
+  value-null: rose-500
+  row-hover: blue-50
+  row-focus: blue-100
+  find-match-background: yellow-100
+  find-match-background-active: yellow-200
+  current-find-match-background: yellow-300
+  current-find-match-background-active: yellow-400
 
 theme-colors:
   black: "#000"
