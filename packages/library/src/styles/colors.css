@@ -53,4 +53,13 @@
 	--json-dive-color-current-find-match-background-active: oklch(
 		0.852 0.199 91.936
 	); /* yellow-400 */
+	--json-dive-color-row-array-number-index: oklch(
+		0.551 0.027 264.364
+	); /* gray-500 */
+	--json-dive-color-context-menu-disabled: oklch(
+		0.446 0.03 256.802
+	); /* gray-600 */
+	--json-dive-color-context-menu-description: oklch(
+		0.872 0.01 258.338
+	); /* gray-300 */
 }

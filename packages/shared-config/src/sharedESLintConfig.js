@@ -146,6 +146,9 @@ const validJsonDiveCssIdentifiers = new Set([
 	"--json-dive-color-find-match-background-active",
 	"--json-dive-color-current-find-match-background",
 	"--json-dive-color-current-find-match-background-active",
+	"--json-dive-color-row-array-number-index",
+	"--json-dive-color-context-menu-disabled",
+	"--json-dive-color-context-menu-description",
 	// END: Colors.
 	// Shadow.
 	"--json-dive-shadow-sm",

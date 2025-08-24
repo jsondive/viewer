@@ -1,14 +1,11 @@
-import { addClassName, isDefined, unreachable } from "@jsondive/library"
-import * as stylex from "@stylexjs/stylex"
+import { unreachable } from "@jsondive/library"
 import {
 	IconBraces,
 	IconBracketsLine,
 	IconMinusSquare,
 	IconPlusSquare,
-	IconRoundedSquare,
 } from "../../lib/icons"
-import { DiveNode } from "../../model/DiveNode"
-import { builtinAttribute, ContainerType } from "../../model/builtinAttributes"
+import { ContainerType } from "../../model/builtinAttributes"
 
 const connectorStrokeColor = "rgb(156 163 175)"
 

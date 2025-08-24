@@ -66,17 +66,17 @@ const styles = stylex.create({
 
 	findMatch: {
 		backgroundColor: {
-			default: "var(--json-dive-color-yellow-100)",
-			":focus": "var(--json-dive-color-yellow-200)",
-			":hover": "var(--json-dive-color-yellow-200)",
+			default: "var(--json-dive-color-find-match-background)",
+			":focus": "var(--json-dive-color-find-match-background-active)",
+			":hover": "var(--json-dive-color-find-match-background-active)",
 		},
 	},
 
 	currentFindMatch: {
 		backgroundColor: {
-			default: "var(--json-dive-color-yellow-300)",
-			":focus": "var(--json-dive-color-yellow-400)",
-			":hover": "var(--json-dive-color-yellow-400)",
+			default: "var(--json-dive-color-current-find-match-background)",
+			":focus": "var(--json-dive-color-current-find-match-background-active)",
+			":hover": "var(--json-dive-color-current-find-match-background-active)",
 		},
 	},
 
@@ -114,7 +114,8 @@ const styles = stylex.create({
 	},
 
 	numberName: {
-		color: "var(--json-dive-color-gray-500)",
+		// Color for array indices is slightly lighter.
+		color: "var(--json-dive-color-row-array-number-index)",
 	},
 })
 

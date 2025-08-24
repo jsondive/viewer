@@ -36,6 +36,10 @@ semantic-colors:
   find-match-background-active: yellow-200
   current-find-match-background: yellow-300
   current-find-match-background-active: yellow-400
+  row-array-number-index: gray-500
+  # Context menu
+  context-menu-disabled: gray-600
+  context-menu-description: gray-300
 
 theme-colors:
   black: "#000"
