@@ -22,7 +22,7 @@ const styles = stylex.create({
 		outlineStyle: "solid",
 		outlineWidth: "1px",
 		outlineColor: "var(--json-dive-color-gray-200)",
-		backgroundColor: "var(--json-dive-color-gray-50)",
+		backgroundColor: "var(--json-dive-color-white)",
 		maxWidth: `calc(100vw - ${EDGE_PADDING} * 2)`,
 		maxHeight: `calc(100vh - ${EDGE_PADDING} * 2)`,
 		minWidth: `min(500px, calc(100vw - ${EDGE_PADDING} * 2))`,
