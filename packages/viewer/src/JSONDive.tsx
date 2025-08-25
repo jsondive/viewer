@@ -157,7 +157,10 @@ export function JSONDive(props: JSONDiveProps) {
 
 	return (
 		<div
-			{...addClassName(stylex.props(styles.wrap), "json-dive-css-reset")}
+			{...addClassName(
+				stylex.props(styles.wrap),
+				"json-dive-css-reset json-dive-viewer-instance"
+			)}
 			ref={outerContainerRef}
 		>
 			{Result.isSuccess(parseResult) ? (

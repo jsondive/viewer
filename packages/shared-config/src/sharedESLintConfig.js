@@ -179,6 +179,7 @@ const validJsonDiveCssIdentifiers = new Set([
 	"json-dive-css-reset",
 	"json-dive-no-scrollbar",
 	"json-dive-temp-force-focus-state",
+	"json-dive-viewer-instance",
 	// Tutorial.
 	"json-dive-tutorial-target-expand-icon",
 	"json-dive-tutorial-target-view-tab",
