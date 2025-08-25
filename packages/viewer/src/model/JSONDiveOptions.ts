@@ -16,7 +16,7 @@ export type IconPack = {
 }
 
 export type JSONDiveOptions = {
-	onValueMagnified?(args: { value: string }): void
+	onValueMagnified?: (args: { value: string }) => void
 
 	icons?: IconPack
 }
