@@ -10,6 +10,7 @@ import {
 	DateInterpretation,
 	tryInterpretDateValue,
 } from "../lib/tryInterpretDateValue"
+import { IconPack } from "../model/JSONDiveOptions"
 
 // TODO: video previews?
 
@@ -17,7 +18,7 @@ const imageExtensions = [".png", ".jpg", ".jpeg", ".webp"]
 
 export const richPreviews = _.memoize(
 	(): DivePlugin => ({
-		getDecorationsForNode(node) {
+		getDecorationsForNode(node, context) {
 			const primitiveValue = node.getAttribute(builtinAttribute.primitiveValue)
 			if (!primitiveValue) {
 				return []
@@ -41,7 +42,7 @@ export const richPreviews = _.memoize(
 					if (
 						imageExtensions.some(ext => urlResult.value.pathname.endsWith(ext))
 					) {
-						decorations.push(getImageDecoration(stringValue))
+						decorations.push(getImageDecoration(stringValue, context.icons))
 					}
 
 					return decorations
@@ -83,13 +84,18 @@ const styles = stylex.create({
 	},
 })
 
-function getImageDecoration(url: string): NodeDecoration {
+function getImageDecoration(
+	url: string,
+	icons: IconPack | undefined
+): NodeDecoration {
+	const ImageIcon = icons?.image ?? lucideReact.Image
+
 	return {
 		type: "inline",
 		render() {
 			return (
 				<Badge tooltip={<ImagePreview url={url} />}>
-					<lucideReact.Image size={INLINE_DECORATION_ICON_SIZE} />
+					<ImageIcon size={INLINE_DECORATION_ICON_SIZE} />
 				</Badge>
 			)
 		},

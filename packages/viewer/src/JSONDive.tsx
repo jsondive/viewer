@@ -14,10 +14,12 @@ import {
 } from "./JSONDiveController"
 import { JSONDiveProviders } from "./providers"
 import { defaultPlugins } from "./plugins/defaultPlugins"
+import { JSONDiveOptions } from "./model/JSONDiveOptions"
 
 export type JSONDiveProps = {
 	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
+	options?: JSONDiveOptions
 } & (
 	| {
 			data: Record<string, unknown>
@@ -62,8 +64,9 @@ function ParseSuccess(props: {
 	plugins: DivePlugin[]
 	rootNode: DiveNode
 	controller: JSONDiveControllerImpl
+	options?: JSONDiveOptions
 }) {
-	const { plugins, rootNode, controller, ...restProps } = props
+	const { plugins, rootNode, controller, options = {}, ...restProps } = props
 
 	useEffect(() => {
 		controller.setHasValidDocument(true)
@@ -73,7 +76,11 @@ function ParseSuccess(props: {
 	}, [controller])
 
 	return (
-		<AppContextProvider plugins={plugins} controller={controller}>
+		<AppContextProvider
+			plugins={plugins}
+			controller={controller}
+			options={options}
+		>
 			{({ ref, onKeyDown }) => (
 				<JSONDiveProviders>
 					<DocumentViewer

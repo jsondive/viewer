@@ -5,6 +5,7 @@ import { useState } from "react"
 import { DiveNode } from "../../model/DiveNode"
 import { builtinAttribute } from "../../model/builtinAttributes"
 import * as stylex from "@stylexjs/stylex"
+import { useOptions } from "../../state"
 
 const styles = stylex.create({
 	pre: {
@@ -14,6 +15,10 @@ const styles = stylex.create({
 
 export function MagnifyButton(props: { node: DiveNode }) {
 	const { node } = props
+
+	const { onValueMagnified, icons } = useOptions()
+
+	const MagnifyIcon = icons?.magnify ?? lucideReact.Search
 
 	const [dialogOpen, setDialogOpen] = useState(false)
 
@@ -28,18 +33,26 @@ export function MagnifyButton(props: { node: DiveNode }) {
 			<Badge
 				tooltip={`View full value`}
 				onClick={() => {
-					setDialogOpen(true)
+					if (onValueMagnified) {
+						onValueMagnified({
+							value: stringValue,
+						})
+					} else {
+						setDialogOpen(true)
+					}
 				}}
 			>
-				<lucideReact.Search size={INLINE_DECORATION_ICON_SIZE} />
+				<MagnifyIcon size={INLINE_DECORATION_ICON_SIZE} />
 			</Badge>
-			<Dialog
-				open={dialogOpen}
-				onClose={() => setDialogOpen(false)}
-				title="Value"
-			>
-				<pre {...stylex.props(styles.pre)}>{stringValue}</pre>
-			</Dialog>
+			{!onValueMagnified && (
+				<Dialog
+					open={dialogOpen}
+					onClose={() => setDialogOpen(false)}
+					title="Value"
+				>
+					<pre {...stylex.props(styles.pre)}>{stringValue}</pre>
+				</Dialog>
+			)}
 		</>
 	)
 }

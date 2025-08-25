@@ -28,3 +28,5 @@ export {
 	RenderContextMenuItem,
 	type ContextMenuItem,
 } from "./providers/ContextMenuProvider"
+
+export type { JSONDiveOptions, IconPack } from "./model/JSONDiveOptions"
