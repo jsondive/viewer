@@ -136,7 +136,7 @@ const styles = stylex.create({
 
 	disabledItem: {
 		cursor: "default",
-		color: "var(--json-dive-color-context-menu-disabled)",
+		color: "var(--json-dive-color-light-label)",
 	},
 
 	subtleDescription: {

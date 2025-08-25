@@ -85,7 +85,7 @@ const styles = stylex.create({
 	menuGroupLabel: {
 		cursor: "default",
 		userSelect: "none",
-		color: "var(--json-dive-color-menu-group-label)",
+		color: "var(--json-dive-color-light-label)",
 	},
 
 	menuGroup: {

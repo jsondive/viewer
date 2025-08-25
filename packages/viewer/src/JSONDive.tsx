@@ -50,11 +50,11 @@ const styles = stylex.create({
 		display: "flex",
 		borderRadius: 1000,
 		padding: "var(--json-dive-spacing-2)",
-		backgroundColor: "var(--json-dive-color-red-100)",
+		backgroundColor: "var(--json-dive-color-error-icon)",
 	},
 
 	errorMessage: {
-		color: "var(--json-dive-color-red-600)",
+		color: "var(--json-dive-color-error-message)",
 	},
 })
 
@@ -95,7 +95,7 @@ function ParseError(props: { error: Error }) {
 		<div {...stylex.props(styles.errorWrap)}>
 			<div {...stylex.props(styles.errorIconWrap)}>
 				<lucideReact.CircleAlert
-					stroke="var(--json-dive-color-red-600)"
+					stroke="var(--json-dive-color-error-message)"
 					size={30}
 				/>
 			</div>

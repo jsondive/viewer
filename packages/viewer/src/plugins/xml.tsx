@@ -24,7 +24,7 @@ import { MimeType } from "../model/MimeType"
 
 const styles = stylex.create({
 	nodeInfoWrap: {
-		color: "var(--json-dive-color-gray-500)",
+		color: "var(--json-dive-color-xml-demphasized-text)",
 		fontFamily: "monospace",
 		whiteSpace: "nowrap",
 		textOverflow: "ellipsis",
@@ -32,16 +32,16 @@ const styles = stylex.create({
 	},
 
 	xmlTagName: {
-		color: "var(--json-dive-color-indigo-700)",
+		color: "var(--json-dive-color-xml-tag-name)",
 		fontWeight: "normal",
 	},
 
 	xmlAttributeName: {
-		color: "var(--json-dive-color-cyan-600)",
+		color: "var(--json-dive-color-xml-attribute-name)",
 	},
 
 	xmlAttributeValue: {
-		color: "var(--json-dive-color-cyan-600)",
+		color: "var(--json-dive-color-xml-attribute-value)",
 		"::before": {
 			content: `'"'`,
 		},

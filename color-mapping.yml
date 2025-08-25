@@ -2,6 +2,7 @@ semantic-colors:
   black: black
   white: white
   light-border: gray-200
+  light-label: gray-600
   # Badges.
   badge-background: gray-200
   badge-color: gray-500
@@ -16,10 +17,7 @@ semantic-colors:
   button-green-hovered: emerald-600
   # Toasts.
   toast-background: gray-50
-  toast-error-title: red-600
   toast-close-hover: gray-100
-  # Menus.
-  menu-group-label: gray-600
   # Tooltips.
   tooltip-background: gray-800
   # Inputs.
@@ -38,8 +36,19 @@ semantic-colors:
   current-find-match-background-active: yellow-400
   row-array-number-index: gray-500
   # Context menu
-  context-menu-disabled: gray-600
   context-menu-description: gray-300
+  # Errors
+  error-icon: red-100
+  error-message: red-600
+  # Rich preview plugin
+  rich-preview-warning: yellow-600
+  # XML plugin
+  xml-demphasized-text: gray-500
+  xml-tag-name: indigo-700
+  xml-attribute-name: cyan-600
+  xml-attribute-value: cyan-600
+  # Status bar (like the find bar)
+  status-bar-background: gray-100
 
 theme-colors:
   black: "#000"

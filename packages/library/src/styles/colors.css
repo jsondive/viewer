@@ -2,6 +2,7 @@
 	--json-dive-color-black: #000; /* black */
 	--json-dive-color-white: #fff; /* white */
 	--json-dive-color-light-border: oklch(0.928 0.006 264.531); /* gray-200 */
+	--json-dive-color-light-label: oklch(0.446 0.03 256.802); /* gray-600 */
 	--json-dive-color-badge-background: oklch(0.928 0.006 264.531); /* gray-200 */
 	--json-dive-color-badge-color: oklch(0.551 0.027 264.364); /* gray-500 */
 	--json-dive-color-button-primary: oklch(0.623 0.214 259.815); /* blue-500 */
@@ -23,11 +24,9 @@
 		0.596 0.145 163.225
 	); /* emerald-600 */
 	--json-dive-color-toast-background: oklch(0.985 0.002 247.839); /* gray-50 */
-	--json-dive-color-toast-error-title: oklch(0.577 0.245 27.325); /* red-600 */
 	--json-dive-color-toast-close-hover: oklch(
 		0.967 0.003 264.542
 	); /* gray-100 */
-	--json-dive-color-menu-group-label: oklch(0.446 0.03 256.802); /* gray-600 */
 	--json-dive-color-tooltip-background: oklch(
 		0.278 0.033 256.848
 	); /* gray-800 */
@@ -56,10 +55,25 @@
 	--json-dive-color-row-array-number-index: oklch(
 		0.551 0.027 264.364
 	); /* gray-500 */
-	--json-dive-color-context-menu-disabled: oklch(
-		0.446 0.03 256.802
-	); /* gray-600 */
 	--json-dive-color-context-menu-description: oklch(
 		0.872 0.01 258.338
 	); /* gray-300 */
+	--json-dive-color-error-icon: oklch(0.936 0.032 17.717); /* red-100 */
+	--json-dive-color-error-message: oklch(0.577 0.245 27.325); /* red-600 */
+	--json-dive-color-rich-preview-warning: oklch(
+		0.681 0.162 75.834
+	); /* yellow-600 */
+	--json-dive-color-xml-demphasized-text: oklch(
+		0.551 0.027 264.364
+	); /* gray-500 */
+	--json-dive-color-xml-tag-name: oklch(0.457 0.24 277.023); /* indigo-700 */
+	--json-dive-color-xml-attribute-name: oklch(
+		0.609 0.126 221.723
+	); /* cyan-600 */
+	--json-dive-color-xml-attribute-value: oklch(
+		0.609 0.126 221.723
+	); /* cyan-600 */
+	--json-dive-color-status-bar-background: oklch(
+		0.967 0.003 264.542
+	); /* gray-100 */
 }

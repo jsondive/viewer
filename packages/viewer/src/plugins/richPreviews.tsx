@@ -77,7 +77,7 @@ const styles = stylex.create({
 	},
 
 	dateTooltipWarning: {
-		color: "var(--json-dive-color-yellow-600)",
+		color: "var(--json-dive-color-rich-preview-warning)",
 		fontWeight: 600,
 		maxWidth: 360,
 	},
