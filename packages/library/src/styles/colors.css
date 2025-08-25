@@ -2,10 +2,23 @@
 	--json-dive-color-black: #000; /* black */
 	--json-dive-color-white: #fff; /* white */
 	--json-dive-color-light-border: oklch(0.928 0.006 264.531); /* gray-200 */
+	--json-dive-color-medium-border: oklch(0.872 0.01 258.338); /* gray-300 */
 	--json-dive-color-light-label: oklch(0.446 0.03 256.802); /* gray-600 */
+	--json-dive-color-light-text: oklch(0.554 0.046 257.417); /* slate-500 */
+	--json-dive-color-light-background: oklch(0.984 0.003 247.858); /* slate-50 */
+	--json-dive-color-link-foreground: oklch(0.546 0.245 262.881); /* blue-600 */
+	--json-dive-color-edit-tab-active-textarea-border: oklch(
+		0.809 0.105 251.813
+	); /* blue-300 */
+	--json-dive-color-interactive-preview-label-text: oklch(
+		0.951 0.026 236.824
+	); /* sky-100 */
+	--json-dive-color-interactive-preview-label-background: oklch(
+		0.5 0.134 242.749
+	); /* sky-700 */
 	--json-dive-color-badge-background: oklch(0.928 0.006 264.531); /* gray-200 */
 	--json-dive-color-badge-color: oklch(0.551 0.027 264.364); /* gray-500 */
-	--json-dive-color-button-primary: oklch(0.623 0.214 259.815); /* blue-500 */
+	--json-dive-color-button-primary: oklch(0.546 0.245 262.881); /* blue-600 */
 	--json-dive-color-button-primary-hovered: oklch(
 		0.623 0.214 259.815
 	); /* blue-500 */
@@ -60,12 +73,10 @@
 	); /* gray-300 */
 	--json-dive-color-error-icon: oklch(0.936 0.032 17.717); /* red-100 */
 	--json-dive-color-error-message: oklch(0.577 0.245 27.325); /* red-600 */
+	--json-dive-color-success-message: oklch(0.723 0.219 149.579); /* green-500 */
 	--json-dive-color-rich-preview-warning: oklch(
 		0.681 0.162 75.834
 	); /* yellow-600 */
-	--json-dive-color-xml-demphasized-text: oklch(
-		0.551 0.027 264.364
-	); /* gray-500 */
 	--json-dive-color-xml-tag-name: oklch(0.457 0.24 277.023); /* indigo-700 */
 	--json-dive-color-xml-attribute-name: oklch(
 		0.609 0.126 221.723
@@ -74,6 +85,9 @@
 		0.609 0.126 221.723
 	); /* cyan-600 */
 	--json-dive-color-status-bar-background: oklch(
+		0.967 0.003 264.542
+	); /* gray-100 */
+	--json-dive-color-keyboard-shortcut-background: oklch(
 		0.967 0.003 264.542
 	); /* gray-100 */
 }

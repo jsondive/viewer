@@ -1,13 +1,23 @@
 semantic-colors:
+  # Key is the color name: this will get converted into a CSS variable
+  # of the form, --json-dive-color-{name}.
+  # Value is a Tailwind color identifier, see https://tailwindcss.com/docs/colors.
   black: black
   white: white
   light-border: gray-200
+  medium-border: gray-300
   light-label: gray-600
+  light-text: slate-500
+  light-background: slate-50
+  link-foreground: blue-600
+  edit-tab-active-textarea-border: blue-300
+  interactive-preview-label-text: sky-100
+  interactive-preview-label-background: sky-700
   # Badges.
   badge-background: gray-200
   badge-color: gray-500
   # Buttons.
-  button-primary: blue-500
+  button-primary: blue-600
   button-primary-hovered: blue-500
   button-secondary: gray-200
   button-secondary-hovered: gray-300
@@ -37,18 +47,20 @@ semantic-colors:
   row-array-number-index: gray-500
   # Context menu
   context-menu-description: gray-300
-  # Errors
+  # Error and success
   error-icon: red-100
   error-message: red-600
+  success-message: green-500
   # Rich preview plugin
   rich-preview-warning: yellow-600
   # XML plugin
-  xml-demphasized-text: gray-500
   xml-tag-name: indigo-700
   xml-attribute-name: cyan-600
   xml-attribute-value: cyan-600
   # Status bar (like the find bar)
   status-bar-background: gray-100
+  # Keyboard shortcuts dialog
+  keyboard-shortcut-background: gray-100
 
 theme-colors:
   black: "#000"

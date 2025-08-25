@@ -24,7 +24,7 @@ import { MimeType } from "../model/MimeType"
 
 const styles = stylex.create({
 	nodeInfoWrap: {
-		color: "var(--json-dive-color-xml-demphasized-text)",
+		color: "var(--json-dive-color-light-text)",
 		fontFamily: "monospace",
 		whiteSpace: "nowrap",
 		textOverflow: "ellipsis",
