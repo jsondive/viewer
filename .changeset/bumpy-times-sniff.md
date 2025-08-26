@@ -4,4 +4,4 @@
 "@jsondive/viewer": patch
 ---
 
-Switch to semantic color identifiers
+Switch to semantic color identifiers.
