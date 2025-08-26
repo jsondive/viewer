@@ -15,7 +15,7 @@
 		"build-css": "postcss src/root.css -o dist/root.css",
 		"watch-js": "tsup --watch",
 		"watch-declarations": "onchange -i \"src/**/*.{ts,tsx}\" -- npm run build-declarations",
-		"watch-css": "onchange -i \"src/**/*.css\" \"../library/dist/*.css\" -- npm run build-css",
+		"watch-css": "onchange -i \"src/**/*.{ts,tsx,css}\" \"../library/dist/*.css\" -- npm run build-css",
 		"test": "jest src",
 		"prepack": "npm run build"
 	},

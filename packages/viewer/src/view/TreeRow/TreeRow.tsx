@@ -186,6 +186,7 @@ export function TreeRow(props: TreeRowProps) {
 		isRoot,
 		intersectionObserver,
 	} = props
+	console.log("TreeRow render")
 
 	const displayInfo = nodeDisplayMap.get(node)
 	if (!displayInfo) {
@@ -424,8 +425,10 @@ function useManageIntersectionObserver(args: {
 	useEffect(() => {
 		const el = containerRef.current
 		if (el && intersectionObserver) {
+			console.log("observing..")
 			intersectionObserver.observe(el)
 			return () => {
+				console.log("unobserving")
 				intersectionObserver.unobserve(el)
 				setNodeVisibility([
 					{
