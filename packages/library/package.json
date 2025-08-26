@@ -11,7 +11,7 @@
 		"lint": "eslint src",
 		"check-types": "tsc --noEmit",
 		"build-js": "tsup",
-		"build-css": "postcss src/root.css -o dist/root.css && touch dist/root.css",
+		"build-css": "postcss src/root.css -o dist/root.css",
 		"watch-js": "tsup --watch",
 		"watch-css": "onchange -i \"src/**/*.css\" -- npm run build-css",
 		"prepack": "npm run build"

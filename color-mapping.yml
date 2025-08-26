@@ -2,6 +2,8 @@ semantic-colors:
   # Key is the color name: this will get converted into a CSS variable
   # of the form, --json-dive-color-{name}.
   # Value is a Tailwind color identifier, see https://tailwindcss.com/docs/colors.
+  # Note that some of these styles are not used by the JSON Dive
+  # viewer, and only used by the JSON Dive site.
   black: black
   white: white
   light-border: gray-200
