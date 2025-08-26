@@ -8,7 +8,7 @@ import {
 } from "@jsondive/library"
 import { DiveNode } from "../../model/DiveNode"
 import _ from "lodash"
-import { ConnectorIcon, ExpandIcon, TypeIconForNode } from "./graphics"
+import { ConnectorIcon, ExpandIcon, TypeIconForContainer } from "./graphics"
 import {
 	useDecorationsForNode,
 	useDiveController,
@@ -28,7 +28,7 @@ import { defaultActions } from "../../plugins/defaultActions"
 
 export const treeRowHeight = 20
 
-const FOCUS_COLOR = "var(--json-dive-color-blue-100)"
+const FOCUS_COLOR = "var(--json-dive-color-row-focus)"
 const HORIZONTAL_GAP = `var(--json-dive-spacing-1)`
 
 const styles = stylex.create({
@@ -36,7 +36,7 @@ const styles = stylex.create({
 		alignItems: "center",
 		backgroundColor: {
 			":focus": FOCUS_COLOR,
-			":hover": "var(--json-dive-color-blue-50)",
+			":hover": "var(--json-dive-color-row-hover)",
 		},
 		display: "flex",
 		gap: HORIZONTAL_GAP,
@@ -60,23 +60,23 @@ const styles = stylex.create({
 	rowBodyBackgroundColor: {
 		backgroundColor: {
 			":focus": FOCUS_COLOR,
-			":hover": "var(--json-dive-color-blue-50)",
+			":hover": "var(--json-dive-color-row-hover)",
 		},
 	},
 
 	findMatch: {
 		backgroundColor: {
-			default: "var(--json-dive-color-yellow-100)",
-			":focus": "var(--json-dive-color-yellow-200)",
-			":hover": "var(--json-dive-color-yellow-200)",
+			default: "var(--json-dive-color-find-match-background)",
+			":focus": "var(--json-dive-color-find-match-background-active)",
+			":hover": "var(--json-dive-color-find-match-background-active)",
 		},
 	},
 
 	currentFindMatch: {
 		backgroundColor: {
-			default: "var(--json-dive-color-yellow-300)",
-			":focus": "var(--json-dive-color-yellow-400)",
-			":hover": "var(--json-dive-color-yellow-400)",
+			default: "var(--json-dive-color-current-find-match-background)",
+			":focus": "var(--json-dive-color-current-find-match-background-active)",
+			":hover": "var(--json-dive-color-current-find-match-background-active)",
 		},
 	},
 
@@ -114,25 +114,26 @@ const styles = stylex.create({
 	},
 
 	numberName: {
-		color: "var(--json-dive-color-gray-500)",
+		// Color for array indices is slightly lighter.
+		color: "var(--json-dive-color-row-array-number-index)",
 	},
 })
 
 const primitiveTypeStyles = stylex.create({
 	string: {
-		color: "var(--json-dive-color-emerald-600)",
+		color: "var(--json-dive-color-value-string)",
 	},
 
 	number: {
-		color: "var(--json-dive-color-sky-600)",
+		color: "var(--json-dive-color-value-number)",
 	},
 
 	boolean: {
-		color: "var(--json-dive-color-amber-600)",
+		color: "var(--json-dive-color-value-boolean)",
 	},
 
 	null: {
-		color: "var(--json-dive-color-rose-500)",
+		color: "var(--json-dive-color-value-null)",
 		fontStyle: "italic",
 	},
 })
@@ -405,8 +406,9 @@ function rootNodeToName(node: DiveNode) {
 
 function MaybeTypeIcon(props: { node: DiveNode }) {
 	const { node } = props
-	return isDefined(node.getAttribute(builtinAttribute.containerType)) ? (
-		<TypeIconForNode node={node} />
+	const containerType = node.getAttribute(builtinAttribute.containerType)
+	return isDefined(containerType) ? (
+		<TypeIconForContainer containerType={containerType} />
 	) : null
 }
 

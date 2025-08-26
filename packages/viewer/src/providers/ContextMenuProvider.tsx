@@ -84,8 +84,8 @@ const styles = stylex.create({
 		flexDirection: "column",
 		// Same as SessionButton.
 		boxShadow: `
-			0 10px 15px -3px var(--json-dive-color-gray-200),
-			0 4px 6px -4px var(--json-dive-color-gray-200)
+			0 10px 15px -3px var(--json-dive-color-light-border),
+			0 4px 6px -4px var(--json-dive-color-light-border)
 		`,
 		outline: "0",
 	}),
@@ -104,7 +104,7 @@ const styles = stylex.create({
 	notLastGroup: {
 		borderBottomStyle: "solid",
 		borderBottomWidth: 1,
-		borderBottomColor: "var(--json-dive-color-gray-200)",
+		borderBottomColor: "var(--json-dive-color-light-border)",
 	},
 
 	lastGroup: {},
@@ -128,19 +128,19 @@ const styles = stylex.create({
 
 	interactibleEnabledItem: {
 		backgroundColor: {
-			":hover": "var(--json-dive-color-gray-200)",
-			":active": "var(--json-dive-color-gray-200)",
+			":hover": "var(--json-dive-color-light-border)",
+			":active": "var(--json-dive-color-light-border)",
 		},
 		cursor: "pointer",
 	},
 
 	disabledItem: {
 		cursor: "default",
-		color: "var(--json-dive-color-gray-600)",
+		color: "var(--json-dive-color-light-label)",
 	},
 
 	subtleDescription: {
-		color: "var(--json-dive-color-gray-300)",
+		color: "var(--json-dive-color-context-menu-description)",
 		display: "flex",
 		alignItems: "center",
 		// Hokey way to get them all to be the same width.

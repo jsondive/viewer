@@ -6,11 +6,11 @@ import { addClassName } from "../lib/addClassName"
 
 const styles = stylex.create({
 	body: {
-		backgroundColor: "var(--json-dive-color-gray-200)",
+		backgroundColor: "var(--json-dive-color-badge-background)",
 		paddingInline: "var(--json-dive-spacing-1)",
 		paddingBlock: "var(--json-dive-spacing-0_5)",
 		borderRadius: "var(--json-dive-radius-sm)",
-		color: "var(--json-dive-color-gray-500)",
+		color: "var(--json-dive-color-badge-color)",
 		cursor: "default",
 	},
 

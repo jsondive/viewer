@@ -2,7 +2,6 @@ import { Result } from "@jsondive/library"
 import { DocumentInput } from "../model/DocumentInput"
 import { ReactNode } from "react"
 import { DiveNode } from "../model/DiveNode"
-import { JSONDiveController } from "../JSONDiveController"
 import { DiveAction } from "./DiveAction"
 
 export const CannotHandleInput = Symbol("CannotHandleInput")

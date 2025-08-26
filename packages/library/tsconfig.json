@@ -1,6 +1,6 @@
 {
 	"extends": "@jsondive/shared-config/src/typescript/react-library.json",
-	"include": ["src"],
+	"include": ["src", "eslint.config.js"],
 	"compilerOptions": {
 		"outDir": "dist"
 	}

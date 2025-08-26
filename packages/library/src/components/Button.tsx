@@ -22,27 +22,27 @@ const styles = stylex.create({
 	primary: {
 		color: "var(--json-dive-color-white)",
 		backgroundColor: {
-			default: "var(--json-dive-color-blue-600)",
-			":hover": "var(--json-dive-color-blue-500)",
-			":active": "var(--json-dive-color-blue-600)",
+			default: "var(--json-dive-color-button-primary)",
+			":hover": "var(--json-dive-color-button-primary-hovered)",
+			":active": "var(--json-dive-color-button-primary)",
 		},
 	},
 	secondary: {
 		color: "var(--json-dive-color-black)",
 		backgroundColor: {
-			default: "var(--json-dive-color-gray-200)",
-			":hover": "var(--json-dive-color-gray-300)",
-			":active": "var(--json-dive-color-gray-200)",
+			default: "var(--json-dive-color-button-secondary)",
+			":hover": "var(--json-dive-color-button-secondary-hovered)",
+			":active": "var(--json-dive-color-button-secondary)",
 		},
 	},
 	outline: {
 		color: "var(--json-dive-color-black)",
 		borderStyle: "solid",
 		borderWidth: 1,
-		borderColor: "var(--json-dive-color-slate-200)",
+		borderColor: "var(--json-dive-color-button-outline-border)",
 		backgroundColor: {
 			default: "transparent",
-			":hover": "var(--json-dive-color-gray-100)",
+			":hover": "var(--json-dive-color-button-outline-hovered)",
 			":active": "transparent",
 		},
 		boxShadow: `0 1px 2px 0 rgb(0 0 0 / 0.05)`,
@@ -54,9 +54,9 @@ const styles = stylex.create({
 	green: {
 		color: "var(--json-dive-color-white)",
 		backgroundColor: {
-			default: "var(--json-dive-color-emerald-500)",
-			":hover": "var(--json-dive-color-emerald-600)",
-			":active": "var(--json-dive-color-emerald-500)",
+			default: "var(--json-dive-color-button-green)",
+			":hover": "var(--json-dive-color-button-green-hovered)",
+			":active": "var(--json-dive-color-button-green)",
 		},
 	},
 })
