@@ -25,3 +25,5 @@ export {
 } from "./components/ButtonWithIcon"
 
 export { useIsOverflowing } from "./hooks/useIsOverflowing"
+
+export type { IconComponent } from "./lib/IconComponent"

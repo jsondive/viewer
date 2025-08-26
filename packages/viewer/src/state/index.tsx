@@ -7,7 +7,7 @@ import React, {
 	useMemo,
 	useRef,
 } from "react"
-import { DivePlugin, DivePluginActionContext } from "../plugins"
+import { DivePlugin, PluginActionsContext } from "../plugins"
 import {
 	legacy_createStore as createStore,
 	Dispatch as ReduxDispatch,
@@ -29,6 +29,7 @@ import {
 	DiveAction,
 } from "../plugins/DiveAction"
 import { builtinAttribute } from "../model/builtinAttributes"
+import { JSONDiveOptions } from "../model/JSONDiveOptions"
 
 export type AppEvents = {
 	keyDown: (e: AnyKeyboardEvent, motionAmount: number) => void
@@ -55,6 +56,7 @@ export type AppContextValue = {
 	plugins: DivePlugin[]
 	eventBus: AppEventBus
 	controller: JSONDiveControllerImpl
+	options: JSONDiveOptions
 }
 
 const AppContext = createContext<AppContextValue | undefined>(undefined)
@@ -66,10 +68,11 @@ type AppContextProviderProps = {
 	}) => ReactNode
 	plugins: DivePlugin[]
 	controller: JSONDiveControllerImpl
+	options: JSONDiveOptions
 }
 
 export function AppContextProvider(props: AppContextProviderProps) {
-	const { plugins, children, controller } = props
+	const { plugins, children, controller, options } = props
 
 	const store = useMemo(() => createStore(appReducer), [])
 
@@ -80,8 +83,9 @@ export function AppContextProvider(props: AppContextProviderProps) {
 			plugins,
 			eventBus,
 			controller,
+			options,
 		}),
-		[plugins, eventBus, controller]
+		[plugins, eventBus, controller, options]
 	)
 
 	useEffect(() => {
@@ -403,7 +407,7 @@ export function usePlugins() {
 	return useAppContext().plugins
 }
 
-export function useAllActions(context: DivePluginActionContext) {
+export function useAllActions(context: PluginActionsContext) {
 	const plugins = usePlugins()
 
 	return useMemo(
@@ -704,9 +708,20 @@ export function useSetFindState() {
 
 export function useDecorationsForNode(node: DiveNode) {
 	const plugins = usePlugins()
+	const options = useOptions()
 
 	return useMemo(
-		() => plugins.flatMap(plugin => plugin.getDecorationsForNode?.(node) ?? []),
-		[plugins, node]
+		() =>
+			plugins.flatMap(
+				plugin =>
+					plugin.getDecorationsForNode?.(node, {
+						icons: options.icons,
+					}) ?? []
+			),
+		[plugins, node, options.icons]
 	)
+}
+
+export function useOptions() {
+	return useAppContext().options
 }

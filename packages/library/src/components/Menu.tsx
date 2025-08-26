@@ -2,7 +2,7 @@ import { Menu as BaseMenu } from "@base-ui-components/react"
 import { JSX, ReactNode } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
-import { LucideIcon } from "../lib/LucideIcon"
+import { IconComponent } from "../lib/IconComponent"
 
 const styles = stylex.create({
 	menuPositioner: {
@@ -97,13 +97,13 @@ const styles = stylex.create({
 const ICON_SIZE = 15
 
 export type MenuItem = {
-	icon: LucideIcon
+	icon: IconComponent
 	label: ReactNode
 	action: () => void
 }
 
 export type MenuItemGroup = {
-	icon?: LucideIcon
+	icon?: IconComponent
 	label?: ReactNode
 	items: MenuItem[]
 }

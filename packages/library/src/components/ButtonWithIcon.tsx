@@ -1,4 +1,4 @@
-import { LucideIcon } from "../lib/LucideIcon"
+import { IconComponent } from "../lib/IconComponent"
 import { Button, ButtonProps } from "./Button"
 import * as stylex from "@stylexjs/stylex"
 
@@ -9,7 +9,7 @@ const styles = stylex.create({
 })
 
 export type ButtonWithIconProps = ButtonProps & {
-	icon: LucideIcon
+	icon: IconComponent
 }
 
 export function ButtonWithIcon(props: ButtonWithIconProps) {
