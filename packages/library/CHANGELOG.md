@@ -1,5 +1,12 @@
 # @jsondive/library
 
+## 0.0.8
+
+### Patch Changes
+
+- f164701: Switch to semantic color identifiers.
+- 9b21c5d: Add customization options to JSONDive.
+
 ## 0.0.7
 
 ### Patch Changes
