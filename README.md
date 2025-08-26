@@ -68,5 +68,5 @@ npx @changeset/cli version
 ### Publish packages
 
 ```
-npx @changeset/cli publish
+npx @changesets/cli publish
 ```
