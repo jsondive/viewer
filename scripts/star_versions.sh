@@ -10,6 +10,6 @@ function update_dev_dependency() {
   mv $1.tmp $1
 }
 
-update_dependency packages/library/package.json @jsondive/library
+update_dependency packages/viewer/package.json @jsondive/library
 update_dev_dependency packages/library/package.json @jsondive/shared-config
 update_dev_dependency packages/viewer/package.json @jsondive/shared-config
