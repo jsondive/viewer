@@ -300,6 +300,7 @@ function useOnKeyDown(eventBus: AppEventBus) {
 					motionMultiplier.current = undefined
 				}, KEY_MULTIPLIER_DEBOUNCE_MS)
 			} else {
+				// Other keys and non-motion-multipliers.
 				eventBus.emit("keyDown", e, motionMultiplier.current ?? 1)
 				motionMultiplier.current = undefined
 			}

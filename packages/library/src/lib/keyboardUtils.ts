@@ -40,7 +40,6 @@ const modifierKeyToAlias = {
 	FnLock: true,
 	Hyper: true,
 	Meta: "command",
-	NumLock: true,
 	ScrollLock: true,
 	Shift: "shift",
 	Super: true,
