@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.9
+
+### Patch Changes
+
+- 7a79599: Fix arrow key navigation in Firefox
+
 ## 0.0.8
 
 ### Patch Changes

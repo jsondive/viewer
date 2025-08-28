@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.9
+
+### Patch Changes
+
+- 7a79599: Fix arrow key navigation in Firefox
+- Updated dependencies [7a79599]
+  - @jsondive/library@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
