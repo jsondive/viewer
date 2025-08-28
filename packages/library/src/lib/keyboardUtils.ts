@@ -45,7 +45,14 @@ const modifierKeyToAlias = {
 	Super: true,
 	Symbol: true,
 	SymbolLock: true,
-} as const satisfies { [K in React.ModifierKey]: string | true }
+} as const satisfies {
+	[K in Exclude<
+		React.ModifierKey,
+		// Ignore NumLock; we don't care about it, and Firefox appears
+		// to pass it where Chrome does not.
+		"NumLock"
+	>]: string | true
+}
 
 type ModifierKey = {
 	[K in keyof typeof modifierKeyToAlias]: (typeof modifierKeyToAlias)[K] extends true
