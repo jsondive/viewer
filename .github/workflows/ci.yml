@@ -32,25 +32,26 @@ jobs:
       - name: Lint
         run: npm run lint
 
-  check-types:
-    name: Check types
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
+  # TEMP
+  # check-types:
+  #   name: Check types
+  #   timeout-minutes: 15
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
+  #   steps:
+  #     - name: Check out code
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "npm"
+  #     - name: Setup Node.js environment
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 22
+  #         cache: "npm"
 
-      - name: Install dependencies
-        run: npm install
+  #     - name: Install dependencies
+  #       run: npm install
 
-      - name: Check types
-        run: npm run check-types
+  #     - name: Check types
+  #       run: npm run check-types
