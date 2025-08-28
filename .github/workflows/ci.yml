@@ -49,6 +49,9 @@ jobs:
           node-version: 22
           cache: "npm"
 
+      - name: Fix up internal dependency versions
+        run: bash scripts/star_versions.sh
+
       - name: Install dependencies
         run: npm install
 
