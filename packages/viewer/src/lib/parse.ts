@@ -1,4 +1,4 @@
-import { Result } from "@jsondive/library"
+import { isDefined, Result } from "@jsondive/library"
 import { DocumentInput } from "../model/DocumentInput"
 import { CannotHandleInput, FileType, DivePlugin } from "../plugins"
 import { builtinAttribute } from "../model/builtinAttributes"
@@ -13,6 +13,11 @@ export function parseIntoNode(
 	input: DocumentInput,
 	plugins: DivePlugin[]
 ): Result<DiveNode, Error> {
+	const directNode = input.getNodeDirectly()
+	if (isDefined(directNode)) {
+		return { value: directNode }
+	}
+
 	const fileTypes = plugins.flatMap(plugin => plugin.getFileTypes?.() ?? [])
 
 	const result = parseUsingFileTypes(input, fileTypes)

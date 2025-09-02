@@ -8,8 +8,12 @@ export type NodeBuilder = {
 }
 
 export const NodeBuilder = {
-	start(): NodeBuilder {
+	startEmpty(): NodeBuilder {
 		return new EmptyNodeBuilder()
+	},
+
+	start(): NodeBuilder {
+		return new ConcreteNodeBuilder(undefined, RootNodeName)
 	},
 }
 

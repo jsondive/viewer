@@ -49,7 +49,7 @@ function convertProgramIntoNode(program: acorn.Program): DiveNode {
 
 	const expression = program.body[0].expression
 
-	const nodeBuilder = NodeBuilder.start()
+	const nodeBuilder = NodeBuilder.startEmpty()
 	buildNodes(expression, RootNodeName, nodeBuilder)
 	return nodeBuilder.build()
 }

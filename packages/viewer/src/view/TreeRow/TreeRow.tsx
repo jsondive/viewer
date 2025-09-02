@@ -379,6 +379,8 @@ function TreeRowBody(
 	)
 }
 
+const genericName = "Root"
+
 function rootNodeToName(node: DiveNode) {
 	const fileType = node.getAttribute(builtinAttribute.contentType)
 	if (fileType && isMimeType(fileType)) {
@@ -395,13 +397,13 @@ function rootNodeToName(node: DiveNode) {
 		} else if (fileType === MimeType.Yaml) {
 			return "YAML"
 		} else if (fileType === MimeType.OctetStream) {
-			return "Unknown"
+			return genericName
 		} else {
 			unreachable(fileType)
 		}
 	}
 
-	return "Unknown"
+	return genericName
 }
 
 function MaybeTypeIcon(props: { node: DiveNode }) {

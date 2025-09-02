@@ -94,7 +94,7 @@ export const xml = _.memoize(
 
 						const element = parse(text)
 
-						const nodeBuilder = NodeBuilder.start()
+						const nodeBuilder = NodeBuilder.startEmpty()
 						buildNodesFromXml(element, RootNodeName, nodeBuilder)
 						return {
 							value: nodeBuilder.build(),

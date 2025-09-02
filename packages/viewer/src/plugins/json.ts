@@ -24,7 +24,7 @@ export const json = _.memoize(
 							}
 						}
 
-						const nodeBuilder = NodeBuilder.start()
+						const nodeBuilder = NodeBuilder.startEmpty()
 						buildNodesFromJson(json, RootNodeName, nodeBuilder)
 						return {
 							value: nodeBuilder.build(),
@@ -52,7 +52,7 @@ export const json = _.memoize(
 						}
 
 						const rows = rowsResult.value
-						const parentBuilder = NodeBuilder.start()
+						const parentBuilder = NodeBuilder.startEmpty()
 						const arrayBuilder = parentBuilder.createChild(RootNodeName)
 						for (const [index, value] of rows.entries()) {
 							buildNodesFromJson(value, index, arrayBuilder)
