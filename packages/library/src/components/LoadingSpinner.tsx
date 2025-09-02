@@ -1,5 +1,5 @@
-import { LoaderCircle, LucideProps } from "lucide-react"
 import * as stylex from "@stylexjs/stylex"
+import * as libraryIcons from "../lib/icons"
 
 const spin = stylex.keyframes({
 	"0%": {
@@ -19,6 +19,8 @@ const styles = stylex.create({
 	},
 })
 
-export function LoadingSpinner(props: LucideProps) {
-	return <LoaderCircle {...props} {...stylex.props(styles.wrap)} />
+export function LoadingSpinner(
+	props: React.SVGProps<SVGSVGElement> & { size?: number }
+) {
+	return <libraryIcons.LoaderCircle {...props} {...stylex.props(styles.wrap)} />
 }

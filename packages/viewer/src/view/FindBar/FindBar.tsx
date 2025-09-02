@@ -5,6 +5,7 @@ import {
 	Input,
 	isDefined,
 	keyMatch,
+	libraryIcons,
 } from "@jsondive/library"
 import * as stylex from "@stylexjs/stylex"
 import {
@@ -19,7 +20,6 @@ import {
 	useNodeStatesRef,
 	useSetFindState,
 } from "../../state"
-import * as lucideReact from "lucide-react"
 import { DiveNode } from "../../model/DiveNode"
 import {
 	ReactNode,
@@ -111,7 +111,7 @@ export function FindBar(props: FindBarProps) {
 	return (
 		<div {...addClassName(stylex.props(styles.wrap), "json-dive-font-size-sm")}>
 			<IconWrap>
-				<lucideReact.Search size={ICON_SIZE} />
+				<libraryIcons.Search size={ICON_SIZE} />
 			</IconWrap>
 			<div {...stylex.props(styles.inputWrap)}>
 				<Input
@@ -195,13 +195,13 @@ function Controls(props: {
 	return (
 		<div {...stylex.props(styles.controls)}>
 			<IconWrap isButton>
-				<lucideReact.ChevronUp size={ICON_SIZE} onClick={onPrevious} />
+				<libraryIcons.ChevronUp size={ICON_SIZE} onClick={onPrevious} />
 			</IconWrap>
 			<IconWrap isButton>
-				<lucideReact.ChevronDown size={ICON_SIZE} onClick={onNext} />
+				<libraryIcons.ChevronDown size={ICON_SIZE} onClick={onNext} />
 			</IconWrap>
 			<IconWrap isButton>
-				<lucideReact.CircleX size={ICON_SIZE} onClick={onClose} />
+				<libraryIcons.CircleX size={ICON_SIZE} onClick={onClose} />
 			</IconWrap>
 		</div>
 	)

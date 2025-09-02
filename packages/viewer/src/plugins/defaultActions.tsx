@@ -1,6 +1,5 @@
 import _ from "lodash"
 import { DivePlugin } from "."
-import * as lucideReact from "lucide-react"
 import {
 	DiveAction,
 	shownIfHasChildren,
@@ -8,7 +7,12 @@ import {
 	shownIfHasNonRootNode,
 } from "./DiveAction"
 import { CONTEXT_MENU_ICON_SIZE } from "../providers/ContextMenuProvider"
-import { tryWriteClipboard, ArrowLeft, ArrowRight } from "@jsondive/library"
+import {
+	tryWriteClipboard,
+	ArrowLeft,
+	ArrowRight,
+	libraryIcons,
+} from "@jsondive/library"
 
 export type DefaultActionId =
 	| "default.expand"
@@ -47,7 +51,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <lucideReact.ArrowRight size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.ArrowRight size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [ArrowRight, "l"],
 	},
 
@@ -61,7 +65,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <lucideReact.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [["l", { shift: true }]],
 	},
 
@@ -78,7 +82,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <lucideReact.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
 	},
 
 	collapse: {
@@ -93,7 +97,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <lucideReact.ArrowLeft size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.ArrowLeft size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [ArrowLeft, "h"],
 	},
 
@@ -107,7 +111,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <lucideReact.ArrowLeftFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.ArrowLeftFromLine size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [["h", { shift: true }]],
 	},
 
@@ -121,7 +125,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasFocusedNode,
-		icon: <lucideReact.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [["c", { command: true }]],
 	},
 
@@ -135,7 +139,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasFocusedNode,
-		icon: <lucideReact.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
 	},
 
 	copyKeyToClipboard: {
@@ -148,7 +152,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasNonRootNode,
-		icon: <lucideReact.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
 	},
 
 	copyPathToClipboard: {
@@ -161,7 +165,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasNonRootNode,
-		icon: <lucideReact.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
 		keybinds: [["p", { command: true }]],
 	},
 
@@ -174,7 +178,7 @@ const defaultActionMap: {
 		},
 		availabilityStatus: () => ({ type: "hidden" }),
 		keybinds: ["/", ["f", { command: true }]],
-		icon: <lucideReact.Search size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: <libraryIcons.Search size={CONTEXT_MENU_ICON_SIZE} />,
 	},
 }
 

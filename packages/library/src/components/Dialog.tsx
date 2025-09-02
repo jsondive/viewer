@@ -2,7 +2,7 @@ import { Dialog as BaseDialog } from "@base-ui-components/react"
 import { ReactNode } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
-import * as lucideReact from "lucide-react"
+import * as libraryIcons from "../lib/icons"
 
 const EDGE_PADDING = "var(--json-dive-spacing-4)"
 
@@ -87,7 +87,7 @@ export function Dialog(props: {
 					<div {...stylex.props(styles.titleBar)}>
 						<div className="json-dive-font-size-xl">{title}</div>
 						<div {...stylex.props(styles.closeButton)} onClick={onClose}>
-							<lucideReact.X size={15} />
+							<libraryIcons.X size={15} />
 						</div>
 					</div>
 					<div {...stylex.props(styles.content)}>{children}</div>

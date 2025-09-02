@@ -1,4 +1,4 @@
-import { addClassName, Result } from "@jsondive/library"
+import { addClassName, libraryIcons, Result } from "@jsondive/library"
 import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider } from "./state"
 import { DivePlugin } from "./plugins"
@@ -7,7 +7,6 @@ import { parseIntoNode } from "./lib/parse"
 import { DocumentInput } from "./model/DocumentInput"
 import * as stylex from "@stylexjs/stylex"
 import { DiveNode } from "./model/DiveNode"
-import * as lucideReact from "lucide-react"
 import {
 	JSONDiveController,
 	JSONDiveControllerImpl,
@@ -101,7 +100,7 @@ function ParseError(props: { error: Error }) {
 	return (
 		<div {...stylex.props(styles.errorWrap)}>
 			<div {...stylex.props(styles.errorIconWrap)}>
-				<lucideReact.CircleAlert
+				<libraryIcons.CircleAlert
 					stroke="var(--json-dive-color-error-message)"
 					size={30}
 				/>

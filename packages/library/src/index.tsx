@@ -4,6 +4,7 @@ export * from "./lib/promiseUtils"
 export * from "./lib/arrayBufferUtils"
 export * from "./lib/uuidUtils"
 export * from "./lib/keyboardUtils"
+export * as libraryIcons from "./lib/icons"
 
 export { Result } from "./lib/Result"
 export { makeDeferred, type Deferred } from "./lib/deferred"
