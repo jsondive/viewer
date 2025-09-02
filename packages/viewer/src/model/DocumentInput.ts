@@ -11,6 +11,7 @@ import _ from "lodash"
 import z, { ZodError } from "zod"
 import { MimeType } from "./MimeType"
 import { detectFileType } from "../lib/detectFileType"
+import { DiveNode } from "./DiveNode"
 
 type DocumentInputValue =
 	| {
@@ -24,6 +25,10 @@ type DocumentInputValue =
 	| {
 			type: "json"
 			json: unknown
+	  }
+	| {
+			type: "node"
+			node: DiveNode
 	  }
 
 const SerializedDocumentInputValueSchema = z.discriminatedUnion("type", [
@@ -75,6 +80,8 @@ export class DocumentInput {
 			return Result.toOptional(tryDecodeText(this.value.arrayBuffer))
 		} else if (this.value.type === "json") {
 			return JSON.stringify(this.value.json)
+		} else if (this.value.type === "node") {
+			return undefined
 		} else {
 			unreachable(this.value)
 		}
@@ -110,6 +117,17 @@ export class DocumentInput {
 		)
 	}
 
+	static fromNode(node: DiveNode) {
+		return new DocumentInput({ type: "node", node }, MimeType.OctetStream)
+	}
+
+	/**
+	 * If this DocumentInput encapsulates a DiveNode directly, return it.
+	 */
+	getNodeDirectly() {
+		return this.value.type === "node" ? this.value.node : undefined
+	}
+
 	static empty = _.memoize(() => DocumentInput.fromText(""))
 
 	static readonly Autodetect = Symbol("AutodetectContentType")
@@ -120,6 +138,8 @@ export class DocumentInput {
 				type: "arrayBuffer",
 				arrayBufferBase64: arrayBufferToBase64(this.value.arrayBuffer),
 			}
+		} else if (this.value.type === "node") {
+			throw new Error(`DocumentInput of type node cannot be serialized`)
 		} else {
 			return this.value
 		}

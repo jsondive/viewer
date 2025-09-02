@@ -30,7 +30,7 @@ export const yaml = _.memoize(
 							return parseResult
 						}
 
-						const nodeBuilder = NodeBuilder.start()
+						const nodeBuilder = NodeBuilder.startEmpty()
 						buildNodesFromJson(parseResult.value, RootNodeName, nodeBuilder)
 						return {
 							value: nodeBuilder.build(),

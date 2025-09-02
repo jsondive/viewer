@@ -8,6 +8,9 @@ export { javascript } from "./plugins/javascript"
 export { yaml } from "./plugins/yaml"
 export { defaultActions, type DefaultActionId } from "./plugins/defaultActions"
 export { type DivePlugin } from "./plugins"
+export { NodeBuilder } from "./model/NodeBuilder"
+export { builtinAttribute } from "./model/builtinAttributes"
+export { Attribute } from "./model/Attribute"
 export {
 	DocumentInput,
 	SerializedDocumentInputSchema,
