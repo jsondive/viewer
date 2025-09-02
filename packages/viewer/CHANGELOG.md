@@ -1,5 +1,14 @@
 # @jsondive/viewer
 
+## 0.0.10
+
+### Patch Changes
+
+- 2861833: Add DocumentInput.fromNode
+- 9ca22ad: Remove dependency on lucide-react by inlining icons
+- Updated dependencies [9ca22ad]
+  - @jsondive/library@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

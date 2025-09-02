@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.10
+
+### Patch Changes
+
+- 9ca22ad: Remove dependency on lucide-react by inlining icons
+
 ## 0.0.9
 
 ### Patch Changes
