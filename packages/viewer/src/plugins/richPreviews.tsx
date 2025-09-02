@@ -1,8 +1,13 @@
 import _ from "lodash"
 import { DivePlugin, INLINE_DECORATION_ICON_SIZE, NodeDecoration } from "."
 import { builtinAttribute } from "../model/builtinAttributes"
-import { Badge, isDefined, Result, tryParseUrl } from "@jsondive/library"
-import * as lucideReact from "lucide-react"
+import {
+	Badge,
+	isDefined,
+	libraryIcons,
+	Result,
+	tryParseUrl,
+} from "@jsondive/library"
 import * as stylex from "@stylexjs/stylex"
 import { DateTime } from "luxon"
 import { useEffect, useMemo, useState } from "react"
@@ -88,7 +93,7 @@ function getImageDecoration(
 	url: string,
 	icons: IconPack | undefined
 ): NodeDecoration {
-	const ImageIcon = icons?.image ?? lucideReact.Image
+	const ImageIcon = icons?.image ?? libraryIcons.Image
 
 	return {
 		type: "inline",
