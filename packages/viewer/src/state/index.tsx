@@ -654,8 +654,20 @@ export function useNodeStatesRef() {
 	return ref
 }
 
+function getFocusedNodeFromState(state: AppState) {
+	return state.focusedNodeOverride ?? state.focusedNode
+}
+
 export function useFocusedNode() {
-	return useAppSelector(state => state.focusedNodeOverride ?? state.focusedNode)
+	return useAppSelector(getFocusedNodeFromState)
+}
+
+export function useGetFocusedNode() {
+	const appStore = useAppStore()
+	return useCallback(
+		() => getFocusedNodeFromState(appStore.getState()),
+		[appStore]
+	)
 }
 
 export function useSetFocusedNodeOverride() {

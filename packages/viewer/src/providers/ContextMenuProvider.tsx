@@ -11,8 +11,8 @@ import { createPortal } from "react-dom"
 import * as stylex from "@stylexjs/stylex"
 import {
 	useFindHTMLElementForNode,
-	useFocusedNode,
 	useFocusNode,
+	useGetFocusedNode,
 	useNodeRegistryRef,
 	useSetFocusedNodeOverride,
 } from "../state"
@@ -314,12 +314,13 @@ export function RenderContextMenuItem(props: {
 
 export function useOpenContextMenu() {
 	const contextValue = useContext(ContextMenuContext)
-	const focusedNode = useFocusedNode()
+	const getFocusedNode = useGetFocusedNode()
 	const setFocusedNodeOverride = useSetFocusedNodeOverride()
 	const findHTMLElementForNode = useFindHTMLElementForNode()
 
 	return useCallback(
 		(args: { itemGroups: ContextMenuItem[][]; position: [number, number] }) => {
+			const focusedNode = getFocusedNode()
 			if (focusedNode) {
 				// In order to prevent a flicker when the menu closes (during which focus
 				// actually does change), we add a temporary class to the node such that
@@ -338,6 +339,11 @@ export function useOpenContextMenu() {
 				...args,
 			})
 		},
-		[contextValue, findHTMLElementForNode, focusedNode, setFocusedNodeOverride]
+		[
+			contextValue,
+			findHTMLElementForNode,
+			getFocusedNode,
+			setFocusedNodeOverride,
+		]
 	)
 }

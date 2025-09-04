@@ -188,30 +188,32 @@ function useNodeDisplayMap(args: {
 }) {
 	const { rootNode, virtualItems, flatNodes } = args
 
-	const result: NodeDisplayMap = new Map([
-		// Root should always be included, even if VirtualItems is empty
-		// (as can happen before the container is measured.)
-		[rootNode, { type: "invisible" }],
-	])
+	return useMemo(() => {
+		const result: NodeDisplayMap = new Map([
+			// Root should always be included, even if VirtualItems is empty
+			// (as can happen before the container is measured.)
+			[rootNode, { type: "invisible" }],
+		])
 
-	// Ensure that ancestors are in the DisplayMap so that they can render
-	// their children.
-	for (const virtualItem of virtualItems) {
-		for (const node of flatNodes[virtualItem.index].getAncestorsAndSelf()) {
+		// Ensure that ancestors are in the DisplayMap so that they can render
+		// their children.
+		for (const virtualItem of virtualItems) {
+			for (const node of flatNodes[virtualItem.index].getAncestorsAndSelf()) {
+				result.set(node, {
+					type: "invisible",
+				})
+			}
+		}
+
+		// Add shown nodes to the display map.
+		for (const virtualItem of virtualItems) {
+			const node = flatNodes[virtualItem.index]
 			result.set(node, {
-				type: "invisible",
+				type: "shown",
+				yOffset: virtualItem.start,
 			})
 		}
-	}
 
-	// Add shown nodes to the display map.
-	for (const virtualItem of virtualItems) {
-		const node = flatNodes[virtualItem.index]
-		result.set(node, {
-			type: "shown",
-			yOffset: virtualItem.start,
-		})
-	}
-
-	return result
+		return result
+	}, [flatNodes, rootNode, virtualItems])
 }
