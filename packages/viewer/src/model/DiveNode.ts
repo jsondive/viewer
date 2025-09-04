@@ -143,11 +143,19 @@ export class DiveNode {
 	}
 
 	get pathParts(): string[] {
-		if (this.isRoot) {
-			return []
-		}
+		// Ancestors, starting from the root.
+		const ancestors = [...this.getAncestorsAndSelf()].reverse()
+		const result: string[] = []
+		for (const [i, ancestor] of ancestors.entries()) {
+			if (!ancestor.isRoot) {
+				result.push(ancestor.nameString)
+			}
 
-		return [...(this.parent ? this.parent.pathParts : []), this.nameString]
+			if (i > 0 && ancestor.getAttribute(builtinAttribute.fileTypeName)) {
+				break
+			}
+		}
+		return result
 	}
 
 	get pathString() {

@@ -18,6 +18,7 @@ import * as stylex from "@stylexjs/stylex"
 import { MaybeFindBar } from "../FindBar/FindBar"
 import { JSONDiveViewerManipulator } from "../../JSONDiveController"
 import { ViewerKeyboardShortcuts } from "./ViewerKeyboardShortcuts"
+import { MaybePathBar } from "../PathBar"
 
 const styles = stylex.create({
 	outerWrap: {
@@ -177,6 +178,7 @@ export const DocumentViewer = React.forwardRef(function DocumentViewer(
 					/>
 				</div>
 			</div>
+			<MaybePathBar />
 		</div>
 	)
 })
