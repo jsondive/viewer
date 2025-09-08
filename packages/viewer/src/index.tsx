@@ -32,4 +32,5 @@ export {
 	type ContextMenuItem,
 } from "./providers/ContextMenuProvider"
 
-export type { JSONDiveOptions, IconPack } from "./model/JSONDiveOptions"
+export type { JSONDiveOptions } from "./model/JSONDiveOptions"
+export { type ComponentOverrides as JSONDiveComponentOverrides } from "@jsondive/library"

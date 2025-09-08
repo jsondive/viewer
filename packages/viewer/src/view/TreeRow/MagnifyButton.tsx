@@ -1,4 +1,9 @@
-import { Badge, Dialog, libraryIcons } from "@jsondive/library"
+import {
+	Badge,
+	Dialog,
+	libraryIcons,
+	OverridableComponent,
+} from "@jsondive/library"
 import { INLINE_DECORATION_ICON_SIZE } from "../../plugins"
 import { useState } from "react"
 import { DiveNode } from "../../model/DiveNode"
@@ -15,9 +20,7 @@ const styles = stylex.create({
 export function MagnifyButton(props: { node: DiveNode }) {
 	const { node } = props
 
-	const { onValueMagnified, icons } = useOptions()
-
-	const MagnifyIcon = icons?.magnify ?? libraryIcons.Search
+	const { onValueMagnified } = useOptions()
 
 	const [dialogOpen, setDialogOpen] = useState(false)
 
@@ -41,7 +44,11 @@ export function MagnifyButton(props: { node: DiveNode }) {
 					}
 				}}
 			>
-				<MagnifyIcon size={INLINE_DECORATION_ICON_SIZE} />
+				<OverridableComponent
+					overrideKey="magnifyIcon"
+					overrideDefault={libraryIcons.Search}
+					size={INLINE_DECORATION_ICON_SIZE}
+				/>
 			</Badge>
 			{!onValueMagnified && (
 				<Dialog

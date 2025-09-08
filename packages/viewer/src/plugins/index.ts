@@ -3,7 +3,6 @@ import { DocumentInput } from "../model/DocumentInput"
 import { ReactNode } from "react"
 import { DiveNode } from "../model/DiveNode"
 import { DiveAction } from "./DiveAction"
-import { IconPack } from "../model/JSONDiveOptions"
 
 export const CannotHandleInput = Symbol("CannotHandleInput")
 export type CannotHandleInput = typeof CannotHandleInput
@@ -30,15 +29,8 @@ export type FileType = {
 
 export type PluginActionsContext = "contextMenu" | "keyboardShortcut"
 
-export type NodeDecorationContext = {
-	icons?: IconPack
-}
-
 export type DivePlugin<ActionId = string> = {
 	getFileTypes?: () => FileType[]
-	getDecorationsForNode?: (
-		node: DiveNode,
-		context: NodeDecorationContext
-	) => NodeDecoration[]
+	getDecorationsForNode?: (node: DiveNode) => NodeDecoration[]
 	getActions?: (context: PluginActionsContext) => DiveAction<ActionId>[]
 }

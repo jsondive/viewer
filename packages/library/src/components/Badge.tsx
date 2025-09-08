@@ -3,6 +3,7 @@ import { isDefined } from "../utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./Tooltip"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
+import { OverridableComponent } from "../lib/componentOverrides"
 
 const styles = stylex.create({
 	body: {
@@ -29,15 +30,7 @@ export function Badge(props: BadgeProps) {
 	const { children, tooltip, onClick } = props
 
 	let body = (
-		<div
-			{...addClassName(
-				stylex.props(styles.body, onClick && styles.clickableBody),
-				"json-dive-font-size-sm"
-			)}
-			onClick={onClick}
-		>
-			{children}
-		</div>
+		<OverridableBadgeInner onClick={onClick}>{children}</OverridableBadgeInner>
 	)
 
 	if (isDefined(tooltip)) {
@@ -50,4 +43,30 @@ export function Badge(props: BadgeProps) {
 	}
 
 	return body
+}
+
+function OverridableBadgeInner(props: Omit<BadgeProps, "tooltip">) {
+	return (
+		<OverridableComponent
+			overrideKey="badge"
+			overrideDefault={BadgeInner}
+			{...props}
+		/>
+	)
+}
+
+function BadgeInner(props: Omit<BadgeProps, "tooltip">) {
+	const { children, onClick } = props
+
+	return (
+		<div
+			{...addClassName(
+				stylex.props(styles.body, onClick && styles.clickableBody),
+				"json-dive-font-size-sm"
+			)}
+			onClick={onClick}
+		>
+			{children}
+		</div>
+	)
 }

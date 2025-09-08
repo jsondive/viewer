@@ -1,4 +1,10 @@
-import { addClassName, libraryIcons, Result } from "@jsondive/library"
+import {
+	addClassName,
+	ComponentOverrideProvider,
+	ComponentOverrides,
+	libraryIcons,
+	Result,
+} from "@jsondive/library"
 import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider } from "./state"
 import { DivePlugin } from "./plugins"
@@ -19,6 +25,7 @@ export type JSONDiveProps = {
 	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
 	options?: JSONDiveOptions
+	components?: ComponentOverrides
 } & (
 	| {
 			data: Record<string, unknown>
@@ -124,6 +131,7 @@ export function JSONDive(props: JSONDiveProps) {
 	const {
 		plugins = defaultPlugins,
 		ref,
+		components,
 		data: _ignoredData,
 		input: _ignoredInput,
 		...restProps
@@ -162,16 +170,18 @@ export function JSONDive(props: JSONDiveProps) {
 			)}
 			ref={outerContainerRef}
 		>
-			{Result.isSuccess(parseResult) ? (
-				<ParseSuccess
-					plugins={plugins}
-					rootNode={parseResult.value}
-					controller={controller}
-					{...restProps}
-				/>
-			) : (
-				<ParseError error={parseResult.error} />
-			)}
+			<ComponentOverrideProvider overrides={components}>
+				{Result.isSuccess(parseResult) ? (
+					<ParseSuccess
+						plugins={plugins}
+						rootNode={parseResult.value}
+						controller={controller}
+						{...restProps}
+					/>
+				) : (
+					<ParseError error={parseResult.error} />
+				)}
+			</ComponentOverrideProvider>
 		</div>
 	)
 }

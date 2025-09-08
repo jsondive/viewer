@@ -5,6 +5,7 @@ import {
 	Badge,
 	isDefined,
 	libraryIcons,
+	OverridableComponent,
 	Result,
 	tryParseUrl,
 } from "@jsondive/library"
@@ -15,7 +16,6 @@ import {
 	DateInterpretation,
 	tryInterpretDateValue,
 } from "../lib/tryInterpretDateValue"
-import { IconPack } from "../model/JSONDiveOptions"
 
 // TODO: video previews?
 
@@ -23,7 +23,7 @@ const imageExtensions = [".png", ".jpg", ".jpeg", ".webp"]
 
 export const richPreviews = _.memoize(
 	(): DivePlugin => ({
-		getDecorationsForNode(node, context) {
+		getDecorationsForNode(node) {
 			const primitiveValue = node.getAttribute(builtinAttribute.primitiveValue)
 			if (!primitiveValue) {
 				return []
@@ -47,7 +47,7 @@ export const richPreviews = _.memoize(
 					if (
 						imageExtensions.some(ext => urlResult.value.pathname.endsWith(ext))
 					) {
-						decorations.push(getImageDecoration(stringValue, context.icons))
+						decorations.push(getImageDecoration(stringValue))
 					}
 
 					return decorations
@@ -89,18 +89,17 @@ const styles = stylex.create({
 	},
 })
 
-function getImageDecoration(
-	url: string,
-	icons: IconPack | undefined
-): NodeDecoration {
-	const ImageIcon = icons?.image ?? libraryIcons.Image
-
+function getImageDecoration(url: string): NodeDecoration {
 	return {
 		type: "inline",
 		render() {
 			return (
 				<Badge tooltip={<ImagePreview url={url} />}>
-					<ImageIcon size={INLINE_DECORATION_ICON_SIZE} />
+					<OverridableComponent
+						overrideKey="imageIcon"
+						overrideDefault={libraryIcons.Image}
+						size={INLINE_DECORATION_ICON_SIZE}
+					/>
 				</Badge>
 			)
 		},

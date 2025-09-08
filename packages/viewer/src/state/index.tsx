@@ -796,17 +796,10 @@ export function useSetFindState() {
 
 export function useDecorationsForNode(node: DiveNode) {
 	const plugins = usePlugins()
-	const options = useOptions()
 
 	return useMemo(
-		() =>
-			plugins.flatMap(
-				plugin =>
-					plugin.getDecorationsForNode?.(node, {
-						icons: options.icons,
-					}) ?? []
-			),
-		[plugins, node, options.icons]
+		() => plugins.flatMap(plugin => plugin.getDecorationsForNode?.(node) ?? []),
+		[plugins, node]
 	)
 }
 

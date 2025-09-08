@@ -28,3 +28,9 @@ export {
 export { useIsOverflowing } from "./hooks/useIsOverflowing"
 
 export type { IconComponent } from "./lib/IconComponent"
+
+export {
+	OverridableComponent,
+	type ComponentOverrides,
+	ComponentOverrideProvider,
+} from "./lib/componentOverrides"
