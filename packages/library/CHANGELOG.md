@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.11
+
+### Patch Changes
+
+- c0298e1: Add path bar to bottom of viewer
+
 ## 0.0.10
 
 ### Patch Changes

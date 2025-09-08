@@ -1,5 +1,14 @@
 # @jsondive/viewer
 
+## 0.0.11
+
+### Patch Changes
+
+- 1e8638e: Reduce re-renders when focused node changes
+- c0298e1: Add path bar to bottom of viewer
+- Updated dependencies [c0298e1]
+  - @jsondive/library@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes
