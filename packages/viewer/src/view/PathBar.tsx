@@ -168,6 +168,9 @@ export function ConnectedPathBar() {
 		[focusNode, resolvedPath]
 	)
 
+	// When the user changes focus to a node that's outside of the path of
+	// the pinned node, we clear the pinned node as the pinned path
+	// no longer applies to the user's selection.
 	useEffect(() => {
 		if (
 			pinnedNode &&
