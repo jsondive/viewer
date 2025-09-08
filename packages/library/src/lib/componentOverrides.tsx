@@ -10,7 +10,15 @@ export type ComponentOverrides = {
 	 * (like a nested file type) or provide additional actions (like
 	 * magnifying the value.)
 	 */
-	badge?: React.FC<{ children: ReactNode; onClick?: () => void }>
+	badge?: React.FC<{
+		children: ReactNode
+		onClick?: () => void
+		/**
+		 * `ref` must be passed down to the underlying root element so that
+		 * tooltips work correctly.
+		 */
+		ref?: React.RefObject<HTMLElement>
+	}>
 
 	/**
 	 * Icon used when a value is collapsed for a button to expand the value.

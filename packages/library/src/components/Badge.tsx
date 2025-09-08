@@ -55,8 +55,10 @@ function OverridableBadgeInner(props: Omit<BadgeProps, "tooltip">) {
 	)
 }
 
-function BadgeInner(props: Omit<BadgeProps, "tooltip">) {
-	const { children, onClick } = props
+function BadgeInner(
+	props: Omit<BadgeProps, "tooltip"> & { ref?: React.RefObject<HTMLElement> }
+) {
+	const { children, onClick, ref } = props
 
 	return (
 		<div
@@ -65,6 +67,7 @@ function BadgeInner(props: Omit<BadgeProps, "tooltip">) {
 				"json-dive-font-size-sm"
 			)}
 			onClick={onClick}
+			ref={ref as React.RefObject<HTMLDivElement>}
 		>
 			{children}
 		</div>
