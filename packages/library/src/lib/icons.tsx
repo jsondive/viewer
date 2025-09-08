@@ -304,3 +304,48 @@ export function CircleX(
 		</svg>
 	)
 }
+
+export function ChevronRight(
+	props: React.SVGProps<SVGSVGElement> & { size?: number }
+) {
+	const { size = DEFAULT_ICON_SIZE } = props
+
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size}
+			height={size}
+			fill="none"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="2"
+			className="lucide lucide-chevron-right-icon lucide-chevron-right"
+			viewBox="0 0 24 24"
+		>
+			<path d="m9 18 6-6-6-6"></path>
+		</svg>
+	)
+}
+
+export function Copy(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
+	const { size = DEFAULT_ICON_SIZE } = props
+
+	return (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width={size}
+			height={size}
+			fill="none"
+			stroke="currentColor"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeWidth="2"
+			className="lucide lucide-copy-icon lucide-copy"
+			viewBox="0 0 24 24"
+		>
+			<rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+			<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+		</svg>
+	)
+}
