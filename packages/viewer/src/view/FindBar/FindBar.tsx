@@ -11,13 +11,12 @@ import * as stylex from "@stylexjs/stylex"
 import {
 	FindState,
 	useAppEventListener,
-	useDiveController,
 	useFindHTMLElementForNode,
 	useFindState,
 	useFocusedNode,
 	useFocusNode,
 	useNodeStates,
-	useNodeStatesRef,
+	useScrollToNodeIfNotVisible,
 	useSetFindState,
 } from "../../state"
 import { DiveNode } from "../../model/DiveNode"
@@ -368,8 +367,7 @@ function useHandleClose(props: FindBarProps) {
 
 function useScrollToMatch(props: FindBarProps) {
 	const { findState } = props
-	const nodeStatesRef = useNodeStatesRef()
-	const controller = useDiveController()
+	const scrollToNodeIfNotVisible = useScrollToNodeIfNotVisible()
 
 	useEffect(() => {
 		const { foundNodes, currentMatchIndex } = findState
@@ -378,15 +376,8 @@ function useScrollToMatch(props: FindBarProps) {
 		}
 
 		const currentMatchNode = [...foundNodes][currentMatchIndex]
-		const currentMatchVisible =
-			nodeStatesRef.current.get(currentMatchNode).visible
-
-		if (!currentMatchVisible) {
-			controller.scrollToNode(currentMatchNode, {
-				align: "center",
-			})
-		}
-	}, [controller, findState, nodeStatesRef])
+		scrollToNodeIfNotVisible(currentMatchNode)
+	}, [findState, scrollToNodeIfNotVisible])
 }
 
 /**

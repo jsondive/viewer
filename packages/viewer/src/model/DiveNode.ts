@@ -142,20 +142,26 @@ export class DiveNode {
 		return this.name === RootNodeName
 	}
 
-	get pathParts(): string[] {
+	get pathNodes(): DiveNode[] {
 		// Ancestors, starting from the root.
 		const ancestors = [...this.getAncestorsAndSelf()].reverse()
-		const result: string[] = []
+		const result: DiveNode[] = []
 		for (const [i, ancestor] of ancestors.entries()) {
 			if (!ancestor.isRoot) {
-				result.push(ancestor.nameString)
+				result.push(ancestor)
 			}
 
+			// For now, path stops when there's a nested file type (as you wouldn't actually
+			// be able to index into that in an external tool.)
 			if (i > 0 && ancestor.getAttribute(builtinAttribute.fileTypeName)) {
 				break
 			}
 		}
 		return result
+	}
+
+	get pathParts(): string[] {
+		return this.pathNodes.map(node => node.nameString)
 	}
 
 	get pathString() {

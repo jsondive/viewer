@@ -368,15 +368,90 @@ export function useFindHTMLElementForNode() {
 	)
 }
 
-export function useFocusNode() {
+export function useFindHTMLElementForNodeRef() {
 	const findHTMLElementForNode = useFindHTMLElementForNode()
+	const ref = useRef<ReturnType<typeof useFindHTMLElementForNode>>(
+		findHTMLElementForNode
+	)
+	useEffect(() => {
+		ref.current = findHTMLElementForNode
+	}, [findHTMLElementForNode])
+	return ref
+}
+
+export function useFocusNode() {
+	const findHTMLElementForNodeRef = useFindHTMLElementForNodeRef()
+	const scrollToNodeIfNotVisible = useScrollToNodeIfNotVisible()
+	const waitForNodeVisible = useWaitForNodeVisible()
+
+	return useCallback(
+		async (node: DiveNode) => {
+			// First try: maybe the Node is already mounted.
+			const elementFirstTry = findHTMLElementForNodeRef.current(node)
+			if (elementFirstTry) {
+				elementFirstTry.focus()
+				return
+			}
+
+			// Second try: scroll to the node, and then try to focus.
+			const didScroll = scrollToNodeIfNotVisible(node)
+			if (didScroll) {
+				await waitForNodeVisible(node)
+			}
+			const elementSecondTry = findHTMLElementForNodeRef.current(node)
+			if (elementSecondTry) {
+				elementSecondTry.focus()
+				return
+			}
+
+			console.warn(`Could not find node to focus`, node)
+		},
+		[findHTMLElementForNodeRef, scrollToNodeIfNotVisible, waitForNodeVisible]
+	)
+}
+
+const WAIT_FOR_NODE_VISIBLE_TIMEOUT = 1000
+
+export function useWaitForNodeVisible() {
+	const nodeStatesRef = useNodeStatesRef()
+
+	return useCallback(
+		async (node: DiveNode) => {
+			let timedOut = false
+			const start = Date.now()
+			while (!timedOut) {
+				if (nodeStatesRef.current.get(node).visible) {
+					break
+				}
+				await new Promise(resolve => requestAnimationFrame(resolve))
+				timedOut = Date.now() - start > WAIT_FOR_NODE_VISIBLE_TIMEOUT
+			}
+			if (timedOut) {
+				console.error(`Timed out while waiting for node to be visible`)
+			}
+		},
+		[nodeStatesRef]
+	)
+}
+
+/**
+ * This manipulator returns whether the node was scrolled to.
+ */
+export function useScrollToNodeIfNotVisible() {
+	const nodeStatesRef = useNodeStatesRef()
+	const controller = useDiveController()
 
 	return useCallback(
 		(node: DiveNode) => {
-			const element = findHTMLElementForNode(node)
-			element?.focus()
+			const visible = nodeStatesRef.current.get(node).visible
+			if (!visible) {
+				controller.scrollToNode(node, {
+					align: "center",
+				})
+			}
+			return !visible
 		},
-		[findHTMLElementForNode]
+		[controller, nodeStatesRef]
 	)
 }
 

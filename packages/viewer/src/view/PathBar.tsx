@@ -7,9 +7,9 @@ import {
 	TooltipTrigger,
 } from "@jsondive/library"
 import { DiveNode } from "../model/DiveNode"
-import { useDiveController, useFocusedNode } from "../state"
+import { useDiveController, useFocusedNode, useFocusNode } from "../state"
 import * as stylex from "@stylexjs/stylex"
-import React, { useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { defaultActions } from "../plugins/defaultActions"
 
 const styles = stylex.create({
@@ -23,15 +23,26 @@ const styles = stylex.create({
 		borderTopStyle: "solid",
 		borderTopWidth: 1,
 		borderTopColor: "var(--json-dive-color-light-border)",
-		color: "var(--json-dive-color-light-label)",
+		color: "var(--json-dive-color-black)",
 		gap: "var(--json-dive-spacing-1)",
 		zIndex: 100,
 	},
 
-	pathParts: {
+	pathItemContainer: {
 		display: "flex",
 		alignItems: "center",
 		gap: "var(--json-dive-spacing-0_5)",
+	},
+
+	pathItem: {
+		cursor: "pointer",
+		textDecoration: {
+			":hover": "underline",
+		},
+	},
+
+	inactivePathItem: {
+		color: "var(--json-dive-color-light-label)",
 	},
 
 	copyPathButton: {
@@ -39,10 +50,17 @@ const styles = stylex.create({
 	},
 })
 
-export function PathBar(props: { node: DiveNode }) {
-	const { node } = props
+type ResolvedPathItem = {
+	node: DiveNode
+	active: boolean
+}
 
-	const pathParts = node.pathParts
+export function PathBar(props: {
+	activeNode: DiveNode
+	resolvedPath: ResolvedPathItem[]
+	onPathItemClick(node: DiveNode): void
+}) {
+	const { activeNode, resolvedPath, onPathItemClick } = props
 
 	return (
 		<div
@@ -52,17 +70,41 @@ export function PathBar(props: { node: DiveNode }) {
 				e.preventDefault()
 			}}
 		>
-			<div {...stylex.props(styles.pathParts)}>
+			<div {...stylex.props(styles.pathItemContainer)}>
 				{intersperseArray(
-					pathParts.map((pathPart, i) => (
-						<div key={`part-${i}`}>{pathPart}</div>
+					resolvedPath.map((item, i) => (
+						<RenderPathItem
+							key={`part-${i}`}
+							node={item.node}
+							onClick={() => {
+								onPathItemClick(item.node)
+							}}
+							active={item.active}
+						/>
 					)),
 					i => (
 						<libraryIcons.ChevronRight key={`chevron-${i}`} size={14} />
 					)
 				)}
 			</div>
-			<CopyPathButton node={node} />
+			<CopyPathButton node={activeNode} />
+		</div>
+	)
+}
+
+function RenderPathItem(props: {
+	node: DiveNode
+	onClick: () => void
+	active: boolean
+}) {
+	const { node, onClick, active } = props
+
+	return (
+		<div
+			{...stylex.props(styles.pathItem, !active && styles.inactivePathItem)}
+			onClick={onClick}
+		>
+			{node.nameString}
 		</div>
 	)
 }
@@ -72,15 +114,12 @@ function CopyPathButton(props: { node: DiveNode }) {
 
 	const controller = useDiveController()
 
-	const handleClick = useCallback(
-		(e: React.MouseEvent) => {
-			controller.invoke(defaultActions.copyPathToClipboard, {
-				node,
-				invokedFrom: "other",
-			})
-		},
-		[controller, node]
-	)
+	const handleClick = useCallback(() => {
+		controller.invoke(defaultActions.copyPathToClipboard, {
+			node,
+			invokedFrom: "other",
+		})
+	}, [controller, node])
 
 	return (
 		<Tooltip placement="right">
@@ -94,9 +133,55 @@ function CopyPathButton(props: { node: DiveNode }) {
 	)
 }
 
-export function MaybePathBar() {
-	const focusedNode = useFocusedNode()
-	return focusedNode && !focusedNode.isRoot ? (
-		<PathBar node={focusedNode} />
+export function ConnectedPathBar() {
+	const focusedNodeMaybeRoot = useFocusedNode()
+	// Don't do anything with the root node; doesn't make sense to display a path there.
+	const focusedNode = focusedNodeMaybeRoot?.isRoot
+		? undefined
+		: focusedNodeMaybeRoot
+	// This needs to get passed in so that it stays mounted even if PathBar unmounts.
+	const focusNode = useFocusNode()
+
+	// When a user navigates to a parent path item, the current node becomes "pinned".
+	// This means we will still display the full path for the pinned node, but the focus
+	// has moved up the hierarchy. This would let the user navigate back *down* to the
+	// pinned node, if they wish.
+	const [pinnedNode, setPinnedNode] = useState<DiveNode | undefined>(undefined)
+
+	const focusedNodePath = focusedNode?.pathNodes
+	const pinnedNodePath = pinnedNode?.pathNodes
+
+	const resolvedPath = (pinnedNodePath ?? focusedNodePath)?.map(
+		(pathNode): ResolvedPathItem => ({
+			node: pathNode,
+			active: Boolean((focusedNodePath ?? pinnedNodePath)?.includes(pathNode)),
+		})
+	)
+
+	const activeNode = focusedNode ?? pinnedNode
+
+	const onPathItemClick = useCallback(
+		(node: DiveNode) => {
+			focusNode(node)
+			setPinnedNode(resolvedPath?.at(-1)?.node)
+		},
+		[focusNode, resolvedPath]
+	)
+
+	useEffect(() => {
+		if (
+			pinnedNode &&
+			(!focusedNode || !pinnedNode.pathNodes.includes(focusedNode))
+		) {
+			setPinnedNode(undefined)
+		}
+	}, [focusedNode, pinnedNode])
+
+	return activeNode && resolvedPath ? (
+		<PathBar
+			activeNode={activeNode}
+			resolvedPath={resolvedPath}
+			onPathItemClick={onPathItemClick}
+		/>
 	) : null
 }
