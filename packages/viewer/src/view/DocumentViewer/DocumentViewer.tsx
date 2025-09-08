@@ -12,6 +12,7 @@ import {
 	useDiveController,
 	useNodeRegistryRef,
 	useNodeStates,
+	useOptions,
 	useSetNodeVisibilityRef,
 } from "../../state"
 import * as stylex from "@stylexjs/stylex"
@@ -178,10 +179,15 @@ export const DocumentViewer = React.forwardRef(function DocumentViewer(
 					/>
 				</div>
 			</div>
-			<ConnectedPathBar />
+			<PathBarIfEnabled />
 		</div>
 	)
 })
+
+function PathBarIfEnabled() {
+	const options = useOptions()
+	return !options.hidePathBar ? <ConnectedPathBar /> : null
+}
 
 function useNodeDisplayMap(args: {
 	rootNode: DiveNode
