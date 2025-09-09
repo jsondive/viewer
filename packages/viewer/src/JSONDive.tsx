@@ -4,7 +4,7 @@ import {
 	PortalProvider,
 	Result,
 } from "@jsondive/library"
-import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
+import React, { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider, useSetNodesExpanded } from "./state"
 import { DivePlugin } from "./plugins"
 import { DocumentViewer } from "./view/DocumentViewer/DocumentViewer"
@@ -25,6 +25,7 @@ export type JSONDiveProps = {
 	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
 	options?: JSONDiveOptions
+	darkMode?: boolean
 } & (
 	| {
 			data: Record<string, unknown>
@@ -39,10 +40,15 @@ export type JSONDiveProps = {
 const styles = stylex.create({
 	wrap: {
 		color: "var(--json-dive-color-black)",
+		backgroundColor: "var(--json-dive-color-white)",
 		display: "flex",
 		height: "100%",
 		width: "100%",
 	},
+
+	colorScheme: (value: string) => ({
+		colorScheme: value,
+	}),
 
 	errorWrap: {
 		display: "flex",
@@ -149,6 +155,7 @@ export function JSONDive(props: JSONDiveProps) {
 	const {
 		plugins = defaultPlugins,
 		ref,
+		darkMode,
 		data: _ignoredData,
 		input: _ignoredInput,
 		...restProps
@@ -182,7 +189,10 @@ export function JSONDive(props: JSONDiveProps) {
 	return (
 		<div
 			{...addClassName(
-				stylex.props(styles.wrap),
+				stylex.props(
+					styles.wrap,
+					styles.colorScheme(darkMode ? "dark" : "light")
+				),
 				"json-dive-css-reset json-dive-viewer-instance"
 			)}
 			ref={outerContainerRef}
