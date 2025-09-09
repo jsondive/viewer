@@ -17,6 +17,7 @@ import type { Placement } from "@floating-ui/react"
 import { useMemo, useState } from "react"
 import * as stylex from "@stylexjs/stylex"
 import clsx from "clsx"
+import { PortalContext } from "./PortalProvider"
 
 // https://floating-ui.com/docs/tooltip#reusable-tooltip-component
 
@@ -160,8 +161,11 @@ export const TooltipContent = React.forwardRef<
 >(function TooltipContent({ style, children, ...props }, propRef) {
 	const context = useTooltipContext()
 	const ref = useMergeRefs([context.refs.setFloating, propRef])
+	const portalRef = React.useContext(PortalContext)
 
-	if (!context.open) return null
+	if (!context.open) {
+		return null
+	}
 
 	const {
 		className: stylexClassName,
@@ -170,7 +174,7 @@ export const TooltipContent = React.forwardRef<
 	} = stylex.props(styles.tooltipContent)
 
 	return (
-		<FloatingPortal>
+		<FloatingPortal root={portalRef}>
 			<div
 				ref={ref}
 				className={clsx("json-dive-css-reset", stylexClassName)}

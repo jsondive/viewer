@@ -1,4 +1,9 @@
-import { addClassName, libraryIcons, Result } from "@jsondive/library"
+import {
+	addClassName,
+	libraryIcons,
+	PortalProvider,
+	Result,
+} from "@jsondive/library"
 import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider } from "./state"
 import { DivePlugin } from "./plugins"
@@ -162,16 +167,18 @@ export function JSONDive(props: JSONDiveProps) {
 			)}
 			ref={outerContainerRef}
 		>
-			{Result.isSuccess(parseResult) ? (
-				<ParseSuccess
-					plugins={plugins}
-					rootNode={parseResult.value}
-					controller={controller}
-					{...restProps}
-				/>
-			) : (
-				<ParseError error={parseResult.error} />
-			)}
+			<PortalProvider ref={outerContainerRef}>
+				{Result.isSuccess(parseResult) ? (
+					<ParseSuccess
+						plugins={plugins}
+						rootNode={parseResult.value}
+						controller={controller}
+						{...restProps}
+					/>
+				) : (
+					<ParseError error={parseResult.error} />
+				)}
+			</PortalProvider>
 		</div>
 	)
 }

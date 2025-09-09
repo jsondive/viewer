@@ -13,6 +13,7 @@ export { addClassName } from "./lib/addClassName"
 export { normalizeEmail } from "./lib/normalizeEmail"
 
 export { Tooltip, TooltipContent, TooltipTrigger } from "./components/Tooltip"
+export { PortalProvider } from "./components/PortalProvider"
 export { Badge } from "./components/Badge"
 export { Dialog } from "./components/Dialog"
 export { Menu } from "./components/Menu"
