@@ -5,7 +5,7 @@ const DEFAULT_ICON_SIZE = 24
 export function Image(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -19,6 +19,7 @@ export function Image(
 			strokeWidth="2"
 			className="lucide lucide-image-icon lucide-image"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
 			<circle cx="9" cy="9" r="2"></circle>
@@ -30,7 +31,7 @@ export function Image(
 export function ArrowRight(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -44,6 +45,7 @@ export function ArrowRight(
 			strokeWidth="2"
 			className="lucide lucide-arrow-right-icon lucide-arrow-right"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="M5 12h14M12 5l7 7-7 7"></path>
 		</svg>
@@ -53,7 +55,7 @@ export function ArrowRight(
 export function ArrowRightFromLine(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -67,6 +69,7 @@ export function ArrowRightFromLine(
 			strokeWidth="2"
 			className="lucide lucide-arrow-right-from-line-icon lucide-arrow-right-from-line"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="M3 5v14M21 12H7M15 18l6-6-6-6"></path>
 		</svg>
@@ -76,7 +79,7 @@ export function ArrowRightFromLine(
 export function ArrowLeft(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -90,6 +93,7 @@ export function ArrowLeft(
 			strokeWidth="2"
 			className="lucide lucide-arrow-left-icon lucide-arrow-left"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m12 19-7-7 7-7M19 12H5"></path>
 		</svg>
@@ -99,7 +103,7 @@ export function ArrowLeft(
 export function ArrowLeftFromLine(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -113,6 +117,7 @@ export function ArrowLeftFromLine(
 			strokeWidth="2"
 			className="lucide lucide-arrow-left-from-line-icon lucide-arrow-left-from-line"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m9 6-6 6 6 6M3 12h14M21 19V5"></path>
 		</svg>
@@ -122,7 +127,7 @@ export function ArrowLeftFromLine(
 export function Clipboard(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -136,6 +141,7 @@ export function Clipboard(
 			strokeWidth="2"
 			className="lucide lucide-clipboard-icon lucide-clipboard"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
 			<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -146,7 +152,7 @@ export function Clipboard(
 export function Search(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -160,6 +166,7 @@ export function Search(
 			strokeWidth="2"
 			className="lucide lucide-search-icon lucide-search"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m21 21-4.34-4.34"></path>
 			<circle cx="11" cy="11" r="8"></circle>
@@ -168,7 +175,7 @@ export function Search(
 }
 
 export function X(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -182,6 +189,7 @@ export function X(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
 			strokeWidth="2"
 			className="lucide lucide-x-icon lucide-x"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="M18 6 6 18M6 6l12 12"></path>
 		</svg>
@@ -191,7 +199,7 @@ export function X(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
 export function LoaderCircle(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -205,6 +213,7 @@ export function LoaderCircle(
 			strokeWidth="2"
 			className="lucide lucide-loader-circle-icon lucide-loader-circle"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
 		</svg>
@@ -214,7 +223,7 @@ export function LoaderCircle(
 export function CircleAlert(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -228,6 +237,7 @@ export function CircleAlert(
 			strokeWidth="2"
 			className="lucide lucide-circle-alert-icon lucide-circle-alert"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<circle cx="12" cy="12" r="10"></circle>
 			<path d="M12 8v4M12 16h.01"></path>
@@ -238,7 +248,7 @@ export function CircleAlert(
 export function ChevronUp(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -252,6 +262,7 @@ export function ChevronUp(
 			strokeWidth="2"
 			className="lucide lucide-chevron-up-icon lucide-chevron-up"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m18 15-6-6-6 6"></path>
 		</svg>
@@ -261,7 +272,7 @@ export function ChevronUp(
 export function ChevronDown(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -275,6 +286,7 @@ export function ChevronDown(
 			strokeWidth="2"
 			className="lucide lucide-chevron-down-icon lucide-chevron-down"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m6 9 6 6 6-6"></path>
 		</svg>
@@ -284,7 +296,7 @@ export function ChevronDown(
 export function CircleX(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -298,6 +310,7 @@ export function CircleX(
 			strokeWidth="2"
 			className="lucide lucide-circle-x-icon lucide-circle-x"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<circle cx="12" cy="12" r="10"></circle>
 			<path d="m15 9-6 6M9 9l6 6"></path>
@@ -308,7 +321,7 @@ export function CircleX(
 export function ChevronRight(
 	props: React.SVGProps<SVGSVGElement> & { size?: number }
 ) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -322,6 +335,7 @@ export function ChevronRight(
 			strokeWidth="2"
 			className="lucide lucide-chevron-right-icon lucide-chevron-right"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<path d="m9 18 6-6-6-6"></path>
 		</svg>
@@ -329,7 +343,7 @@ export function ChevronRight(
 }
 
 export function Copy(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
-	const { size = DEFAULT_ICON_SIZE } = props
+	const { size = DEFAULT_ICON_SIZE, ...restProps } = props
 
 	return (
 		<svg
@@ -343,6 +357,7 @@ export function Copy(props: React.SVGProps<SVGSVGElement> & { size?: number }) {
 			strokeWidth="2"
 			className="lucide lucide-copy-icon lucide-copy"
 			viewBox="0 0 24 24"
+			{...restProps}
 		>
 			<rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
 			<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
