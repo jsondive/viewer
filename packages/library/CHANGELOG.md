@@ -1,5 +1,13 @@
 # @jsondive/library
 
+## 0.0.12
+
+### Patch Changes
+
+- 4572284: Change portalling behavior for tooltips
+- 2bdfc0e: Make dialogs look a bit nicer
+- 37bc1cb: Fix icons event handler regression
+
 ## 0.0.11
 
 ### Patch Changes

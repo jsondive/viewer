@@ -1,5 +1,15 @@
 # @jsondive/viewer
 
+## 0.0.12
+
+### Patch Changes
+
+- 4572284: Change portalling behavior for tooltips
+- Updated dependencies [4572284]
+- Updated dependencies [2bdfc0e]
+- Updated dependencies [37bc1cb]
+  - @jsondive/library@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes
