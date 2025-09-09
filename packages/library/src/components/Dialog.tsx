@@ -29,6 +29,7 @@ const styles = stylex.create({
 		display: "flex",
 		flexDirection: "column",
 		boxShadow: "var(--json-dive-shadow-md)",
+		borderRadius: "var(--json-dive-radius-sm)",
 	},
 
 	titleBar: {
@@ -56,6 +57,10 @@ const styles = stylex.create({
 	closeButton: {
 		cursor: "pointer",
 		padding: "var(--json-dive-spacing-1)",
+		backgroundColor: {
+			":hover": "var(--json-dive-color-light-border)",
+		},
+		borderRadius: 1000,
 	},
 })
 
