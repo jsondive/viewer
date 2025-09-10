@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.13
+
+### Patch Changes
+
+- f9c86aa: Add a few styleable classes
+- Updated dependencies [f9c86aa]
+  - @jsondive/library@0.0.13
+
 ## 0.0.12
 
 ### Patch Changes

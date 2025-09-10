@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.13
+
+### Patch Changes
+
+- f9c86aa: Add a few styleable classes
+
 ## 0.0.12
 
 ### Patch Changes

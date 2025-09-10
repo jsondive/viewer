@@ -1,5 +1,11 @@
 # @jsondive/shared-config
 
+## 0.0.10
+
+### Patch Changes
+
+- f9c86aa: Add a few styleable classes
+
 ## 0.0.9
 
 ### Patch Changes
