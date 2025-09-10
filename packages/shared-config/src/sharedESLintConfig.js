@@ -17,22 +17,6 @@ function range(from, to) {
 }
 
 /**
- *
- * @param {Array<string>} arr1
- * @param {Array<string>} arr2
- * @returns {Array<string>}
- */
-function cartesian(arr1, arr2) {
-	const result = []
-	for (const x of arr1) {
-		for (const y of arr2) {
-			result.push([x, y])
-		}
-	}
-	return result
-}
-
-/**
  * @param {string} s
  * @returns {Array<string>}
  */
@@ -185,6 +169,11 @@ const validJsonDiveCssIdentifiers = new Set([
 	"json-dive-tutorial-target-view-tab",
 	"json-dive-tutorial-target-edit-tab",
 	"json-dive-tutorial-target-type-icon",
+	// Other styleable things.
+	"json-dive-badge-container",
+	"json-dive-tooltip-container",
+	"json-dive-magnify-button-container",
+	"json-dive-nested-file-type-container",
 ])
 
 /**

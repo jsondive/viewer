@@ -372,7 +372,12 @@ function TreeRowBody(
 				<React.Fragment key={i}>{d.render()}</React.Fragment>
 			))}
 			{isDefined(nestedFileType) && (
-				<Badge tooltip="Parsed from string value">{nestedFileType}</Badge>
+				<Badge
+					tooltip="Parsed from string value"
+					className="json-dive-nested-file-type-container"
+				>
+					{nestedFileType}
+				</Badge>
 			)}
 			{isOverflowing && <MagnifyButton node={node} />}
 		</div>

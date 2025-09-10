@@ -3,6 +3,7 @@ import { isDefined } from "../utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./Tooltip"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
+import clsx from "clsx"
 
 const styles = stylex.create({
 	body: {
@@ -23,16 +24,17 @@ type BadgeProps = {
 	children: ReactNode
 	tooltip?: ReactNode
 	onClick?: () => void
+	className?: string
 }
 
 export function Badge(props: BadgeProps) {
-	const { children, tooltip, onClick } = props
+	const { children, tooltip, onClick, className } = props
 
 	let body = (
 		<div
 			{...addClassName(
 				stylex.props(styles.body, onClick && styles.clickableBody),
-				"json-dive-font-size-sm"
+				clsx("json-dive-font-size-sm json-dive-badge-container", className)
 			)}
 			onClick={onClick}
 		>

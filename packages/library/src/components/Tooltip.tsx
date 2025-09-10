@@ -177,7 +177,11 @@ export const TooltipContent = React.forwardRef<
 		<FloatingPortal root={portalRef}>
 			<div
 				ref={ref}
-				className={clsx("json-dive-css-reset", stylexClassName)}
+				className={clsx(
+					"json-dive-css-reset",
+					"json-dive-tooltip-container",
+					stylexClassName
+				)}
 				style={{
 					...context.floatingStyles,
 					...stylexStyle,
