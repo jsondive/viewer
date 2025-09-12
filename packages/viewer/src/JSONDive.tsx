@@ -5,7 +5,7 @@ import {
 	Result,
 } from "@jsondive/library"
 import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
-import { AppContextProvider } from "./state"
+import { AppContextProvider, useSetNodesExpanded } from "./state"
 import { DivePlugin } from "./plugins"
 import { DocumentViewer } from "./view/DocumentViewer/DocumentViewer"
 import { parseIntoNode } from "./lib/parse"
@@ -19,6 +19,7 @@ import {
 import { JSONDiveProviders } from "./providers"
 import { defaultPlugins } from "./plugins/defaultPlugins"
 import { JSONDiveOptions } from "./model/JSONDiveOptions"
+import { builtinAttribute } from "./model/builtinAttributes"
 
 export type JSONDiveProps = {
 	plugins?: DivePlugin[]
@@ -87,6 +88,7 @@ function ParseSuccess(props: {
 		>
 			{({ ref, onKeyDown }) => (
 				<JSONDiveProviders>
+					<SetNodeExpansionStates rootNode={rootNode} />
 					<DocumentViewer
 						rootNode={rootNode}
 						ref={ref}
@@ -97,6 +99,24 @@ function ParseSuccess(props: {
 			)}
 		</AppContextProvider>
 	)
+}
+
+function SetNodeExpansionStates(props: { rootNode: DiveNode }) {
+	const { rootNode } = props
+
+	const setNodesExpanded = useSetNodesExpanded()
+
+	useEffect(() => {
+		const nodesToCollapse: DiveNode[] = []
+		rootNode.visitAll(node => {
+			if (node.getAttribute(builtinAttribute.defaultCollapsed)) {
+				nodesToCollapse.push(node)
+			}
+		})
+		setNodesExpanded(nodesToCollapse, false)
+	}, [rootNode, setNodesExpanded])
+
+	return null
 }
 
 function ParseError(props: { error: Error }) {

@@ -18,7 +18,10 @@ import {
 	useSetNodesExpanded,
 	useSetNodeVisibility,
 } from "../../state"
-import { builtinAttribute } from "../../model/builtinAttributes"
+import {
+	BackgroundColor,
+	builtinAttribute,
+} from "../../model/builtinAttributes"
 import { PrimitiveValueRenderer } from "../PrimitiveValueRenderer"
 import * as stylex from "@stylexjs/stylex"
 import { useHandleContextMenu } from "./useHandleContextMenu"
@@ -34,10 +37,6 @@ const HORIZONTAL_GAP = `var(--json-dive-spacing-1)`
 const styles = stylex.create({
 	rowBody: (yOffset: number) => ({
 		alignItems: "center",
-		backgroundColor: {
-			":focus": FOCUS_COLOR,
-			":hover": "var(--json-dive-color-row-hover)",
-		},
 		display: "flex",
 		gap: HORIZONTAL_GAP,
 		height: `${treeRowHeight}px`,
@@ -57,12 +56,17 @@ const styles = stylex.create({
 
 	// HACK: For some reason this style doesn't work when grouped into
 	// the rowBody style.
-	rowBodyBackgroundColor: {
+	rowBodyBackgroundColor: (
+		defaultBackgroundColor: string,
+		activeBackgroundColor: string,
+		hoverBackgroundColor: string
+	) => ({
 		backgroundColor: {
-			":focus": FOCUS_COLOR,
-			":hover": "var(--json-dive-color-row-hover)",
+			default: defaultBackgroundColor,
+			":focus": activeBackgroundColor,
+			":hover": hoverBackgroundColor,
 		},
-	},
+	}),
 
 	findMatch: {
 		backgroundColor: {
@@ -316,13 +320,19 @@ function TreeRowBody(
 
 	useManageIntersectionObserver({ containerRef, node, intersectionObserver })
 
+	const backgroundColorAttribute = node.getAttribute(
+		builtinAttribute.backgroundColor
+	)
+
 	return (
 		<div
 			tabIndex={0}
 			ref={containerRef}
 			{...stylex.props(
 				styles.rowBody(displayInfo.yOffset),
-				styles.rowBodyBackgroundColor,
+				styles.rowBodyBackgroundColor(
+					...resolveBackgroundColors(backgroundColorAttribute)
+				),
 				findMatch && styles.findMatch,
 				currentFindMatch && styles.currentFindMatch
 			)}
@@ -443,4 +453,20 @@ function useManageIntersectionObserver(args: {
 			}
 		}
 	}, [containerRef, intersectionObserver, node, setNodeVisibility])
+}
+
+function resolveBackgroundColors(
+	attribute: BackgroundColor | undefined
+): [
+	defaultBackgroundColor: string,
+	activeBackgroundColor: string,
+	hoverBackgroundColor: string,
+] {
+	return [
+		attribute?.default ?? "unset",
+		attribute ? (attribute.active ?? attribute.default) : FOCUS_COLOR,
+		attribute
+			? (attribute.hover ?? attribute.default)
+			: "var(--json-dive-color-row-hover)",
+	]
 }
