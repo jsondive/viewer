@@ -19,6 +19,12 @@ export type PrimitiveValue =
 			value: number
 	  }
 
+export type BackgroundColor = {
+	default: string
+	active?: string
+	hover?: string
+}
+
 export function primitiveValueToString(primitiveValue: PrimitiveValue) {
 	return primitiveValue.type === "null"
 		? "null"
@@ -30,4 +36,6 @@ export const builtinAttribute = {
 	containerType: new Attribute<ContainerType>("builtin.containerType"),
 	fileTypeName: new Attribute<string>("builtin.fileTypeName"),
 	contentType: new Attribute<string>("builtin.contentType"),
+	backgroundColor: new Attribute<BackgroundColor>("builtin.backgroundColor"),
+	defaultCollapsed: new Attribute<boolean>("builtin.defaultCollapsed"),
 }

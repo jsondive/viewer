@@ -9,6 +9,7 @@ export { yaml } from "./plugins/yaml"
 export { defaultActions, type DefaultActionId } from "./plugins/defaultActions"
 export { type DivePlugin } from "./plugins"
 export { NodeBuilder } from "./model/NodeBuilder"
+export { type NodeName, RootNodeName } from "./model/DiveNode"
 export { builtinAttribute } from "./model/builtinAttributes"
 export { Attribute } from "./model/Attribute"
 export {
