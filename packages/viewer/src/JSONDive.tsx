@@ -11,7 +11,7 @@ import { DocumentViewer } from "./view/DocumentViewer/DocumentViewer"
 import { parseIntoNode } from "./lib/parse"
 import { DocumentInput } from "./model/DocumentInput"
 import * as stylex from "@stylexjs/stylex"
-import { DiveNode, RootNodeName } from "./model/DiveNode"
+import { DiveNode } from "./model/DiveNode"
 import {
 	JSONDiveController,
 	JSONDiveControllerImpl,
