@@ -1,5 +1,11 @@
 # @jsondive/viewer
 
+## 0.0.14
+
+### Patch Changes
+
+- c886575: Add a few more DiveNode attributes
+
 ## 0.0.13
 
 ### Patch Changes
