@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.15
+
+### Patch Changes
+
+- 4be6fd0: Implement dark mode
+- Updated dependencies [4be6fd0]
+  - @jsondive/library@0.0.14
+
 ## 0.0.14
 
 ### Patch Changes

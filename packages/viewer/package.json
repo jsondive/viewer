@@ -1,6 +1,6 @@
 {
 	"name": "@jsondive/viewer",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"description": "",
 	"keywords": [],
 	"author": "",
@@ -66,7 +66,7 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"dependencies": {
-		"@jsondive/library": "0.0.13",
+		"@jsondive/library": "0.0.14",
 		"@stylexjs/stylex": "^0.15.3",
 		"@tanstack/react-virtual": "^3.13.12",
 		"acorn": "^8.15.0",

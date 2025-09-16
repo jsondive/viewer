@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.14
+
+### Patch Changes
+
+- 4be6fd0: Implement dark mode
+
 ## 0.0.13
 
 ### Patch Changes
