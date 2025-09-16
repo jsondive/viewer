@@ -4,7 +4,7 @@ import {
 	PortalProvider,
 	Result,
 } from "@jsondive/library"
-import { useEffect, useImperativeHandle, useMemo, useRef } from "react"
+import React, { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider, useSetNodesExpanded } from "./state"
 import { DivePlugin } from "./plugins"
 import { DocumentViewer } from "./view/DocumentViewer/DocumentViewer"
@@ -39,6 +39,7 @@ export type JSONDiveProps = {
 const styles = stylex.create({
 	wrap: {
 		color: "var(--json-dive-color-black)",
+		backgroundColor: "var(--json-dive-color-white)",
 		display: "flex",
 		height: "100%",
 		width: "100%",

@@ -4,65 +4,159 @@ semantic-colors:
   # Value is a Tailwind color identifier, see https://tailwindcss.com/docs/colors.
   # Note that some of these styles are not used by the JSON Dive
   # viewer, and only used by the JSON Dive site.
-  black: black
-  white: white
-  light-border: gray-200
-  medium-border: gray-300
-  light-label: gray-600
-  light-text: slate-500
-  light-background: slate-50
-  link-foreground: blue-600
-  edit-tab-active-textarea-border: blue-300
-  interactive-preview-label-text: sky-100
-  interactive-preview-label-background: sky-700
+  black:
+    light: black
+    dark: "#f5f5f5"
+  white:
+    light: white
+    dark: "#111"
+  light-border:
+    light: gray-200
+    dark: "oklch(0.32 0.03 256)"
+  medium-border:
+    light: gray-300
+    dark: "oklch(0.27 0.032 257)"
+  light-label:
+    light: gray-600
+    dark: "oklch(0.7 0.025 256.5)"
+  light-text:
+    light: slate-500
+    dark: "oklch(0.8 0.03 255)"
+  light-background:
+    light: slate-50
+    dark: "oklch(0.15 0.015 257)"
+  link-foreground:
+    light: blue-600
+    dark: "oklch(0.7 0.2 255)"
+  edit-tab-active-textarea-border:
+    light: blue-300
+    dark: "oklch(0.62 0.21 259.8)"
+  interactive-preview-label-text:
+    light: sky-100
+    dark: "oklch(0.22 0.03 240)"
+  interactive-preview-label-background:
+    light: sky-700
+    dark: "oklch(0.85 0.02 240)"
   # Badges.
-  badge-background: gray-200
-  badge-color: gray-500
+  badge-background:
+    light: gray-200
+    dark: "oklch(0.55 0.04 260)"
+  badge-color:
+    light: gray-500
+    dark: "oklch(0.94 0.03 20)"
   # Buttons.
-  button-primary: blue-600
-  button-primary-hovered: blue-500
-  button-secondary: gray-200
-  button-secondary-hovered: gray-300
-  button-outline-border: slate-200
-  button-outline-hovered: gray-100
-  button-green: emerald-500
-  button-green-hovered: emerald-600
+  button-primary:
+    light: blue-600
+    dark: "oklch(0.62 0.21 259.8)"
+  button-primary-hovered:
+    light: blue-500
+    dark: "oklch(0.7 0.18 254.6)"
+  button-secondary:
+    light: gray-200
+    dark: "oklch(0.22 0.02 257)"
+  button-secondary-hovered:
+    light: gray-300
+    dark: "oklch(0.27 0.032 257)"
+  button-outline-border:
+    light: slate-200
+    dark: "oklch(0.32 0.03 256)"
+  button-outline-hovered:
+    light: gray-100
+    dark: "oklch(0.24 0.02 257)"
+  button-green:
+    light: emerald-500
+    dark: "oklch(0.72 0.16 162.5)"
+  button-green-hovered:
+    light: emerald-600
+    dark: "oklch(0.66 0.17 162.5)"
   # Toasts.
-  toast-background: gray-50
-  toast-close-hover: gray-100
+  toast-background:
+    light: gray-50
+    dark: "oklch(0.19 0.02 257)"
+  toast-close-hover:
+    light: gray-100
+    dark: "oklch(0.32 0.03 256)"
   # Tooltips.
-  tooltip-background: gray-800
+  tooltip-background:
+    light: gray-800
+    dark: "#f5f5f5"
   # Inputs.
-  input-outline: slate-200
-  input-outline-active: blue-500
+  input-outline:
+    light: slate-200
+    dark: "oklch(0.32 0.03 256)"
+  input-outline-active:
+    light: blue-500
+    dark: "oklch(0.62 0.21 259.8)"
   # TreeRow component.
-  value-string: emerald-600
-  value-number: sky-600
-  value-boolean: amber-600
-  value-null: rose-500
-  row-hover: blue-50
-  row-focus: blue-100
-  find-match-background: yellow-100
-  find-match-background-active: yellow-200
-  current-find-match-background: yellow-300
-  current-find-match-background-active: yellow-400
-  row-array-number-index: gray-500
+  value-string:
+    light: emerald-600
+    dark: "oklch(0.72 0.16 162.5)"
+  value-number:
+    light: sky-600
+    dark: "oklch(0.69 0.16 242)"
+  value-boolean:
+    light: amber-600
+    dark: "oklch(0.75 0.17 58.3)"
+  value-null:
+    light: rose-500
+    dark: "oklch(0.7 0.23 16.4)"
+  row-hover:
+    light: blue-50
+    dark: "oklch(0.32 0.06 255.5)"
+  row-focus:
+    light: blue-100
+    dark: "oklch(0.42 0.1 255.5)"
+  find-match-background:
+    light: yellow-100
+    dark: "oklch(0.68 0.12 95)"
+  find-match-background-active:
+    light: yellow-200
+    dark: "oklch(0.6 0.14 95)"
+  current-find-match-background:
+    light: yellow-300
+    dark: "oklch(0.55 0.16 95)"
+  current-find-match-background-active:
+    light: yellow-400
+    dark: "oklch(0.48 0.17 95)"
+  row-array-number-index:
+    light: gray-500
+    dark: "oklch(0.74 0.025 264.3)"
   # Context menu
-  context-menu-description: gray-300
+  context-menu-description:
+    light: gray-300
+    dark: "oklch(0.62 0.02 258.3)"
   # Error and success
-  error-icon: red-100
-  error-message: red-600
-  success-message: green-500
+  error-icon:
+    light: red-100
+    dark: "oklch(0.63 0.22 27.3)"
+  error-message:
+    light: red-600
+    dark: "oklch(0.7 0.2 27.3)"
+  success-message:
+    light: green-500
+    dark: "oklch(0.74 0.2 149.6)"
   # Rich preview plugin
-  rich-preview-warning: yellow-600
+  rich-preview-warning:
+    light: yellow-600
+    dark: "oklch(0.74 0.16 75.8)"
   # XML plugin
-  xml-tag-name: indigo-700
-  xml-attribute-name: cyan-600
-  xml-attribute-value: cyan-600
+  xml-tag-name:
+    light: indigo-700
+    dark: "oklch(0.72 0.18 277)"
+  xml-attribute-name:
+    light: cyan-600
+    dark: "oklch(0.73 0.11 221.7)"
+  xml-attribute-value:
+    light: cyan-600
+    dark: "oklch(0.73 0.11 221.7)"
   # Status bar (like the find bar)
-  status-bar-background: gray-100
+  status-bar-background:
+    light: gray-100
+    dark: "oklch(0.19 0.02 257)"
   # Keyboard shortcuts dialog
-  keyboard-shortcut-background: gray-100
+  keyboard-shortcut-background:
+    light: gray-100
+    dark: "oklch(0.24 0.02 257)"
 
 theme-colors:
   black: "#000"
