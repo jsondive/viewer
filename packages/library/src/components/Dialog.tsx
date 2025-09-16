@@ -1,8 +1,9 @@
 import { Dialog as BaseDialog } from "@base-ui-components/react"
-import { ReactNode } from "react"
+import { ReactNode, useContext } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
 import * as libraryIcons from "../lib/icons"
+import { PortalContext } from "./PortalProvider"
 
 const EDGE_PADDING = "var(--json-dive-spacing-4)"
 
@@ -12,6 +13,7 @@ const styles = stylex.create({
 		inset: 0,
 		backgroundColor: "black",
 		opacity: 0.2,
+		zIndex: 50,
 	},
 
 	popupOuter: {
@@ -23,6 +25,7 @@ const styles = stylex.create({
 		outlineWidth: "1px",
 		outlineColor: "var(--json-dive-color-light-border)",
 		backgroundColor: "var(--json-dive-color-white)",
+		color: "var(--json-dive-color-black)",
 		maxWidth: `calc(100vw - ${EDGE_PADDING} * 2)`,
 		maxHeight: `calc(100vh - ${EDGE_PADDING} * 2)`,
 		minWidth: `min(500px, calc(100vw - ${EDGE_PADDING} * 2))`,
@@ -30,6 +33,7 @@ const styles = stylex.create({
 		flexDirection: "column",
 		boxShadow: "var(--json-dive-shadow-md)",
 		borderRadius: "var(--json-dive-radius-sm)",
+		zIndex: 100,
 	},
 
 	titleBar: {
@@ -72,6 +76,8 @@ export function Dialog(props: {
 }) {
 	const { open, children, onClose, title } = props
 
+	const portalRef = useContext(PortalContext)
+
 	return (
 		<BaseDialog.Root
 			open={open}
@@ -81,7 +87,7 @@ export function Dialog(props: {
 				}
 			}}
 		>
-			<BaseDialog.Portal>
+			<BaseDialog.Portal container={portalRef}>
 				<BaseDialog.Backdrop {...stylex.props(styles.backdrop)} />
 				<BaseDialog.Popup
 					{...addClassName(

@@ -1,12 +1,14 @@
 import { Menu as BaseMenu } from "@base-ui-components/react"
-import { JSX, ReactNode } from "react"
+import { JSX, ReactNode, useContext } from "react"
 import * as stylex from "@stylexjs/stylex"
 import { addClassName } from "../lib/addClassName"
 import { IconComponent } from "../lib/IconComponent"
+import { PortalContext } from "./PortalProvider"
 
 const styles = stylex.create({
 	menuPositioner: {
 		outline: "0",
+		zIndex: 100,
 	},
 
 	menuPopup: {
@@ -19,8 +21,8 @@ const styles = stylex.create({
 		outlineWidth: "1px",
 		outlineColor: "var(--json-dive-color-light-border)",
 		boxShadow: `
-			0 10px 15px -3px var(--json-dive-color-light-border),
-			0 4px 6px -4px var(--json-dive-color-light-border)
+			0 6px 10px -4px var(--json-dive-color-light-border),
+			0 2px 4px -3px var(--json-dive-color-light-border)
 		`,
 
 		// eslint-disable-next-line @stylexjs/valid-styles
@@ -111,10 +113,12 @@ export type MenuItemGroup = {
 export function Menu(props: { trigger: JSX.Element; groups: MenuItemGroup[] }) {
 	const { trigger, groups } = props
 
+	const portalRef = useContext(PortalContext)
+
 	return (
 		<BaseMenu.Root openOnHover>
 			<BaseMenu.Trigger nativeButton={false} render={trigger} />
-			<BaseMenu.Portal>
+			<BaseMenu.Portal container={portalRef}>
 				<BaseMenu.Positioner
 					{...stylex.props(styles.menuPositioner)}
 					sideOffset={8}

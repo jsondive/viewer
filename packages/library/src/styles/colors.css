@@ -32,11 +32,11 @@
 	);
 	--json-dive-color-interactive-preview-label-text: light-dark(
 		oklch(0.951 0.026 236.824),
-		oklch(0.96 0.02 236.8)
+		oklch(0.22 0.03 240)
 	);
 	--json-dive-color-interactive-preview-label-background: light-dark(
 		oklch(0.5 0.134 242.749),
-		oklch(0.33 0.12 243)
+		oklch(0.85 0.02 240)
 	);
 	--json-dive-color-badge-background: light-dark(
 		oklch(0.928 0.006 264.531),
