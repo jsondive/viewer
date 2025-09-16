@@ -3,7 +3,6 @@ import {
 	libraryIcons,
 	PortalProvider,
 	Result,
-	unreachable,
 } from "@jsondive/library"
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from "react"
 import { AppContextProvider, useSetNodesExpanded } from "./state"
@@ -26,7 +25,6 @@ export type JSONDiveProps = {
 	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
 	options?: JSONDiveOptions
-	darkMode?: boolean | "inherit"
 } & (
 	| {
 			data: Record<string, unknown>
@@ -46,10 +44,6 @@ const styles = stylex.create({
 		height: "100%",
 		width: "100%",
 	},
-
-	colorScheme: (value: string) => ({
-		colorScheme: value,
-	}),
 
 	errorWrap: {
 		display: "flex",
@@ -156,7 +150,6 @@ export function JSONDive(props: JSONDiveProps) {
 	const {
 		plugins = defaultPlugins,
 		ref,
-		darkMode,
 		data: _ignoredData,
 		input: _ignoredInput,
 		...restProps
@@ -190,18 +183,7 @@ export function JSONDive(props: JSONDiveProps) {
 	return (
 		<div
 			{...addClassName(
-				stylex.props(
-					styles.wrap,
-					styles.colorScheme(
-						darkMode === "inherit"
-							? "inherit"
-							: darkMode === true
-								? "dark"
-								: darkMode === false || darkMode === undefined
-									? "light"
-									: unreachable(darkMode)
-					)
-				),
+				stylex.props(styles.wrap),
 				"json-dive-css-reset json-dive-viewer-instance"
 			)}
 			ref={outerContainerRef}
