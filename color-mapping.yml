@@ -128,7 +128,7 @@ semantic-colors:
   # Error and success
   error-icon:
     light: red-100
-    dark: "oklch(0.63 0.22 27.3)"
+    dark: oklch(0.5 0.2 29)
   error-message:
     light: red-600
     dark: "oklch(0.7 0.2 27.3)"

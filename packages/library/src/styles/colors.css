@@ -148,7 +148,7 @@
 	);
 	--json-dive-color-error-icon: light-dark(
 		oklch(0.936 0.032 17.717),
-		oklch(0.63 0.22 27.3)
+		oklch(0.5 0.2 29)
 	);
 	--json-dive-color-error-message: light-dark(
 		oklch(0.577 0.245 27.325),
