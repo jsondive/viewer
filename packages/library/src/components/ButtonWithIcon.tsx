@@ -3,14 +3,16 @@ import { Button, ButtonProps } from "./Button"
 import * as stylex from "@stylexjs/stylex"
 
 const SMALL_MEDIA = "@media (max-width: 768px)"
+const ICON_RIGHT_MARGIN = 4
 
 const styles = stylex.create({
 	icon: {
-		marginRight: 4,
+		marginRight: ICON_RIGHT_MARGIN,
 	},
 
 	iconWithHiding: {
 		marginRight: {
+			default: ICON_RIGHT_MARGIN,
 			[SMALL_MEDIA]: 0,
 		},
 	},
