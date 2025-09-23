@@ -6,7 +6,6 @@ import {
 	shownIfHasFocusedNode,
 	shownIfHasNonRootNode,
 } from "./DiveAction"
-import { CONTEXT_MENU_ICON_SIZE } from "../providers/ContextMenuProvider"
 import {
 	tryWriteClipboard,
 	ArrowLeft,
@@ -51,7 +50,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <libraryIcons.ArrowRight size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.ArrowRight,
 		keybinds: [ArrowRight, "l"],
 	},
 
@@ -65,7 +64,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <libraryIcons.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.ArrowRightFromLine,
 		keybinds: [["l", { shift: true }]],
 	},
 
@@ -82,7 +81,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <libraryIcons.ArrowRightFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.ArrowRightFromLine,
 	},
 
 	collapse: {
@@ -97,7 +96,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <libraryIcons.ArrowLeft size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.ArrowLeft,
 		keybinds: [ArrowLeft, "h"],
 	},
 
@@ -111,7 +110,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasChildren,
-		icon: <libraryIcons.ArrowLeftFromLine size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.ArrowLeftFromLine,
 		keybinds: [["h", { shift: true }]],
 	},
 
@@ -125,7 +124,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasFocusedNode,
-		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.Clipboard,
 		keybinds: [["c", { command: true }]],
 	},
 
@@ -139,7 +138,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasFocusedNode,
-		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.Clipboard,
 	},
 
 	copyKeyToClipboard: {
@@ -152,7 +151,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasNonRootNode,
-		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.Clipboard,
 	},
 
 	copyPathToClipboard: {
@@ -165,7 +164,7 @@ const defaultActionMap: {
 			}
 		},
 		availabilityStatus: shownIfHasNonRootNode,
-		icon: <libraryIcons.Clipboard size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.Clipboard,
 		keybinds: [["p", { command: true }]],
 	},
 
@@ -178,7 +177,7 @@ const defaultActionMap: {
 		},
 		availabilityStatus: () => ({ type: "hidden" }),
 		keybinds: ["/", ["f", { command: true }]],
-		icon: <libraryIcons.Search size={CONTEXT_MENU_ICON_SIZE} />,
+		icon: libraryIcons.Search,
 	},
 }
 

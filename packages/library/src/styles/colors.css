@@ -124,19 +124,19 @@
 	);
 	--json-dive-color-find-match-background: light-dark(
 		oklch(0.973 0.071 103.193),
-		oklch(0.68 0.12 95)
+		oklch(0.48 0.17 95)
 	);
 	--json-dive-color-find-match-background-active: light-dark(
 		oklch(0.945 0.129 101.54),
-		oklch(0.6 0.14 95)
+		oklch(0.55 0.16 95)
 	);
 	--json-dive-color-current-find-match-background: light-dark(
 		oklch(0.905 0.182 98.111),
-		oklch(0.55 0.16 95)
+		oklch(0.6 0.14 95)
 	);
 	--json-dive-color-current-find-match-background-active: light-dark(
 		oklch(0.852 0.199 91.936),
-		oklch(0.48 0.17 95)
+		oklch(0.68 0.12 95)
 	);
 	--json-dive-color-row-array-number-index: light-dark(
 		oklch(0.551 0.027 264.364),
@@ -148,7 +148,7 @@
 	);
 	--json-dive-color-error-icon: light-dark(
 		oklch(0.936 0.032 17.717),
-		oklch(0.63 0.22 27.3)
+		oklch(0.5 0.2 29)
 	);
 	--json-dive-color-error-message: light-dark(
 		oklch(0.577 0.245 27.325),

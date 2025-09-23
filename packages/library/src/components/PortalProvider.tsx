@@ -4,6 +4,10 @@ export const PortalContext = React.createContext<
 	React.RefObject<HTMLDivElement | null> | undefined
 >(undefined)
 
+export function usePortalContext() {
+	return React.useContext(PortalContext)
+}
+
 /**
  * Can be used to override the Portal into which tooltips are placed.
  */
