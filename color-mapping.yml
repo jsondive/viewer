@@ -108,16 +108,16 @@ semantic-colors:
     dark: "oklch(0.42 0.1 255.5)"
   find-match-background:
     light: yellow-100
-    dark: "oklch(0.68 0.12 95)"
+    dark: "oklch(0.48 0.17 95)"
   find-match-background-active:
     light: yellow-200
-    dark: "oklch(0.6 0.14 95)"
+    dark: "oklch(0.55 0.16 95)"
   current-find-match-background:
     light: yellow-300
-    dark: "oklch(0.55 0.16 95)"
+    dark: "oklch(0.6 0.14 95)"
   current-find-match-background-active:
     light: yellow-400
-    dark: "oklch(0.48 0.17 95)"
+    dark: "oklch(0.68 0.12 95)"
   row-array-number-index:
     light: gray-500
     dark: "oklch(0.74 0.025 264.3)"
