@@ -27,7 +27,6 @@ import {
 import { setTemporaryFocusState } from "../lib/temporaryFocus"
 
 export const CONTEXT_MENU_ICON_SIZE = 15
-const CONTEXT_MENU_MIN_WIDTH_FOR_POSITIONING = 260
 
 export interface ContextMenuItem {
 	name: string
@@ -87,7 +86,7 @@ export function ContextMenuProvider(props: { children: ReactNode }) {
 }
 
 const styles = stylex.create({
-	dialog: (x: number, y: number) => ({
+	dialog: (x: number, y: number, opacity: number) => ({
 		position: "absolute",
 		left: x,
 		top: y,
@@ -107,6 +106,7 @@ const styles = stylex.create({
 		"::backdrop": {
 			backgroundColor: "transparent",
 		},
+		opacity,
 	}),
 
 	contextMenuWrap: {
@@ -217,34 +217,65 @@ type ContextMenuProps = {
 
 function ContextMenu(props: ContextMenuProps) {
 	const {
-		state: {
-			itemGroups,
-			position: [positionX, positionY],
-		},
+		state: { itemGroups, position: rawPosition },
 		onClose: onCloseListener,
 	} = props
 
 	const dialogRef = useRef<HTMLDialogElement>(null)
 
+	// We render the context menu in two phases:
+	// First phase, we render it at the upper left corner of the viewport with
+	// opacity 0. We use this opportunity to determine how big the context menu
+	// will be.
+	// Final phase, we render with opacity 1. We use the measurements to ensure
+	// that the context menu would not overflow the bounds of the window.
+	// This lets you properly use the context menu at the edges of the screen.
+	const [measuredSize, setMeasuredSize] = useState<
+		[width: number, height: number] | undefined
+	>()
+
 	useEffect(() => {
-		if (!dialogRef.current) {
+		const dialog = dialogRef.current
+		if (!dialog) {
 			return
 		}
 
-		dialogRef.current.showModal()
+		dialog.showModal()
 		// Make it so the dialog can get closed via <esc>. This doesn't work
 		// in Safari, but whatever.
 		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy
 		;(dialogRef.current as any).closedBy = "any"
+
+		setTimeout(() => {
+			setMeasuredSize([dialog.clientWidth, dialog.clientHeight])
+		}, 0)
 	}, [])
 
 	const performClose = useCallback(() => {
 		dialogRef.current?.close()
 	}, [])
 
+	let positionX: number | undefined
+	let positionY: number | undefined
+	if (isDefined(measuredSize)) {
+		const [measuredWidth, measuredHeight] = measuredSize
+		positionX = Math.min(
+			rawPosition[0],
+			// Add to measuredWidth to account for border and a little extra.
+			window.innerWidth - (measuredWidth + 3)
+		)
+		positionY = Math.min(rawPosition[1], window.innerHeight - measuredHeight)
+	}
+
 	return (
 		<dialog
-			{...stylex.props(styles.dialog(positionX, positionY))}
+			{...stylex.props(
+				styles.dialog(
+					positionX ?? 0,
+					positionY ?? 0,
+					isDefined(measuredSize) ? 1 : 0 // Opacity
+				)
+			)}
 			ref={dialogRef}
 			onClose={onCloseListener}
 			onContextMenu={e => {
