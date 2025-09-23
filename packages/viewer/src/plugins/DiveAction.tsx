@@ -1,7 +1,6 @@
-import { ReactNode } from "react"
 import { JSONDiveController } from "../JSONDiveController"
 import { DiveNode } from "../model/DiveNode"
-import { isDefined, KeyboardBinding } from "@jsondive/library"
+import { IconComponent, isDefined, KeyboardBinding } from "@jsondive/library"
 import { builtinAttribute } from "../model/builtinAttributes"
 
 export type ActionContext = {
@@ -31,10 +30,7 @@ export type DiveAction<ActionId = string> = {
 	 * @deprecated Do not call perform directly, use JSONDiveController.invoke!
 	 */
 	perform(context: ActionContext): Promise<void>
-	/**
-	 * Lucide react icon of size CONTEXT_MENU_ICON_SIZE.
-	 */
-	icon?: ReactNode
+	icon?: IconComponent
 	availabilityStatus(
 		context: ActionAvailabilityContext
 	): ActionAvailabilityStatus

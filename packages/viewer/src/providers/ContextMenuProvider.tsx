@@ -18,15 +18,21 @@ import {
 	useSetFocusedNodeOverride,
 } from "../state"
 import { DiveNode } from "../model/DiveNode"
-import { addClassName, isDefined, usePortalContext } from "@jsondive/library"
+import {
+	addClassName,
+	IconComponent,
+	isDefined,
+	usePortalContext,
+} from "@jsondive/library"
 import { setTemporaryFocusState } from "../lib/temporaryFocus"
 
-// TODO: rename this to action icon size; move to actions module?
 export const CONTEXT_MENU_ICON_SIZE = 15
+const CONTEXT_MENU_MIN_WIDTH_FOR_POSITIONING = 260
+
 export interface ContextMenuItem {
 	name: string
 	action: () => void
-	icon?: ReactNode
+	icon?: IconComponent
 	disabled?: boolean
 	/**
 	 * Shown to the right of the context menu item. Currently used to convey keyboard
@@ -136,6 +142,10 @@ const styles = stylex.create({
 		display: "flex",
 		alignItems: "center",
 		gap: 4,
+	},
+
+	icon: {
+		flexShrink: "0",
 	},
 
 	interactibleEnabledItem: {
@@ -282,6 +292,8 @@ export function RenderContextMenuItem(props: {
 }) {
 	const { item, onClick } = props
 
+	const Icon = item.icon
+
 	return (
 		<div
 			tabIndex={0}
@@ -301,7 +313,9 @@ export function RenderContextMenuItem(props: {
 			}}
 		>
 			<div {...stylex.props(styles.nameAndIcon)}>
-				{item.icon}
+				{Icon && (
+					<Icon size={CONTEXT_MENU_ICON_SIZE} {...stylex.props(styles.icon)} />
+				)}
 				<div>{item.name}</div>
 			</div>
 			{item.subtleDescription && (
@@ -337,7 +351,8 @@ export function useOpenContextMenu() {
 			contextValue?.setState({
 				open: true,
 				startFocusedNode: focusedNode,
-				...args,
+				itemGroups: args.itemGroups,
+				position: args.position,
 			})
 		},
 		[
