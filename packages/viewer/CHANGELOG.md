@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.16
+
+### Patch Changes
+
+- 8b72f33: Fix several issues with dark mode
+- Updated dependencies [8b72f33]
+  - @jsondive/library@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes

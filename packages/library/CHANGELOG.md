@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.15
+
+### Patch Changes
+
+- 8b72f33: Fix several issues with dark mode
+
 ## 0.0.14
 
 ### Patch Changes
