@@ -5,6 +5,7 @@ import {
 	useContext,
 	useEffect,
 	useMemo,
+	useRef,
 	useState,
 } from "react"
 import { createPortal } from "react-dom"
@@ -17,7 +18,7 @@ import {
 	useSetFocusedNodeOverride,
 } from "../state"
 import { DiveNode } from "../model/DiveNode"
-import { addClassName, isDefined } from "@jsondive/library"
+import { addClassName, isDefined, usePortalContext } from "@jsondive/library"
 import { setTemporaryFocusState } from "../lib/temporaryFocus"
 
 // TODO: rename this to action icon size; move to actions module?
@@ -27,6 +28,10 @@ export interface ContextMenuItem {
 	action: () => void
 	icon?: ReactNode
 	disabled?: boolean
+	/**
+	 * Shown to the right of the context menu item. Currently used to convey keyboard
+	 * shortcuts.
+	 */
 	subtleDescription?: string
 }
 
@@ -53,6 +58,8 @@ export function ContextMenuProvider(props: { children: ReactNode }) {
 
 	const [state, setState] = useState<ContextMenuState>({ open: false })
 
+	const portalRef = usePortalContext()
+
 	const contextValue = useMemo(
 		(): ContextMenuContextValue => ({
 			state,
@@ -67,32 +74,39 @@ export function ContextMenuProvider(props: { children: ReactNode }) {
 			{state.open &&
 				createPortal(
 					<ContextMenuWithClose state={state} setState={setState} />,
-					document.body
+					portalRef?.current ?? document.body
 				)}
 		</ContextMenuContext.Provider>
 	)
 }
 
 const styles = stylex.create({
-	contextMenuWrap: (x: number, y: number) => ({
+	dialog: (x: number, y: number) => ({
 		position: "absolute",
 		left: x,
 		top: y,
-		display: "flex",
+		margin: 0,
+		padding: 0,
+		boxSizing: "border-box",
+		outline: "none",
 		backgroundColor: "var(--json-dive-color-white)",
-		userSelect: "none",
-		flexDirection: "column",
 		// Same as SessionButton.
 		boxShadow: `
 			0 10px 15px -3px var(--json-dive-color-light-border),
 			0 4px 6px -4px var(--json-dive-color-light-border)
 		`,
-		outline: "0",
+		borderStyle: "solid",
+		borderWidth: 1,
+		borderColor: "var(--json-dive-color-light-border)",
+		"::backdrop": {
+			backgroundColor: "transparent",
+		},
 	}),
 
-	overlay: {
-		position: "fixed",
-		inset: 0,
+	contextMenuWrap: {
+		display: "flex",
+		userSelect: "none",
+		flexDirection: "column",
 	},
 
 	group: {
@@ -106,8 +120,6 @@ const styles = stylex.create({
 		borderBottomWidth: 1,
 		borderBottomColor: "var(--json-dive-color-light-border)",
 	},
-
-	lastGroup: {},
 
 	item: {
 		display: "flex",
@@ -199,17 +211,39 @@ function ContextMenu(props: ContextMenuProps) {
 			itemGroups,
 			position: [positionX, positionY],
 		},
-		onClose,
+		onClose: onCloseListener,
 	} = props
 
-	useCloseOnEscape(onClose)
+	const dialogRef = useRef<HTMLDialogElement>(null)
+
+	useEffect(() => {
+		if (!dialogRef.current) {
+			return
+		}
+
+		dialogRef.current.showModal()
+		// Make it so the dialog can get closed via <esc>. This doesn't work
+		// in Safari, but whatever.
+		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy
+		;(dialogRef.current as any).closedBy = "any"
+	}, [])
+
+	const performClose = useCallback(() => {
+		dialogRef.current?.close()
+	}, [])
 
 	return (
-		<Overlay onClickOutside={onClose}>
+		<dialog
+			{...stylex.props(styles.dialog(positionX, positionY))}
+			ref={dialogRef}
+			onClose={onCloseListener}
+			onContextMenu={e => {
+				e.preventDefault()
+			}}
+		>
 			<div
-				tabIndex={0}
 				{...addClassName(
-					stylex.props(styles.contextMenuWrap(positionX, positionY)),
+					stylex.props(styles.contextMenuWrap),
 					"json-dive-css-reset"
 				)}
 				ref={el => el?.focus()}
@@ -218,40 +252,12 @@ function ContextMenu(props: ContextMenuProps) {
 					<Group
 						key={i}
 						group={group}
-						onItemClicked={onClose}
+						onItemClicked={performClose}
 						isLast={i === itemGroups.length - 1}
 					/>
 				))}
 			</div>
-		</Overlay>
-	)
-}
-
-function useCloseOnEscape(onClose: () => void) {
-	useEffect(() => {
-		function listener(e: KeyboardEvent) {
-			if (e.key === "Escape") {
-				onClose()
-			}
-		}
-		window.addEventListener("keydown", listener)
-		return () => window.removeEventListener("keydown", listener)
-	}, [onClose])
-}
-
-function Overlay(props: { children: ReactNode; onClickOutside: () => void }) {
-	const { children, onClickOutside } = props
-	return (
-		<div
-			{...stylex.props(styles.overlay)}
-			onClick={onClickOutside}
-			onContextMenu={e => {
-				e.preventDefault()
-				e.stopPropagation()
-			}}
-		>
-			{children}
-		</div>
+		</dialog>
 	)
 }
 
@@ -262,12 +268,7 @@ function Group(props: {
 }) {
 	const { group, onItemClicked, isLast } = props
 	return (
-		<div
-			{...stylex.props(
-				styles.group,
-				isLast ? styles.lastGroup : styles.notLastGroup
-			)}
-		>
+		<div {...stylex.props(styles.group, !isLast && styles.notLastGroup)}>
 			{group.map((item, i) => (
 				<RenderContextMenuItem key={i} item={item} onClick={onItemClicked} />
 			))}
