@@ -22,6 +22,7 @@ function useViewerKeyboardShortcuts(flatNodes: DiveNode[]) {
 	useAppEventListener("keyDown", (e, motionAmount) => {
 		const isUp = keyMatch(e, "k") || keyMatch(e, ArrowUp)
 		const isDown = keyMatch(e, "j") || keyMatch(e, ArrowDown)
+
 		if (isUp || isDown) {
 			e.preventDefault()
 
@@ -45,6 +46,9 @@ function useViewerKeyboardShortcuts(flatNodes: DiveNode[]) {
 		} else {
 			for (const action of allActions) {
 				if (
+					action.availabilityStatus({
+						node: focusedNode,
+					}).available &&
 					isDefined(action.keybinds) &&
 					action.keybinds.some(keybind => keyMatch(e, keybind))
 				) {

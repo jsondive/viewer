@@ -40,7 +40,7 @@ export function useHandleContextMenu(node: DiveNode) {
 					actionGroup
 						.filter(
 							action =>
-								actionToAvailabilityStatus.get(action)?.type !== "hidden"
+								actionToAvailabilityStatus.get(action)?.shownInContextMenu
 						)
 						.map(
 							(action): ContextMenuItem => ({
@@ -52,8 +52,6 @@ export function useHandleContextMenu(node: DiveNode) {
 										invokedFrom: "contextMenu",
 									})
 								},
-								disabled:
-									actionToAvailabilityStatus.get(action)?.type === "disabled",
 								subtleDescription: action.keybinds
 									? action.keybinds.map(keyToDescription).join(", ")
 									: "",

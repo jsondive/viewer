@@ -25,10 +25,9 @@ export interface JSONDiveController {
 	 */
 	outerContainer: HTMLDivElement | null
 
-	/**
-	 * Focus the first element.
-	 */
-	focus(): void
+	focusRootNode(): void
+
+	focusNode(node: DiveNode): void
 
 	expandNode(
 		node: DiveNode,
@@ -59,9 +58,10 @@ export interface JSONDiveController {
 /**
  * Interface between the controller and performing mutative actions on the App context.
  */
-export type JSONDiveContextManipulator = {
-	focusRootNode(): void
-} & Pick<JSONDiveController, "expandNode" | "collapseNode" | "openFind">
+export type JSONDiveContextManipulator = Pick<
+	JSONDiveController,
+	"expandNode" | "collapseNode" | "openFind" | "focusNode" | "focusRootNode"
+>
 
 export type JSONDiveViewerManipulator = Pick<JSONDiveController, "scrollToNode">
 
@@ -113,8 +113,12 @@ export class JSONDiveControllerImpl implements JSONDiveController {
 	scrollToNode: JSONDiveController["scrollToNode"] = (...args) =>
 		this.viewerManipulator?.scrollToNode(...args)
 
-	focus() {
+	focusRootNode() {
 		this.contextManipulator?.focusRootNode()
+	}
+
+	focusNode(node: DiveNode) {
+		this.contextManipulator?.focusNode(node)
 	}
 
 	async invoke(action: DiveAction, context: ActionContextWithoutController) {

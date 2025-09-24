@@ -25,6 +25,7 @@ export {
 	type ActionContext,
 	shownIfHasChildren,
 	shownIfHasFocusedNode,
+	availableAndShown,
 } from "./plugins/DiveAction"
 
 export {

@@ -44,12 +44,24 @@ const defaultActionMap: {
 		group: defaultActionGroups.expand,
 		async perform({ controller, node, invokedFrom }) {
 			if (node) {
-				controller.expandNode(node, {
-					focusFirstChildIfAlreadyExpanded: invokedFrom === "keyboard",
-				})
+				if (node.childCount > 0) {
+					controller.expandNode(node, {
+						focusFirstChildIfAlreadyExpanded: invokedFrom === "keyboard",
+					})
+				} else {
+					const next = node.nextInTraversalOrder
+					if (next) {
+						controller.focusNode(next)
+					}
+				}
 			}
 		},
-		availabilityStatus: shownIfHasChildren,
+		availabilityStatus: ({ node }) => ({
+			available: true,
+			// Even though it's not shown in the context menu, "l" on a node
+			// without children moves to the next child.
+			shownInContextMenu: Boolean(node?.isContainerAndHasChildren),
+		}),
 		icon: libraryIcons.ArrowRight,
 		keybinds: [ArrowRight, "l"],
 	},
@@ -95,7 +107,12 @@ const defaultActionMap: {
 				})
 			}
 		},
-		availabilityStatus: shownIfHasChildren,
+		availabilityStatus: ({ node }) => ({
+			available: true,
+			// Even though it's not shown in the context menu, "h" on a node
+			// without children focuses the parent.
+			shownInContextMenu: Boolean(node?.isContainerAndHasChildren),
+		}),
 		icon: libraryIcons.ArrowLeft,
 		keybinds: [ArrowLeft, "h"],
 	},
@@ -175,7 +192,10 @@ const defaultActionMap: {
 		async perform({ controller }) {
 			controller.openFind()
 		},
-		availabilityStatus: () => ({ type: "hidden" }),
+		availabilityStatus: () => ({
+			available: true,
+			shownInContextMenu: false,
+		}),
 		keybinds: ["/", ["f", { command: true }]],
 		icon: libraryIcons.Search,
 	},

@@ -141,6 +141,10 @@ function SetManipulator(props: { controller: JSONDiveControllerImpl }) {
 				}
 			},
 
+			focusNode(node: DiveNode) {
+				focusNode(node)
+			},
+
 			expandNode(node, options) {
 				const { expandable, expanded } = getNodeInfo(node)
 				if (

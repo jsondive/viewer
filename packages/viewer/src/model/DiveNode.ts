@@ -144,6 +144,13 @@ export class DiveNode {
 		return this.name === RootNodeName
 	}
 
+	get isContainerAndHasChildren() {
+		return (
+			isDefined(this.getAttribute(builtinAttribute.containerType)) &&
+			this.childCount > 0
+		)
+	}
+
 	/**
 	 * Note: does not return the root.
 	 */
@@ -173,6 +180,37 @@ export class DiveNode {
 
 	get jsonPath() {
 		return buildJsonPath(this.pathParts)
+	}
+
+	get nextSibling(): DiveNode | undefined {
+		const parent = this.parent
+		if (!parent) {
+			// This is the root.
+			return undefined
+		}
+
+		const indexInChildren = parent.children.indexOf(this)
+		if (indexInChildren >= 0 && indexInChildren < parent.children.length - 1) {
+			return parent.children[indexInChildren + 1]
+		}
+	}
+
+	/**
+	 * Return the next node if we were doing a pre-order DFS of this tree.
+	 */
+	get nextInTraversalOrder(): DiveNode | undefined {
+		if (this.children.length > 0) {
+			return this.children[0]
+		}
+
+		let node: DiveNode | undefined = this
+		while (node) {
+			const nextSibling = node.nextSibling
+			if (nextSibling) {
+				return nextSibling
+			}
+			node = node.parent
+		}
 	}
 
 	/**

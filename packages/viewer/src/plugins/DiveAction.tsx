@@ -1,7 +1,6 @@
 import { JSONDiveController } from "../JSONDiveController"
 import { DiveNode } from "../model/DiveNode"
-import { IconComponent, isDefined, KeyboardBinding } from "@jsondive/library"
-import { builtinAttribute } from "../model/builtinAttributes"
+import { IconComponent, KeyboardBinding } from "@jsondive/library"
 
 export type ActionContext = {
 	controller: JSONDiveController
@@ -16,12 +15,25 @@ export type ActionAvailabilityContext = {
 }
 
 export type ActionAvailabilityStatus =
-	// Available in context menu and command palette.
-	| { type: "available" }
-	// Shown as disabled.
-	| { type: "disabled" }
-	// Hidden from context menu and command palette.
-	| { type: "hidden" }
+	| {
+			/**
+			 * Is this action available to be executed in any context?
+			 */
+			available: false
+			/**
+			 * Should this action be shown in the context menu, if it is available?
+			 */
+			shownInContextMenu?: undefined
+	  }
+	| {
+			available: true
+			shownInContextMenu: boolean
+	  }
+
+export const availableAndShown: ActionAvailabilityStatus = {
+	available: true,
+	shownInContextMenu: true,
+}
 
 export type DiveAction<ActionId = string> = {
 	id: ActionId
@@ -41,18 +53,14 @@ export type DiveAction<ActionId = string> = {
 export const shownIfHasChildren = ({
 	node,
 }: ActionAvailabilityContext): ActionAvailabilityStatus =>
-	node &&
-	isDefined(node.getAttribute(builtinAttribute.containerType)) &&
-	node.childCount > 0
-		? { type: "available" }
-		: { type: "hidden" }
+	node?.isContainerAndHasChildren ? availableAndShown : { available: false }
 
 export const shownIfHasFocusedNode = ({
 	node,
 }: ActionAvailabilityContext): ActionAvailabilityStatus =>
-	node ? { type: "available" } : { type: "hidden" }
+	node ? availableAndShown : { available: false }
 
 export const shownIfHasNonRootNode = ({
 	node,
 }: ActionAvailabilityContext): ActionAvailabilityStatus =>
-	node && !node.isRoot ? { type: "available" } : { type: "hidden" }
+	node && !node.isRoot ? availableAndShown : { available: false }
