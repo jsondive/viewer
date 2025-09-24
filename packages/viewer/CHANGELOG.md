@@ -1,5 +1,12 @@
 # @jsondive/viewer
 
+## 0.0.17
+
+### Patch Changes
+
+- 05b829d: L on childless node makes it move down
+- d9ed76f: Fix issues with JSON path generation
+
 ## 0.0.16
 
 ### Patch Changes
