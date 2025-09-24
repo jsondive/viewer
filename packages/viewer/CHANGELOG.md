@@ -1,5 +1,11 @@
 # @jsondive/viewer
 
+## 0.0.18
+
+### Patch Changes
+
+- e670dcd: Improved and customizable error state
+
 ## 0.0.17
 
 ### Patch Changes
