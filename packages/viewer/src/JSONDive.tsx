@@ -1,10 +1,11 @@
-import {
-	addClassName,
-	libraryIcons,
-	PortalProvider,
-	Result,
-} from "@jsondive/library"
-import React, { useEffect, useImperativeHandle, useMemo, useRef } from "react"
+import { addClassName, PortalProvider, Result } from "@jsondive/library"
+import React, {
+	ReactNode,
+	useEffect,
+	useImperativeHandle,
+	useMemo,
+	useRef,
+} from "react"
 import { AppContextProvider, useSetNodesExpanded } from "./state"
 import { DivePlugin } from "./plugins"
 import { DocumentViewer } from "./view/DocumentViewer/DocumentViewer"
@@ -20,11 +21,13 @@ import { JSONDiveProviders } from "./providers"
 import { defaultPlugins } from "./plugins/defaultPlugins"
 import { JSONDiveOptions } from "./model/JSONDiveOptions"
 import { builtinAttribute } from "./model/builtinAttributes"
+import { DefaultErrorComponent } from "./view/DefaultErrorComponent"
 
 export type JSONDiveProps = {
 	plugins?: DivePlugin[]
 	ref?: React.RefObject<JSONDiveController | null>
 	options?: JSONDiveOptions
+	errorComponent?: (error: Error) => ReactNode
 } & (
 	| {
 			data: Record<string, unknown>
@@ -43,26 +46,6 @@ const styles = stylex.create({
 		display: "flex",
 		height: "100%",
 		width: "100%",
-	},
-
-	errorWrap: {
-		display: "flex",
-		flexGrow: 1,
-		alignItems: "center",
-		paddingTop: "var(--json-dive-spacing-20)",
-		flexDirection: "column",
-		gap: "var(--json-dive-spacing-4)",
-	},
-
-	errorIconWrap: {
-		display: "flex",
-		borderRadius: 1000,
-		padding: "var(--json-dive-spacing-2)",
-		backgroundColor: "var(--json-dive-color-error-icon)",
-	},
-
-	errorMessage: {
-		color: "var(--json-dive-color-error-message)",
 	},
 })
 
@@ -120,36 +103,11 @@ function SetNodeExpansionStates(props: { rootNode: DiveNode }) {
 	return null
 }
 
-function ParseError(props: { error: Error }) {
-	const { error } = props
-
-	return (
-		<div {...stylex.props(styles.errorWrap)}>
-			<div {...stylex.props(styles.errorIconWrap)}>
-				<libraryIcons.CircleAlert
-					stroke="var(--json-dive-color-error-message)"
-					size={30}
-				/>
-			</div>
-			<div className="json-dive-font-size-xl">
-				There was an error parsing your input.
-			</div>
-			<div
-				{...addClassName(
-					stylex.props(styles.errorMessage),
-					"json-dive-font-size-lg"
-				)}
-			>
-				{error.message}
-			</div>
-		</div>
-	)
-}
-
 export function JSONDive(props: JSONDiveProps) {
 	const {
 		plugins = defaultPlugins,
 		ref,
+		errorComponent,
 		data: _ignoredData,
 		input: _ignoredInput,
 		...restProps
@@ -196,8 +154,10 @@ export function JSONDive(props: JSONDiveProps) {
 						controller={controller}
 						{...restProps}
 					/>
+				) : errorComponent ? (
+					errorComponent(parseResult.error)
 				) : (
-					<ParseError error={parseResult.error} />
+					<DefaultErrorComponent error={parseResult.error} />
 				)}
 			</PortalProvider>
 		</div>

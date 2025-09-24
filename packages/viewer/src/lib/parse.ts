@@ -1,4 +1,4 @@
-import { isDefined, Result } from "@jsondive/library"
+import { isDefined, Result, tryParseJson } from "@jsondive/library"
 import { DocumentInput } from "../model/DocumentInput"
 import { CannotHandleInput, FileType, DivePlugin } from "../plugins"
 import { builtinAttribute } from "../model/builtinAttributes"
@@ -93,7 +93,21 @@ function parseUsingFileTypes(
 		}
 	}
 
+	if (lastError) {
+		return { error: lastError }
+	}
+
+	// For a nicer error message: assume we're trying to parse the input as JSON,
+	// and output the error from that.
+	const inputAsText = input.asText()
+	if (isDefined(inputAsText)) {
+		const jsonResult = tryParseJson(inputAsText)
+		if (Result.isFail(jsonResult)) {
+			return { error: jsonResult.error }
+		}
+	}
+
 	return {
-		error: lastError ?? new Error(`No plugins could handle this document.`),
+		error: new Error(`No plugins could handle this document.`),
 	}
 }

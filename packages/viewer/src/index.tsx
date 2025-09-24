@@ -17,6 +17,7 @@ export {
 	SerializedDocumentInputSchema,
 	type SerializedDocumentInput,
 } from "./model/DocumentInput"
+export { DefaultErrorComponent } from "./view/DefaultErrorComponent"
 
 export {
 	type DiveAction,
