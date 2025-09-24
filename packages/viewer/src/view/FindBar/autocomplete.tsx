@@ -39,6 +39,7 @@ function getAutocompleteResults(args: {
 		return []
 	}
 
+	// TODO: I don't think this is working right for array indices.
 	const currentPath = pathParts.slice(0, -1)
 	const currentNode = rootNode.getChildByPath(currentPath)
 

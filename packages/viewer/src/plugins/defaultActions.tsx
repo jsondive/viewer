@@ -160,7 +160,7 @@ const defaultActionMap: {
 		group: defaultActionGroups.copy,
 		async perform({ node }) {
 			if (node) {
-				await tryWriteClipboard(node.pathString)
+				await tryWriteClipboard(node.jsonPath)
 			}
 		},
 		availabilityStatus: shownIfHasNonRootNode,

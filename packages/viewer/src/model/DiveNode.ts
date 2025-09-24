@@ -1,11 +1,13 @@
 import { isDefined, unreachable } from "@jsondive/library"
 import { builtinAttribute } from "./builtinAttributes"
 import { Attribute } from "./Attribute"
+import { buildJsonPath } from "../lib/buildJsonPath"
 
 export const RootNodeName = Symbol("$root")
 export type RootNodeName = typeof RootNodeName
 
 export type NodeName = RootNodeName | string | number
+export type NonRootNodeName = Exclude<NodeName, RootNodeName>
 
 export type NodeInitArgs = {
 	name: NodeName
@@ -142,6 +144,9 @@ export class DiveNode {
 		return this.name === RootNodeName
 	}
 
+	/**
+	 * Note: does not return the root.
+	 */
 	get pathNodes(): DiveNode[] {
 		// Ancestors, starting from the root.
 		const ancestors = [...this.getAncestorsAndSelf()].reverse()
@@ -160,14 +165,19 @@ export class DiveNode {
 		return result
 	}
 
-	get pathParts(): string[] {
-		return this.pathNodes.map(node => node.nameString)
+	get pathParts(): NonRootNodeName[] {
+		return this.pathNodes
+			.map(node => node.name)
+			.filter(name => name !== RootNodeName)
 	}
 
-	get pathString() {
-		return this.pathParts.join(".")
+	get jsonPath() {
+		return buildJsonPath(this.pathParts)
 	}
 
+	/**
+	 * @deprecated This is weird and ambiguous for array indices.
+	 */
 	getChildByPath(parts: string[]): DiveNode | undefined {
 		const firstPart = parts.at(0)
 		if (isDefined(firstPart)) {

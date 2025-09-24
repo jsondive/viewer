@@ -20,9 +20,7 @@ export function executeSearch(args: { rootNode: DiveNode; query: string }) {
 		return emptyResult
 	}
 
-	// TODO: this doesn't work, i don't think
-	const pathParts = normalizedQuery.split(".")
-	const pathMatch = rootNode.getChildByPath(pathParts)
+	// TODO: Query by path.
 
 	const contentMatches: DiveNode[] = []
 	rootNode.visitAll(node => {
@@ -42,5 +40,5 @@ export function executeSearch(args: { rootNode: DiveNode; query: string }) {
 		}
 	})
 
-	return new Set(_.compact([pathMatch, ...contentMatches]))
+	return new Set(contentMatches)
 }
