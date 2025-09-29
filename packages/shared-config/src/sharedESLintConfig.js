@@ -147,6 +147,10 @@ const validJsonDiveCssIdentifiers = new Set([
 	"--json-dive-color-xml-attribute-value",
 	"--json-dive-color-status-bar-background",
 	"--json-dive-color-keyboard-shortcut-background",
+	"--json-dive-color-diff-addition-background",
+	"--json-dive-color-diff-addition-active-background",
+	"--json-dive-color-diff-removal-background",
+	"--json-dive-color-diff-removal-active-background",
 	// END: Colors.
 	// Shadow.
 	"--json-dive-shadow-sm",

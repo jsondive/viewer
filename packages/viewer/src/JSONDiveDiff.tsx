@@ -37,15 +37,15 @@ export function JSONDiveDiff(props: JSONDiveDiffProps) {
 }
 
 const ADDITION_COLORS = {
-	default: "oklch(92.5% 0.084 155.995)", // green-200
-	hover: "oklch(87.1% 0.15 154.449)",
-	active: "oklch(87.1% 0.15 154.449)",
+	default: "var(--json-dive-color-diff-addition-background)",
+	hover: "var(--json-dive-color-diff-addition-active-background)",
+	active: "var(--json-dive-color-diff-addition-active-background)",
 }
 
 const REMOVAL_COLORS = {
-	default: "oklch(88.5% 0.062 18.334)", // red-200
-	hover: "oklch(80.8% 0.114 19.571)",
-	active: "oklch(80.8% 0.114 19.571)",
+	default: "var(--json-dive-color-diff-removal-background)",
+	hover: "var(--json-dive-color-diff-removal-active-background)",
+	active: "var(--json-dive-color-diff-removal-active-background)",
 }
 
 function buildNodes(args: {

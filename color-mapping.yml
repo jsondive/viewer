@@ -90,10 +90,10 @@ semantic-colors:
   # TreeRow component.
   value-string:
     light: emerald-600
-    dark: "oklch(0.72 0.16 162.5)"
+    dark: "oklch(0.80 0.20 305)"
   value-number:
     light: sky-600
-    dark: "oklch(0.69 0.16 242)"
+    dark: "oklch(0.75 0.15 200)"
   value-boolean:
     light: amber-600
     dark: "oklch(0.75 0.17 58.3)"
@@ -157,6 +157,19 @@ semantic-colors:
   keyboard-shortcut-background:
     light: gray-100
     dark: "oklch(0.24 0.02 257)"
+  # Diffing
+  diff-addition-background:
+    light: green-200
+    dark: "oklch(0.62 0.14 145)"
+  diff-addition-active-background:
+    light: green-300
+    dark: "oklch(0.58 0.17 145)"
+  diff-removal-background:
+    light: red-200
+    dark: "oklch(0.55 0.15 25)"
+  diff-removal-active-background:
+    light: red-300
+    dark: "oklch(0.50 0.18 25)"
 
 theme-colors:
   black: "#000"
