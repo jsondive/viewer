@@ -1,6 +1,7 @@
 export * from "./lib/jsonDiveControllerUtils"
 export { type JSONDiveController } from "./JSONDiveController"
 export { JSONDive, type JSONDiveProps } from "./JSONDive"
+export { JSONDiveDiff, type JSONDiveDiffProps } from "./JSONDiveDiff"
 export { json } from "./plugins/json"
 export { xml } from "./plugins/xml"
 export { richPreviews } from "./plugins/richPreviews"

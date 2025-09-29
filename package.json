@@ -20,5 +20,8 @@
 	"packageManager": "npm@11.4.2",
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"dependencies": {
+		"json-diff-ts": "^4.8.2"
+	}
 }

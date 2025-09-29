@@ -47,6 +47,14 @@ const styles = stylex.create({
 		height: "100%",
 		width: "100%",
 	},
+
+	errorWrap: {
+		display: "flex",
+		flexDirection: "column",
+		paddingTop: "var(--json-dive-spacing-20)",
+		justifyContent: "center",
+		width: "100%",
+	},
 })
 
 function ParseSuccess(props: {
@@ -155,9 +163,13 @@ export function JSONDive(props: JSONDiveProps) {
 						{...restProps}
 					/>
 				) : errorComponent ? (
-					errorComponent(parseResult.error)
+					<div {...stylex.props(styles.errorWrap)}>
+						{errorComponent(parseResult.error)}
+					</div>
 				) : (
-					<DefaultErrorComponent error={parseResult.error} />
+					<div {...stylex.props(styles.errorWrap)}>
+						<DefaultErrorComponent error={parseResult.error} />
+					</div>
 				)}
 			</PortalProvider>
 		</div>

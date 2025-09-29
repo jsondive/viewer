@@ -25,6 +25,7 @@ export {
 	ButtonWithIcon,
 	type ButtonWithIconProps,
 } from "./components/ButtonWithIcon"
+export { InfoTypeComponent } from "./components/InfoTypeComponent"
 
 export { useIsOverflowing } from "./hooks/useIsOverflowing"
 
