@@ -100,11 +100,11 @@
 	);
 	--json-dive-color-value-string: light-dark(
 		oklch(0.596 0.145 163.225),
-		oklch(0.72 0.16 162.5)
+		oklch(0.8 0.2 305)
 	);
 	--json-dive-color-value-number: light-dark(
 		oklch(0.588 0.158 241.966),
-		oklch(0.69 0.16 242)
+		oklch(0.75 0.15 200)
 	);
 	--json-dive-color-value-boolean: light-dark(
 		oklch(0.666 0.179 58.318),
@@ -181,5 +181,21 @@
 	--json-dive-color-keyboard-shortcut-background: light-dark(
 		oklch(0.967 0.003 264.542),
 		oklch(0.24 0.02 257)
+	);
+	--json-dive-color-diff-addition-background: light-dark(
+		oklch(0.925 0.084 155.995),
+		oklch(0.62 0.14 145)
+	);
+	--json-dive-color-diff-addition-active-background: light-dark(
+		oklch(0.871 0.15 154.449),
+		oklch(0.58 0.17 145)
+	);
+	--json-dive-color-diff-removal-background: light-dark(
+		oklch(0.885 0.062 18.334),
+		oklch(0.55 0.15 25)
+	);
+	--json-dive-color-diff-removal-active-background: light-dark(
+		oklch(0.808 0.114 19.571),
+		oklch(0.5 0.18 25)
 	);
 }

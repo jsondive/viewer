@@ -73,6 +73,7 @@
 		"clsx": "^2.1.1",
 		"eventemitter3": "^5.0.1",
 		"immutable": "^5.1.2",
+		"json-diff-ts": "^4.8.2",
 		"lodash": "^4.17.21",
 		"luxon": "^3.7.1",
 		"node-html-parser": "^7.0.1",

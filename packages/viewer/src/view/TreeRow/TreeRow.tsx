@@ -31,7 +31,7 @@ import { defaultActions } from "../../plugins/defaultActions"
 
 export const treeRowHeight = 20
 
-const FOCUS_COLOR = "var(--json-dive-color-row-focus)"
+const DEFAULT_FOCUS_COLOR = "var(--json-dive-color-row-focus)"
 const HORIZONTAL_GAP = `var(--json-dive-spacing-1)`
 
 const styles = stylex.create({
@@ -47,11 +47,6 @@ const styles = stylex.create({
 		transform: `translateY(${yOffset}px)`,
 		width: "100%",
 		paddingRight: HORIZONTAL_GAP,
-
-		// eslint-disable-next-line @stylexjs/valid-styles
-		":is(.json-dive-temp-force-focus-state)": {
-			backgroundColor: FOCUS_COLOR,
-		},
 	}),
 
 	// HACK: For some reason this style doesn't work when grouped into
@@ -65,6 +60,11 @@ const styles = stylex.create({
 			default: defaultBackgroundColor,
 			":focus": activeBackgroundColor,
 			":hover": hoverBackgroundColor,
+		},
+
+		// eslint-disable-next-line @stylexjs/valid-styles
+		":is(.json-dive-temp-force-focus-state)": {
+			backgroundColor: activeBackgroundColor,
 		},
 	}),
 
@@ -464,7 +464,7 @@ function resolveBackgroundColors(
 ] {
 	return [
 		attribute?.default ?? "unset",
-		attribute ? (attribute.active ?? attribute.default) : FOCUS_COLOR,
+		attribute ? (attribute.active ?? attribute.default) : DEFAULT_FOCUS_COLOR,
 		attribute
 			? (attribute.hover ?? attribute.default)
 			: "var(--json-dive-color-row-hover)",
