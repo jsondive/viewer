@@ -160,7 +160,7 @@ function buildNodes(args: {
 
 		builder.setAttribute(
 			builtinAttribute.containerType,
-			Array.isArray(json) ? "object" : "array"
+			Array.isArray(json) ? "array" : "object"
 		)
 
 		// If there are no changes in this object or array, default to being collapsed.
