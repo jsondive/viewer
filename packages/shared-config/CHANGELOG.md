@@ -1,5 +1,11 @@
 # @jsondive/shared-config
 
+## 0.0.11
+
+### Patch Changes
+
+- d38b2d0: Add JSONDiveDiff component
+
 ## 0.0.10
 
 ### Patch Changes

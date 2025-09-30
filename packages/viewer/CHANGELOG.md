@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.19
+
+### Patch Changes
+
+- d38b2d0: Add JSONDiveDiff component
+- Updated dependencies [d38b2d0]
+  - @jsondive/library@0.0.16
+
 ## 0.0.18
 
 ### Patch Changes

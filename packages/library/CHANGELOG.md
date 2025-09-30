@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.16
+
+### Patch Changes
+
+- d38b2d0: Add JSONDiveDiff component
+
 ## 0.0.15
 
 ### Patch Changes
