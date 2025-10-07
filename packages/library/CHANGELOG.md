@@ -1,5 +1,11 @@
 # @jsondive/library
 
+## 0.0.17
+
+### Patch Changes
+
+- 9df5e02: Design system additions
+
 ## 0.0.16
 
 ### Patch Changes

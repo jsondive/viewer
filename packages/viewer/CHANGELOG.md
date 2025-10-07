@@ -1,5 +1,13 @@
 # @jsondive/viewer
 
+## 0.0.20
+
+### Patch Changes
+
+- 9df5e02: Design system additions
+- Updated dependencies [9df5e02]
+  - @jsondive/library@0.0.17
+
 ## 0.0.19
 
 ### Patch Changes

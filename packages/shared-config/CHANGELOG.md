@@ -1,5 +1,11 @@
 # @jsondive/shared-config
 
+## 0.0.12
+
+### Patch Changes
+
+- 9df5e02: Design system additions
+
 ## 0.0.11
 
 ### Patch Changes
