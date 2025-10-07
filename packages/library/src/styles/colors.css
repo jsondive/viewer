@@ -54,6 +54,10 @@
 		oklch(0.623 0.214 259.815),
 		oklch(0.7 0.18 254.6)
 	);
+	--json-dive-color-button-hero-border: light-dark(
+		oklch(0.4 0.16 263.6),
+		oklch(0.4 0.16 263.6)
+	);
 	--json-dive-color-button-secondary: light-dark(
 		oklch(0.928 0.006 264.531),
 		oklch(0.22 0.02 257)
@@ -61,6 +65,10 @@
 	--json-dive-color-button-secondary-hovered: light-dark(
 		oklch(0.872 0.01 258.338),
 		oklch(0.27 0.032 257)
+	);
+	--json-dive-color-button-secondary-light-text: light-dark(
+		oklch(0.62 0 0),
+		oklch(0.62 0 0)
 	);
 	--json-dive-color-button-outline-border: light-dark(
 		oklch(0.929 0.013 255.508),

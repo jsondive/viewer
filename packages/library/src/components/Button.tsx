@@ -16,9 +16,10 @@ const styles = stylex.create({
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
-		transition: "all .2s",
+		transition: "background-color .2s",
 		fontFamily: "inherit",
 	},
+
 	primary: {
 		color: "var(--json-dive-color-white)",
 		backgroundColor: {
@@ -27,6 +28,13 @@ const styles = stylex.create({
 			":active": "var(--json-dive-color-button-primary)",
 		},
 	},
+
+	hero: {
+		borderWidth: 2,
+		borderStyle: "solid",
+		borderColor: "var(--json-dive-color-button-hero-border)",
+	},
+
 	secondary: {
 		color: "var(--json-dive-color-black)",
 		backgroundColor: {
@@ -35,6 +43,7 @@ const styles = stylex.create({
 			":active": "var(--json-dive-color-button-secondary)",
 		},
 	},
+
 	outline: {
 		color: "var(--json-dive-color-black)",
 		borderStyle: "solid",
@@ -47,10 +56,12 @@ const styles = stylex.create({
 		},
 		boxShadow: `0 1px 2px 0 rgb(0 0 0 / 0.05)`,
 	},
+
 	small: {
 		paddingInline: "var(--json-dive-spacing-2)",
 		paddingBlock: "var(--json-dive-spacing-1_5)",
 	},
+
 	green: {
 		color: "var(--json-dive-color-white)",
 		backgroundColor: {
@@ -64,8 +75,8 @@ const styles = stylex.create({
 export type ButtonProps = {
 	children: ReactNode
 	style?: stylex.StyleXStyles
-	size?: "sm" | "base" | "lg" | "xl"
-	variant?: "primary" | "secondary" | "outline" | "green"
+	size?: "sm" | "base" | "lg" | "xl" | "hero"
+	variant?: "primary" | "secondary" | "outline" | "green" | "hero"
 } & Omit<
 	React.DetailedHTMLProps<
 		React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -87,6 +98,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 					stylex.props(
 						styles.wrap,
 						styles[variant],
+						variant === "hero" && styles.primary, // Hero is a variant on primary.
 						size === "sm" && styles.small,
 						style
 					),

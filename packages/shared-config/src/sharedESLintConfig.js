@@ -115,8 +115,10 @@ const validJsonDiveCssIdentifiers = new Set([
 	"--json-dive-color-badge-color",
 	"--json-dive-color-button-primary",
 	"--json-dive-color-button-primary-hovered",
+	"--json-dive-color-button-hero-border",
 	"--json-dive-color-button-secondary",
 	"--json-dive-color-button-secondary-hovered",
+	"--json-dive-color-button-secondary-light-text",
 	"--json-dive-color-button-outline-border",
 	"--json-dive-color-button-outline-hovered",
 	"--json-dive-color-button-green",
@@ -162,6 +164,7 @@ const validJsonDiveCssIdentifiers = new Set([
 		"lg",
 		"xl",
 		"2xl",
+		"hero",
 	]),
 	// Other/custom classes.
 	"json-dive-css-reset",

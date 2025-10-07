@@ -51,12 +51,18 @@ semantic-colors:
   button-primary-hovered:
     light: blue-500
     dark: "oklch(0.7 0.18 254.6)"
+  button-hero-border:
+    light: "oklch(0.4 0.16 263.6)"
+    dark: "oklch(0.4 0.16 263.6)" # TODO
   button-secondary:
     light: gray-200
     dark: "oklch(0.22 0.02 257)"
   button-secondary-hovered:
     light: gray-300
     dark: "oklch(0.27 0.032 257)"
+  button-secondary-light-text: # Light text inside a secondary button.
+    light: "oklch(0.62 0 0)"
+    dark: "oklch(0.62 0 0)" # TODO
   button-outline-border:
     light: slate-200
     dark: "oklch(0.32 0.03 256)"
