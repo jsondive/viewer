@@ -24,16 +24,6 @@ This is a re-usable JSON viewer component that's used by [jsondive.app](https://
 
 See the [hello-jsondive](https://github.com/jsondive/hello-jsondive) project for an example of usage in a Vite project.
 
-# License
-
-This software is **free for non-commercial use only**.
-
-Commercial use requires a paid license.
-
-See [`LICENSE.txt`](./LICENSE.txt) for full terms.
-
-To purchase a commercial license, contact: [bill@jsondive.app](mailto:bill@jsondive.app).
-
 # Packages
 
 | Package                                                                       | Description                                                                                                   |
